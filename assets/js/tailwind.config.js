@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = { //right button carrossels 
     theme: {
       extend: {
         spacing: {
@@ -13,3 +13,16 @@ module.exports = {
     },
     plugins: [],
   }
+
+module.exports = {  //ajout de right button carroussels
+  theme: {
+    extend: {
+      spacing: {
+        'top-sm': '100px', // pour petits écrans
+        'top-md': '150px', // pour écrans moyens
+        'top-lg': '180px', // pour grands écrans
+      },
+    },
+  },
+  plugins: [],
+}
