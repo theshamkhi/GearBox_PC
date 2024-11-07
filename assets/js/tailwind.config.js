@@ -21,6 +21,7 @@ module.exports = {  //ajout de right button carroussels
         'top-sm': '100px', // pour petits écrans
         'top-md': '150px', // pour écrans moyens
         'top-lg': '180px', // pour grands écrans
+        'left-sm':'300px',
       },
     },
   },
