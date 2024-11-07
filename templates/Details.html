@@ -75,9 +75,10 @@
         <!-- Right Side: Purchase Details -->
         <div class="lg:col-span-3 bg-white p-6 rounded-lg shadow-md border border-gray-200 space-y-4">
             <!-- Seller Info -->
-            <div class="mb-4">
-                <p class="text-sm font-semibold">Sold by <span class="text-gray-600">CloudBlast...</span> <span class="text-sm font-light">(Trader)</span></p>
+            <div class="mb-4 cursor-pointer" id="seller-info-toggle">
+                <p class="text-sm font-semibold">Sold by <span class="text-gray-600">Patriot</span> <span class="text-sm font-light">(Trader)</span></p>
             </div>
+            
     
             <!-- Shipping Info -->
             <div class="mb-4">
@@ -125,6 +126,24 @@
             <div class="flex flex-col space-y-2">
                 <button class="bg-red-500 text-white py-2 rounded font-semibold">Add to cart</button>
             </div>
+
+                    <!-- Modal Content (Hidden by default) -->
+        <div id="seller-info-modal" class="absolute top-8 left-0 bg-white border border-gray-200 shadow-lg rounded-lg p-4 w-64 hidden">
+            <!-- Store info -->
+            <div class="mb-4">
+                <p class="text-lg font-bold mb-2">Store info</p>
+                <p><span class="font-semibold">Marque:</span> Patriot</p>
+                <p><span class="font-semibold">Type de mémoire:</span> DDR4</p>
+                <p><span class="font-semibold">Capacité totale:</span> 16 GB</p>
+                <p><span class="font-semibold">Fréquence(s) Mémoire:</span> 3200 Mhz</p>
+                <p><span class="font-semibold">Nombre de barrette(s):</span> 1</p>
+                <p><span class="font-semibold">CAS Latency:</span> CL16</p>
+                <p><span class="font-semibold">Tension (certification):</span> 1.35 V</p>
+                <p><span class="font-semibold">Garantie:</span> 12 Mois</p>
+            </div>
+        </div>
+
     </div>
+    <script src="../assets/js/GearBox.js"></script>
 </body>
 </html>
