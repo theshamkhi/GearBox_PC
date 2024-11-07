@@ -8,19 +8,39 @@
 </head>
 <body class="bg-gray-100 p-4 sm:p-8">
     <div class="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+
         
-        <!-- Left Side: Image Gallery -->
-        <div class="lg:col-span-4 flex flex-col items-center">
-            <!-- Thumbnail Images -->
-            <div class="flex flex-col space-y-2">
-                <img src="https://via.placeholder.com/50" alt="Thumb" class="w-16 h-16 object-cover border">
-                <img src="https://via.placeholder.com/50" alt="Thumb" class="w-16 h-16 object-cover border">
-                <img src="https://via.placeholder.com/50" alt="Thumb" class="w-16 h-16 object-cover border">
-                <img src="https://via.placeholder.com/50" alt="Thumb" class="w-16 h-16 object-cover border">
-            </div>
-            <!-- Main Image -->
-            <img src="https://via.placeholder.com/300" alt="Main Product" class="w-full h-64 object-cover mt-4">
-        </div>
+        
+       <!-- Left Side: Image Gallery -->
+<div class="lg:col-span-4 flex">
+    <!-- Thumbnail Images -->
+    <div class="flex flex-col space-y-2 mr-4">
+        <img src="../assets/images/processur.webp" alt="Thumb 1" class="w-16 h-16 object-cover border cursor-pointer">
+        <img src="../assets/images/processur.webp" alt="Thumb 2" class="w-16 h-16 object-cover border cursor-pointer">
+        <img src="../assets/images/processur.webp" alt="Thumb 3" class="w-16 h-16 object-cover border cursor-pointer">
+        <img src="../assets/images/processur.webp" alt="Thumb 4" class="w-16 h-16 object-cover border cursor-pointer">
+    </div>
+    
+    <!-- Main Image with Navigation Buttons -->
+    <div class="relative w-full">
+        <img src="../assets/images/processur.webp" alt="Main Product" class="w-full h-64 object-cover">
+
+        <!-- Left Navigation Button -->
+        <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 bg-opacity-50 text-white p-2 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+
+        <!-- Right Navigation Button -->
+        <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 bg-opacity-50 text-white p-2 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+</div>
+
 
         <!-- Middle Section: Product Details -->
         <div class="lg:col-span-5 space-y-4">
@@ -34,14 +54,20 @@
                 <span class="text-sm">★ ★ ★ ★ ☆</span>
                 <span class="text-gray-600 text-sm ml-2">4.4 | 12,277 Reviews | 10,000+ sold</span>
             </div>
+
+            <div class="description">
+                <p>La Patriot Viper Steel 16GB (1X16GB) DDR4 3200MHz CL16 améliore les performances de votre PC. Cette RAM de la marque Patriot a une capacité totale de 16 Go, idéale pour les jeux, le multitâche et les applications exigeantes. La mémoire DDR4 avec une fréquence de 3200 MHz assure une vitesse de traitement rapide et une réactivité exceptionnelle. La CAS Latency de CL16 garantit des temps de réponse rapides et une efficacité accrue. Fonctionnant à une tension de 1.35 Volts, elle est économe en énergie tout en offrant des performances puissantes. Cette barrette est facile à installer et compatible avec une large gamme de systèmes. Que vous soyez un gamer passionné, un créateur de contenu ou que vous cherchiez simplement à améliorer les performances de votre PC, la Patriot Viper Steel 16GB DDR4 3200MHz est le choix parfait pour une performance optimale et une fiabilité à long terme.
+
+                    Livraison rapide partout au Maroc, casablanca, Rabat, Marrakech, Tanger, Agadir, Sale, Temara, Dakhla, Laayoune, El Kelaâ des Sraghna, Meknes, Fes.</p>
+            </div>
             
             <!-- Color Options -->
             <div class="text-lg font-semibold">Color: 32GB</div>
             <div class="grid grid-cols-4 gap-2">
-                <img src="https://via.placeholder.com/50" alt="Option" class="border p-1">
-                <img src="https://via.placeholder.com/50" alt="Option" class="border p-1">
-                <img src="https://via.placeholder.com/50" alt="Option" class="border p-1">
-                <img src="https://via.placeholder.com/50" alt="Option" class="border p-1">
+                <img src="../assets/images/processur.webp" alt="Option" class="border p-1">
+                <img src="../assets/images/processur.webp" alt="Option" class="border p-1">
+                <img src="../assets/images/processur.webp" alt="Option" class="border p-1">
+                <img src="../assets/images/processur.webp" alt="Option" class="border p-1">
             </div>
         </div>
 
