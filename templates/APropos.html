@@ -10,23 +10,39 @@
 </head>
 
 <body>
-    <header>
+    <header></header>
 
-
-    </header>
-    <section class="title">
-        <h1 id="title_propos">A propos</h1>
+    <section class="title bg-[#477590] w-full h-[500px]">
+        <h1 class="title_propos text-center text-white text-3xl absolute left-1/2 transform -translate-x-1/2 top-[150px]">
+            A propos
+        </h1>
     </section>
-    <div class="container">
-        <div class="text-section">
-            <h2>Notre Historique</h2>
-            <p>Le Lorem Ipsum est simplement du faux  <br>texte employé dans la composition  <br> et la mise en page avant impression...</p>
+
+    <div class="container flex items-center justify-between px-[10%] py-6">
+        <div class="text-section flex-1 pr-5">
+            <h2 class="text-2xl font-bold">Notre Historique</h2>
+            <p>
+                Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
+                impression...
+            </p>
         </div>
-        <div class="image-section">
-            <img src="./images/PIC.jpg" alt="historique image">
+        <div class="image-section flex-2 flex justify-end">
+            <img src="./images/PIC.jpg" alt="historique image" class="max-w-[500px] rounded-[50px_0_50px_0]">
         </div>
     </div>
-    
+
+    <article class="container_main flex justify-between gap-5 mt-6">
+        <h1 class="title_propos text-center text-xl font-bold">Shop the Best:</h1>
+        <img src="./images/mouse.webp" alt="Mouse Essentials" class="w-full max-w-[200px] rounded-lg">
+        <img src="./images/chair.webp" alt="Pro Comfort" class="w-full max-w-[200px] rounded-lg">
+        <img src="./images/television.webp" alt="Visuals Center" class="w-full max-w-[200px] rounded-lg">
+    </article>
+
+    <div class="container_div flex justify-center gap-6 mt-5">
+        <p class="text-lg font-bold text-center">Mouse Essentials</p>
+        <p class="text-lg font-bold text-center">Pro Comfort</p>
+        <p class="text-lg font-bold text-center">Visuals Center</p>
+    </div>
 
 </body>
 
