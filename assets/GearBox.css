@@ -53,9 +53,9 @@ footer{
     background-image: url('../assets/img/Fond.jpg');
     background-size: cover;
     background-position: center;
-  }
-  
-  #bannière::before {
+}
+
+#bannière::before {
     content: "";
     position: absolute;
     top: 0;
@@ -63,29 +63,61 @@ footer{
     width: 100%;
     height: 100%;
     background-color: rgba(33, 40, 71, 0.9); 
-  }
-  
-  #texte-promo, .promo-images {
+}
+
+#texte-promo, .promo-images {
     position: relative;
     z-index: 2;
-  }
-  
-  #texte-promo {
+}
+
+#texte-promo {
     max-width: 50%;
     margin-left: 5%;
-  }
-  
-  #texte-promo h1 {
+}
+
+#texte-promo h1 {
     font-size: 2rem;
     font-weight: bold;
     margin: 0;
-  }
-  
-  #texte-promo p {
+}
+
+#texte-promo p {
     font-size: 1.5rem;
     margin: 10px 0 0;
-  }
-  
-  .promo-images img {
-    height: 150px; /* Ajustez la taille des images */
-  }  
+}
+
+.PC{
+    width: 30%;
+    position: relative;
+    left: 400px;
+}
+
+.Souris{
+    width: 13%;
+    position: absolute;
+    top: 150px;
+    left: 310px;
+}
+
+.Casque{
+    width: 30%;
+    position:absolute;
+    right: 250px;
+    bottom: 70px;
+}
+
+.Clavier{
+    width: 35%;
+    position:absolute;
+    right: 280px;
+    top: 50px;
+}
+
+/* .produits{
+    box-shadow: 10px 5px 5px black;
+} */
+
+#composants{
+    display: flex;
+}
+ 
