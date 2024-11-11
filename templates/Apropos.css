@@ -1,0 +1,47 @@
+.title{
+       background-color:  #477590;
+       width: 100vw;
+       height: 500px;
+}
+#title_propos {
+    position: relative;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3em; 
+    text-align: center;
+    
+}
+
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.text-section {
+    flex: 1px;
+    padding-right: 20px;
+}
+
+.text-section h2 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.image-section {
+     flex: 2;
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.image-section img {
+    width: 100%; 
+    max-width: 500px; 
+    height: auto;
+    border-radius:  50px 0 50px 0; 
+}
