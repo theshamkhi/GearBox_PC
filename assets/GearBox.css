@@ -1,0 +1,23 @@
+
+body{
+    margin: 50px;
+}
+.sortOptions svg{
+    height: 30px;
+    width: 30px;
+}
+.sortOptions select{
+    height: 30px;
+
+}
+.sortOptions{
+    float: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    font-size: larger;
+}
+.rightSide{
+    width: 30%;
+}
