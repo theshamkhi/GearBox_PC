@@ -262,73 +262,79 @@
 
 
 // 
-
-const toggleButton = document.getElementById('seller-info-toggle');
-const modal = document.getElementById('seller-info-modal');
-
-toggleButton.addEventListener('mouseover', () => {
-    modal.classList.remove('hidden');
-});
-
-toggleButton.addEventListener('mouseleave', () => {
-    modal.classList.add('hidden');
-});
-
-// Optional: Hide the modal when the mouse leaves the modal itself
-modal.addEventListener('mouseleave', () => {
-    modal.classList.add('hidden');
-});
-
-// 
-
-function initializeCarousel() {
-    const images = [
-        "../assets/images/processur.webp", // add more image paths if needed
-    ];
-    let currentIndex = 0;
-
-    const mainImage = document.querySelector("img[alt='Main Product']");
-    const prevBtn = document.getElementById("prev");
-    const nextBtn = document.getElementById("next");
-
-    // event listeners for navigation buttons
-    prevBtn.addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        mainImage.src = images[currentIndex];
-    });
-
-    nextBtn.addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % images.length;
-        mainImage.src = images[currentIndex];
-    });
-
-    // event listeners for thumbnails
-    document.getElementById("thumb1").addEventListener("click", () => {
-        mainImage.src = images[0];
-        currentIndex = 0;
-    });
-    document.getElementById("thumb2").addEventListener("click", () => {
-        mainImage.src = images[1];
-        currentIndex = 1;
-    });
-    document.getElementById("thumb3").addEventListener("click", () => {
-        mainImage.src = images[2];
-        currentIndex = 2;
-    });
-    document.getElementById("thumb4").addEventListener("click", () => {
-        mainImage.src = images[3];
-        currentIndex = 3;
-    });
+// Function to get a URL parameter by name
+function getURLParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
 }
 
-// check if screen width is less than or equal to 768px
-if (window.innerWidth <= 768) {
-    initializeCarousel();
-}
+// Function to fetch data.json and check the ID
+function fetchDataAndCheckId() {
+    const urlId = getURLParameter('id'); // Get the current ID from the URL
 
-// add an event listener to reinitialize carousel if the window is resized to mobile size
-window.addEventListener("resize", () => {
-    if (window.innerWidth <= 768) {
-        initializeCarousel();
+    // If no ID in the URL, exit
+    if (!urlId) {
+        console.log("Aucun ID dans l'URL");
+        return;
     }
-});
+
+    console.log("ID extrait de l'URL:", urlId);
+
+    const full = document.getElementById('full');
+    if (!full) {
+        console.error("L'élément avec l'ID 'full' est introuvable dans le document.");
+        return;
+    }
+
+    // Fetch data.json and check the ID
+    fetch('../data/data.json')  // Replace with the correct path to data.json
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erreur de chargement du fichier data.json");
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Données récupérées :", data);
+            const idValeur = String(data.id); // Convert data.json ID to a string for comparison
+            console.log("ID dans data.json:", idValeur);
+
+            // Check if the URL ID matches the data.json ID
+            if (urlId === idValeur) {
+                // Clear existing content before adding new data
+                full.innerHTML = '';
+                
+                // Create and append content
+                const prod = document.createElement('div');
+                prod.innerHTML = `<span>${data.short_description}</span>`;
+                full.appendChild(prod);
+                console.log("Contenu ajouté avec succès.");
+            } else {
+                console.log("L'ID ne correspond pas ou n'est pas présent dans data.json");
+            }
+        })
+        .catch(error => {
+            console.error("Erreur lors du chargement de data.json :", error);
+        });
+}
+
+// Function to monitor URL changes and reload data if the ID changes
+function monitorURLChange() {
+    let currentId = getURLParameter('id'); // Get the initial ID
+
+    // Initial check on page load
+    fetchDataAndCheckId();
+
+    setInterval(() => {
+        const newId = getURLParameter('id'); // Check the ID in the URL again
+
+        // If the ID has changed, update currentId and run fetchDataAndCheckId()
+        if (newId !== currentId) {
+            currentId = newId;
+            fetchDataAndCheckId(); // Execute fetch each time the ID changes
+        }
+    }, 1000); // Check the URL every second
+}
+
+// Start monitoring URL changes
+monitorURLChange();
