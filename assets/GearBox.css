@@ -113,11 +113,50 @@ footer{
     top: 50px;
 }
 
-/* .produits{
-    box-shadow: 10px 5px 5px black;
-} */
+.produits{
+    background-color: #477590;
+    border-radius: 5px;
+}
 
 #composants{
     display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    
 }
- 
+
+.Carte-mere{
+    filter: drop-shadow(5px 5px 5px #000);
+    width: 100%;
+    
+}
+
+.Processeur{
+    filter: drop-shadow(5px 5px 5px #000);
+    width: 100%;
+    padding: 4px 20px 4px 20px;
+}
+
+.Carte-graphique{
+    filter: drop-shadow(5px 5px 5px #000);
+    width: 70%;
+    padding: 20px 10px 20px 10px;
+}
+
+.Refroidissement{
+    filter: drop-shadow(5px 5px 5px #000);
+    width: 100%;
+    padding: 20px 10px 20px 10px;
+}
+
+.Boîtier{
+    filter: drop-shadow(5px 5px 5px #000);
+    width: 100%;
+    padding: 20px 10px 20px 10px;
+}
+
+.RAM{
+    filter: drop-shadow(5px 5px 5px #000);
+    width: 100%;
+    padding: 20px 10px 20px 10px;    
+}
