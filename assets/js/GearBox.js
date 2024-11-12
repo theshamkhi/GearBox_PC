@@ -2114,11 +2114,17 @@ function fetchDataAndDisplay() {
                     VoltageElement.innerHTML = `<p>Voltage: ${item.Voltage}</p>`;
                     product_description.appendChild(VoltageElement);
                 } 
+                
                 if (item.Latency) {
                     let LatencyElement = document.createElement('div');
                     LatencyElement.innerHTML = `<p>Latency: ${item.Latency}</p>`;
                     product_description.appendChild(LatencyElement);
-                }
+                } 
+                if (item.Type) {
+                    let TypeElement = document.createElement('div');
+                    TypeElement.innerHTML = `<p>Type: ${item.Type}</p>`;
+                    product_description.appendChild(TypeElement);
+                } 
             }
         });
     });
