@@ -1,5 +1,5 @@
 /* Page Accueil */
-const slides = document.getElementById('en-tête');
+const slides = document.getElementById('carousel-images');
 slides.addEventListener("wheel",(evnt)=>{
     slides.scrollLeft += evnt.deltaX
 })
