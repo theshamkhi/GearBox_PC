@@ -2077,6 +2077,32 @@ function fetchDataAndDisplay() {
                 }
 
                 // Ajouter toutes les descriptions pour un produit dans la ligne `descriptionRow`
+                
+                // addDescriptionElement("part_type", "Type de pièce");
+                // addDescriptionElement("Socket", "Socket");
+                // addDescriptionElement("GPU Model", "Modèle GPU");
+                // addDescriptionElement("Memory", "Mémoire");
+                // addDescriptionElement("Capacity", "Capacité");
+                // addDescriptionElement("Interface", "Interface");
+                // addDescriptionElement("Speed", "Vitesse");
+                // addDescriptionElement("Voltage", "Voltage");
+                // addDescriptionElement("Latency", "Latence");
+
+                function toggleModal() {
+                    const modal = document.getElementById("descriptionModal");
+                    modal.classList.toggle("hidden");
+                }
+            
+                // Function to add description elements
+                function addDescriptionElement(key, value) {
+                    const contentDiv = document.getElementById("descriptionContent");
+                    const descriptionElement = document.createElement("p");
+                    descriptionElement.classList.add("text-gray-700");
+                    descriptionElement.innerHTML = `<strong>${key}:</strong> ${value}`;
+                    contentDiv.appendChild(descriptionElement);
+                }
+            
+                // Adding the elements to the modal
                 addDescriptionElement("part_type", "Type de pièce");
                 addDescriptionElement("Socket", "Socket");
                 addDescriptionElement("GPU Model", "Modèle GPU");
@@ -2096,7 +2122,14 @@ function fetchDataAndDisplay() {
 }
 
 // Appel de la fonction pour charger les données au démarrage
-fetchDataAndDisplay();
+// fetchDataAndDisplay();
+
+
+// 
+
+
+// 
+
 
 // Set up a repeating check every second
 const checkInterval = setInterval(() => {
