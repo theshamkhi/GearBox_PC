@@ -2104,6 +2104,16 @@ function fetchDataAndDisplay() {
                     interfaceElement.innerHTML = `<p>Interface: ${item.Interface}</p>`;
                     product_description.appendChild(interfaceElement);
                 }
+                if (item.Speed) {
+                    let SpeedElement = document.createElement('div');
+                    SpeedElement.innerHTML = `<p>Speed: ${item.Speed}</p>`;
+                    product_description.appendChild(SpeedElement);
+                } 
+                if (item.Voltage) {
+                    let VoltageElement = document.createElement('div');
+                    VoltageElement.innerHTML = `<p>Voltage: ${item.Voltage}</p>`;
+                    product_description.appendChild(VoltageElement);
+                }
             }
         });
     });
