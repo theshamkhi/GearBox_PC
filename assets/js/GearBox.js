@@ -2016,23 +2016,21 @@ var img_prod_for=document.getElementById('img_prod_for');
 //div pour description sur Product
 var product_description=document.getElementById('product_description'); 
 
-
-
-console.log(img_prod_first);
-
+// Fonction pour obtenir le paramètre de l'URL
 function getURLParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
 
 function fetchDataAndDisplay() {
-    const urlId = getURLParameter('id'); 
+    const urlId = getURLParameter('id');
     console.log(urlId);
 
     if (!urlId) {
         console.log("Aucun ID dans l'URL, nouvelle vérification dans une seconde.");
         return;
     }
+
     fetch('../data/data.json')
     .then(response => {
         if (!response.ok) {
@@ -2045,93 +2043,60 @@ function fetchDataAndDisplay() {
             if (item.id == urlId) {
                 img_prod_first.src = item.image_urls[2];
                 Full_image.src = item.image_urls[0];
-                Prix.innerHTML = ` MAD${item.price} `;
-    
-                // Calculate promotion price
-                let calul_prix_promotion = ((item.price) - item.price * (0.39)).toFixed(2);
+                Prix.innerHTML = ` MAD ${item.price} `;
+
+                // Calculer le prix promotionnel
+                let calul_prix_promotion = ((item.price) - item.price * 0.39).toFixed(2);
                 prix_promotion.innerHTML = ` MAD ${calul_prix_promotion}`;
-                name_product.innerHTML = `${item.name}`;
-                description_product.innerHTML = `${item.short_description}`;
-    
-                // Zoom images
+                name_product.innerHTML = item.name;
+                description_product.innerHTML = item.short_description;
+
+                // Images de zoom
                 prod_zome_1.src = item.image_urls[0];
                 prod_zome_2.src = item.image_urls[2];
                 prod_zome_3.src = item.image_urls[0];
                 prod_zome_4.src = item.image_urls[2];
-    
-                // Left-side product images
+
+                // Images latérales
                 img_prod_second.src = item.image_urls[0];
                 img_prod_third.src = item.image_urls[2];
                 img_prod_for.src = item.image_urls[0];
-    
-                // Display part_type if available
-                if (item.part_type) {
-                    let partTypeElement = document.createElement('div');
-                    partTypeElement.innerHTML = `<p>Type de pièce: ${item.part_type}</p>`;
-                    product_description.appendChild(partTypeElement);
+
+                // Créer un conteneur pour aligner les descriptions horizontalement
+                let descriptionRow = document.createElement('div');
+                descriptionRow.className = 'flex flex-wrap gap-4 mb-4'; // Aligne chaque ligne de description en ligne, avec un espace entre les groupes
+
+                // Fonction pour styliser et ajouter chaque description sous forme de carte
+                function addDescriptionElement(key, label) {
+                    if (item[key]) {
+                        let element = document.createElement('div');
+                        element.className = 'bg-gray-100 p-4 rounded-lg shadow-md w-48 text-gray-700'; // Classe w-48 pour taille fixe de chaque carte
+                        element.innerHTML = `<p class="font-semibold text-gray-800">${label}:</p> <p>${item[key]}</p>`;
+                        descriptionRow.appendChild(element);
+                    }
                 }
-    
-                // Display Socket if available
-                if (item.Socket) {
-                    let socketElement = document.createElement('div');
-                    socketElement.innerHTML = `<p>Socket: ${item.Socket}</p>`;
-                    product_description.appendChild(socketElement);
-                }
-    
-                // Display GPU Model if available
-                if (item["GPU Model"]) {
-                    let gpuModelElement = document.createElement('div');
-                    gpuModelElement.innerHTML = `<p>Modèle GPU: ${item["GPU Model"]}</p>`;
-                    product_description.appendChild(gpuModelElement);
-                }
-    
-                // Display Memory if available
-                if (item.Memory) {
-                    let memoryElement = document.createElement('div');
-                    memoryElement.innerHTML = `<p>Mémoire: ${item.Memory}GB</p>`;
-                    product_description.appendChild(memoryElement);
-                }
-    
-                // Display any other properties like Capacity, Interface, etc.
-                if (item.Capacity) {
-                    let capacityElement = document.createElement('div');
-                    capacityElement.innerHTML = `<p>Capacité: ${item.Capacity}GB</p>`;
-                    product_description.appendChild(capacityElement);
-                }
-    
-                if (item.Interface) {
-                    let interfaceElement = document.createElement('div');
-                    interfaceElement.innerHTML = `<p>Interface: ${item.Interface}</p>`;
-                    product_description.appendChild(interfaceElement);
-                }
-                if (item.Speed) {
-                    let SpeedElement = document.createElement('div');
-                    SpeedElement.innerHTML = `<p>Speed: ${item.Speed}</p>`;
-                    product_description.appendChild(SpeedElement);
-                } 
-                if (item.Voltage) {
-                    let VoltageElement = document.createElement('div');
-                    VoltageElement.innerHTML = `<p>Voltage: ${item.Voltage}</p>`;
-                    product_description.appendChild(VoltageElement);
-                } 
-                
-                if (item.Latency) {
-                    let LatencyElement = document.createElement('div');
-                    LatencyElement.innerHTML = `<p>Latency: ${item.Latency}</p>`;
-                    product_description.appendChild(LatencyElement);
-                } 
-                if (item.Type) {
-                    let TypeElement = document.createElement('div');
-                    TypeElement.innerHTML = `<p>Type: ${item.Type}</p>`;
-                    product_description.appendChild(TypeElement);
-                } 
+
+                // Ajouter toutes les descriptions pour un produit dans la ligne `descriptionRow`
+                addDescriptionElement("part_type", "Type de pièce");
+                addDescriptionElement("Socket", "Socket");
+                addDescriptionElement("GPU Model", "Modèle GPU");
+                addDescriptionElement("Memory", "Mémoire");
+                addDescriptionElement("Capacity", "Capacité");
+                addDescriptionElement("Interface", "Interface");
+                addDescriptionElement("Speed", "Vitesse");
+                addDescriptionElement("Voltage", "Voltage");
+                addDescriptionElement("Latency", "Latence");
+
+                // Ajouter la ligne complète des descriptions au conteneur principal
+                product_description.appendChild(descriptionRow);
             }
         });
-    });
-    
-  
-
+    })
+    .catch(error => console.log("Erreur:", error));
 }
+
+// Appel de la fonction pour charger les données au démarrage
+fetchDataAndDisplay();
 
 // Set up a repeating check every second
 const checkInterval = setInterval(() => {
