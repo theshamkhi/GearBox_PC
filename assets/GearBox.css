@@ -1,402 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 body{
     background-color: #F4F6F1;
 }
@@ -512,50 +113,100 @@ footer{
     top: 50px;
 }
 
-.produits{
+.produit1{
     background-color: #477590;
     border-radius: 5px;
+    height: 150px;
+    width: 600px;
+    padding: 15px 10px 0px 10px;
+}
+
+.produit2{
+    background-color: #477590;
+    border-radius: 5px;
+    height: 150px;
+    width: 600px;
+
+}
+
+.produit3{
+    background-color: #477590;
+    border-radius: 5px;
+    height: 150px;
+    width: 600px;
+}
+
+.produit4{
+    background-color: #477590;
+    border-radius: 5px;
+    height: 150px;
+    width: 600px;
+}
+
+.produit5{
+    background-color: #477590;
+    border-radius: 5px;
+    height: 150px;
+    width: 600px;
+}
+
+.produit6{
+    background-color: #477590;
+    border-radius: 5px;
+    height: 150px;
+    width: 600px;
+    margin-right: 50px;
 }
 
 #composants{
     display: flex;
     gap: 10px;
     justify-content: space-between;
-    
+    margin-left: 100px;
 }
 
 .Carte-mere{
     filter: drop-shadow(5px 5px 5px #000);
     width: 100%;
-    
 }
 
 .Processeur{
     filter: drop-shadow(5px 5px 5px #000);
-    width: 100%;
-    padding: 4px 20px 4px 20px;
+    width: 65%;
+    position: relative;
+    bottom: 10px;
+    left: 30px;
 }
 
 .Carte-graphique{
     filter: drop-shadow(5px 5px 5px #000);
-    width: 70%;
-    padding: 20px 10px 20px 10px;
+    width: 100%;
+    position: relative;
+    top: 10px;
 }
 
 .Refroidissement{
     filter: drop-shadow(5px 5px 5px #000);
     width: 100%;
-    padding: 20px 10px 20px 10px;
 }
 
 .Boîtier{
     filter: drop-shadow(5px 5px 5px #000);
-    width: 100%;
-    padding: 20px 10px 20px 10px;
+    width: 75%;
+    position: relative;
+    left: 20px;
 }
 
 .RAM{
     filter: drop-shadow(5px 5px 5px #000);
-    width: 100%;
-    padding: 20px 10px 20px 10px;    
+    width: 73%;
+    position: relative;
+    left: 25px;
+}
+
+.titre{
+    font-weight: 800;
+    font-size: large;
+    font-style:sans-sérif;
+    margin: 50px 0px 25px 100px;
 }
