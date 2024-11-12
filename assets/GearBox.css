@@ -1,5 +1,6 @@
 body{
     background-color: #F4F6F1;
+    overflow-x: auto;
 }
 
 nav{
@@ -10,8 +11,35 @@ footer{
     background-color: #3B5770;
 }
 
-#contactb:hover{
-    opacity: 50%;
+#contactb {
+    background-color: black;
+    color: white;
+    border-radius: 10em;
+    font-size: 17px;
+    font-weight: 600;
+    padding: em 2em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid black;
+    box-shadow: 0 0 0 0 white;
+}
+  
+  #contactb:hover {
+    transform: translateY(-4px) translateX(-2px);
+    box-shadow: 2px 5px 0 0 white;
+}
+  
+  #contactb:active {
+    transform: translateY(2px) translateX(1px);
+    box-shadow: 0 0 0 0 white;
+}
+
+
+
+#carousel-images{
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 100% minmax(100%, auto);
 }
 
 #bandeau{
@@ -49,7 +77,7 @@ footer{
     justify-content: space-between;
     padding: 20px;
     color: white;
-    height: 300px;
+    height: 600px;
     background-image: url('../assets/img/Fond.jpg');
     background-size: cover;
     background-position: center;

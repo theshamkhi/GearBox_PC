@@ -1,5 +1,8 @@
 /* Page Accueil */
-
+const slides = document.getElementById('en-tête');
+slides.addEventListener("wheel",(evnt)=>{
+    slides.scrollLeft += evnt.deltaX
+})
 
 
 
