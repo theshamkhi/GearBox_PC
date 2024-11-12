@@ -99,6 +99,7 @@ footer{
 #texte-promo {
     max-width: 50%;
     margin-left: 5%;
+    filter: drop-shadow(2px 2px 2px #000);
 }
 
 #texte-promo h1 {
@@ -110,6 +111,10 @@ footer{
 #texte-promo p {
     font-size: 1.5rem;
     margin: 10px 0 0;
+}
+
+.promo-images{
+    filter: drop-shadow(5px 5px 5px #000);
 }
 
 .PC{
@@ -374,8 +379,10 @@ footer{
 
 .promo-images1{
     right: 100px;
+    filter: drop-shadow(5px 5px 5px #000);
 }
 
 #texte-promo1{
     left: 50px;
+    filter: drop-shadow(2px 2px 2px #000);
 }
