@@ -2124,6 +2124,10 @@ function fetchDataAndDisplay() {
 // Appel de la fonction pour charger les données au démarrage
 // fetchDataAndDisplay();
 
+function toggleModal() {
+    const modal = document.getElementById("descriptionModal");
+    modal.classList.toggle("hidden");
+}
 
 // 
 
