@@ -37,7 +37,7 @@ async function renderPage() {
                 </a>
                 <div class="px-5 pb-5">
                     <a href="#">
-                        <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">${item.name}</h5>
+                        <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white" id="item${item.id}">${item.name}</h5>
                     </a>
                     <span class="text-3xl font-bold text-gray-900 dark:text-white">${(item.price*9).toFixed(2)} MAD</span>
                 </div>
@@ -91,3 +91,59 @@ function updatePagination() {
 
 document.addEventListener('DOMContentLoaded', loadCatalogData);
 document.querySelector('#part-type').addEventListener('change', filterCatalog);
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const partTypeSelect = document.querySelector('#part-type');
+
+    const storageSelects = document.querySelectorAll('#storage-capacity, #storage-type');
+    const cpuSelects = document.querySelectorAll('#cpu-brand, #cpu-core-count, #cpu-core-clock');
+    const gpuSelects = document.querySelectorAll('#gpu-brand, #gpu-memory, #gpu-core-clock');
+    const psuSelects = document.querySelectorAll('#psu-efficiency, #psu-wattage');
+    const motherboardSelects = document.querySelectorAll('#motherboard-socket, #motherboard-form-factor');
+    const caseSelects = document.querySelectorAll('#case-type, #case-color');
+    const ramSelects = document.querySelectorAll('#ram-speed, #ram-modules');
+    const coolerSelects = document.querySelectorAll('#cooling-rpm, #cooling-noise-level');
+
+    // Initially hide all selects
+    storageSelects.forEach(select => select.style.display = 'none');
+    cpuSelects.forEach(select => select.style.display = 'none');
+    gpuSelects.forEach(select => select.style.display = 'none');
+    psuSelects.forEach(select => select.style.display = 'none');
+    motherboardSelects.forEach(select => select.style.display = 'none');
+    caseSelects.forEach(select => select.style.display = 'none');
+    ramSelects.forEach(select => select.style.display = 'none');
+    coolerSelects.forEach(select => select.style.display = 'none');
+
+    // Event listener for when part type is changed
+    partTypeSelect.addEventListener('change', function() {
+        // Hide all selects first
+        storageSelects.forEach(select => select.style.display = 'none');
+        cpuSelects.forEach(select => select.style.display = 'none');
+        gpuSelects.forEach(select => select.style.display = 'none');
+        psuSelects.forEach(select => select.style.display = 'none');
+        motherboardSelects.forEach(select => select.style.display = 'none');
+        caseSelects.forEach(select => select.style.display = 'none');
+        ramSelects.forEach(select => select.style.display = 'none');
+        coolerSelects.forEach(select => select.style.display = 'none');
+
+        // Show the related selects based on part type
+        if (partTypeSelect.value === 'storage') {
+            storageSelects.forEach(select => select.style.display = 'block');
+        } else if (partTypeSelect.value === 'cpu') {
+            cpuSelects.forEach(select => select.style.display = 'block');
+        } else if (partTypeSelect.value === 'gpu') {
+            gpuSelects.forEach(select => select.style.display = 'block');
+        } else if (partTypeSelect.value === 'psu') {
+            psuSelects.forEach(select => select.style.display = 'block');
+        } else if (partTypeSelect.value === 'motherboard') {
+            motherboardSelects.forEach(select => select.style.display = 'block');
+        } else if (partTypeSelect.value === 'case') {
+            caseSelects.forEach(select => select.style.display = 'block');
+        } else if (partTypeSelect.value === 'ram') {
+            ramSelects.forEach(select => select.style.display = 'block');
+        } else if (partTypeSelect.value === 'cooler') {
+            coolerSelects.forEach(select => select.style.display = 'block');
+        }
+    });
+});
