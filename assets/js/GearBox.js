@@ -90,6 +90,23 @@ function fetchDataAndDisplay() {
     document.getElementById("addToCartBtn").onclick = addToCart;
 }
 
+// Function to display a temporary promotion message
+function showPromotionMessage() {
+    const messageDiv = document.createElement("div");
+    messageDiv.id = "promotionMessage";
+    messageDiv.style.color = "green";
+    messageDiv.style.fontWeight = "bold";
+    messageDiv.style.marginTop = "10px";
+    messageDiv.textContent = "Vous avez reçu une promotion de 1% !";
+
+    document.body.appendChild(messageDiv);
+
+    // Remove the message after 3 seconds
+    setTimeout(() => {
+        document.body.removeChild(messageDiv);
+    }, 3000);
+}
+
 // Function to add the item to the cart and calculate the total
 function addToCart() {
     const quantityInput = document.getElementById("quantityInput");
@@ -99,9 +116,12 @@ function addToCart() {
     let totalItemPrice = quantity * parseFloat(calul_prix_promotion); 
     
     // Apply additional 1% discount if quantity is 3 or more
-    if (quantity >= 3) {
+    if (quantity ==3) {
         totalItemPrice *= 0.99; // Apply 1% discount
         totalItemPrice = parseFloat(totalItemPrice.toFixed(2)); // Round to 2 decimal places
+
+        // Show promotion message
+        showPromotionMessage();
     }
 
     cartTotal += totalItemPrice; // Add to cart total
@@ -174,3 +194,5 @@ const checkInterval = setInterval(() => {
         console.log("Checking for ID every second...");
     }
 }, 1000);
+
+
