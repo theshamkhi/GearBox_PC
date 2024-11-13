@@ -1,0 +1,1514 @@
+[
+  {
+    "id": 1100,
+    "part_type": "storage",
+    "name": "Samsung 970 EVO Plus 1TB NVMe SSD",
+    "price": 109.99,
+    "image_urls": [
+      "https://image.semiconductor.samsung.com/image/samsung/p6/semiconductor/consumer-storage/kv/kv-product-internalssd-970-EVOPlus-pc.png?$ORIGIN_PNG$",
+      "https://m.media-amazon.com/images/I/71OYNmVRFhL.jpg",
+      "https://image.semiconductor.samsung.com/image/samsung/p6/semiconductor-cn/products/consumer-storage/internal-ssd/970-evoplus/970evoplus_feature_1_pc.png?$ORIGIN_PNG$"
+    ],
+    "short_description": "The Samsung 970 EVO Plus offers fast read and write speeds, perfect for gamers and content creators.",
+    "Storage Type": "SSD",
+    "Capacity": 1000,
+    "Form Factor": "M.2 2280",
+    "Interface": "PCIe Gen 3.0 x4",
+    "qt": 54
+  },
+  {
+    "id": 1101,
+    "part_type": "storage",
+    "name": "Western Digital Black SN850 1TB SSD",
+    "price": 149.99,
+    "image_urls": [
+      "https://www.westerndigital.com/content/dam/store/en-us/assets/products/internal-storage/wd-black-sn850-nvme-ssd/gallery/wd-black-sn850-nvme-ssd-front.png",
+      "https://shop.sandisk.com/content/dam/store/en-us/assets/products/internal-storage/wd-black-sn850-nvme-ssd-for-ps5/gallery/wd-black-sn850-nvme-ssd-for-ps5-front.png",
+      "https://www.westerndigital.com/content/dam/store/en-us/assets/products/internal-storage/wd-black-sn850-nvme-ssd/gallery/wd-black-sn850-nvme-ssd-heatsink-front.png.thumb.1280.1280.png"
+    ],
+    "short_description": "The WD Black SN850 is an ultra-fast PCIe Gen 4 SSD ideal for gaming and high-performance computing.",
+    "Storage Type": "SSD",
+    "Capacity": 1000,
+    "Form Factor": "M.2 2280",
+    "Interface": "PCIe Gen 4.0 x4",
+    "qt": 82
+  },
+  {
+    "id": 1102,
+    "part_type": "storage",
+    "name": "Crucial MX500 500GB SATA SSD",
+    "price": 54.99,
+    "image_urls": [
+      "https://content.crucial.com/content/dam/crucial/ssd-products/mx500/images/product/crucial-mx500-2-5inch-product-front-image.psd.transform/medium-png/image.png",
+      "https://m.media-amazon.com/images/I/71duypVENNL.jpg",
+      "https://content.crucial.com/content/dam/crucial/ssd-products/mx500/images/product/crucial-mx500-2-5inch-product-dynamic-1-image-toms-anand.psd.transform/medium/image.png"
+    ],
+    "short_description": "The Crucial MX500 is a reliable SATA SSD with excellent performance and data protection features.",
+    "Storage Type": "SSD",
+    "Capacity": 500,
+    "Form Factor": "2.5\"",
+    "Interface": "SATA III",
+    "qt": 2
+  },
+  {
+    "id": 1103,
+    "part_type": "storage",
+    "name": "Seagate Barracuda 2TB HDD",
+    "price": 59.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/71Czt9ypIbL.jpg",
+      "https://www.seagate.com/content/dam/seagate/migrated-assets/www-content/support-content/internal-products/desktop%20hard/barracuda-3-5/barracuda-2tb-dm008-hero-left-270x270.png",
+      "https://m.media-amazon.com/images/I/61ox8BJ0kXL.jpg"
+    ],
+    "short_description": "The Seagate Barracuda 2TB HDD is an affordable, high-capacity hard drive for general storage needs.",
+    "Storage Type": "HDD",
+    "Capacity": 2000,
+    "Form Factor": "3.5\"",
+    "Interface": "SATA III",
+    "qt": 72
+  },
+  {
+    "id": 1104,
+    "part_type": "storage",
+    "name": "Samsung 860 EVO 500GB SATA SSD",
+    "price": 69.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/61I20y0TpUL.jpg",
+      "https://image-us.samsung.com/SamsungUS/home/computing/memory-and-storage/solid-state-drives/pdp/mz-76e1t0b-am/03_MZ-76E1T0BW_002_Back_Black_copy_100318.jpg?$product-details-jpg$",
+      "https://m.media-amazon.com/images/I/71dmRxOvrxL._AC_UF350,350_QL80_.jpg"
+    ],
+    "short_description": "The Samsung 860 EVO offers enhanced reliability and speed for everyday computing.",
+    "Storage Type": "SSD",
+    "Capacity": 500,
+    "Form Factor": "2.5\"",
+    "Interface": "SATA III",
+    "qt": 96
+  },
+  {
+    "id": 1105,
+    "part_type": "storage",
+    "name": "Kingston A2000 1TB NVMe SSD",
+    "price": 79.99,
+    "image_urls": [
+      "http://www.itlinks.com.au/wp-content/uploads/2021/06/ktc-product-ssd-sa2000-1-zm-lg.jpg",
+      "https://cdn.cs.1worldsync.com/c1/a4/c1a41a6a-99d0-4d05-a85c-b1935173245e.jpg",
+      "https://m.media-amazon.com/images/I/71ULo3w7+hL.jpg"
+    ],
+    "short_description": "The Kingston A2000 offers excellent performance and value with PCIe Gen 3.0 technology.",
+    "Storage Type": "SSD",
+    "Capacity": 1000,
+    "Form Factor": "M.2 2280",
+    "Interface": "PCIe Gen 3.0 x4",
+    "qt": 81
+  },
+  {
+    "id": 1106,
+    "part_type": "storage",
+    "name": "SanDisk Extreme Pro 2TB Portable SSD",
+    "price": 249.99,
+    "image_urls": [
+      "https://shop.sandisk.com/content/dam/store/en-us/assets/products/portable/extreme-pro-usb-3-1-ssd/gallery/extreme-pro-usb-3-1-ssd-right.png.thumb.1280.1280.png",
+      "https://m.media-amazon.com/images/I/71z2lEHwfNL.jpg",
+      "https://shop.sandisk.com/content/dam/store/en-us/assets/products/portable/extreme-pro-usb-3-1-ssd/gallery/extreme-pro-usb-3-1-ssd-right.png.wdthumb.319.319.webp"
+    ],
+    "short_description": "The SanDisk Extreme Pro is a rugged, high-speed external SSD, perfect for professionals on the go.",
+    "Storage Type": "SSD",
+    "Capacity": 2000,
+    "Form Factor": "Portable",
+    "Interface": "USB 3.2 Gen 2",
+    "qt": 22
+  },
+  {
+    "id": 1107,
+    "part_type": "storage",
+    "name": "Toshiba X300 4TB HDD",
+    "price": 129.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/61kuByfIlqL.jpg",
+      "https://16bazar.com/image/product/large/13-52-60-SBCAHD04-256.jpg",
+      "https://m.media-amazon.com/images/I/612kaZTw21L.jpg"
+    ],
+    "short_description": "The Toshiba X300 4TB HDD is designed for heavy-duty storage, ideal for gaming and creative professionals.",
+    "Storage Type": "HDD",
+    "Capacity": 4000,
+    "Form Factor": "3.5\"",
+    "Interface": "SATA III",
+    "qt": 87
+  },
+  {
+    "id": 1108,
+    "part_type": "storage",
+    "name": "Intel Optane SSD 905P 480GB",
+    "price": 369.99,
+    "image_urls": [
+      "https://www.intel.com/content/dam/products/hero/foreground/optane-ssd-905p-right-angle-16x9.png.rendition.intel.web.480.270.png",
+      "https://cdn.cs.1worldsync.com/7e/bf/7ebf44a1-633b-497f-957a-9c00d519caf3.jpg",
+      "https://cdn11.bigcommerce.com/s-ym0s4rnvas/images/stencil/1280x1280/products/1803066/4578736/3153761__11900.1729225867.jpg?c=2"
+    ],
+    "short_description": "The Intel Optane SSD 905P delivers extreme performance for demanding workloads and content creation.",
+    "Storage Type": "SSD",
+    "Capacity": 480,
+    "Form Factor": "U.2",
+    "Interface": "PCIe Gen 3.0 x4",
+    "qt": 98
+  },
+  {
+    "id": 1109,
+    "part_type": "storage",
+    "name": "WD Blue 1TB HDD",
+    "price": 39.99,
+    "image_urls": [
+      "https://www.westerndigital.com/content/dam/store/en-us/assets/products/internal-storage/wd-blue-desktop-sata-hdd/gallery/wd-blue-pc-desktop-hard-drive-1tb.png.thumb.1280.1280.png",
+      "https://m.media-amazon.com/images/I/61SJW7MrePL.jpg",
+      "https://www.westerndigital.com/content/dam/store/en-us/assets/products/internal-storage/wd-blue-desktop-sata-hdd/gallery/wd-blue-pc-desktop-hard-drive-1tb.png.wdthumb.319.319.webp"
+    ],
+    "short_description": "The WD Blue 1TB HDD is an affordable, reliable storage solution for everyday use.",
+    "Storage Type": "HDD",
+    "Capacity": 1000,
+    "Form Factor": "3.5\"",
+    "Interface": "SATA III",
+    "qt": 47
+  },
+  {
+    "id": 1110,
+    "part_type": "gpu",
+    "name": "NVIDIA GeForce RTX 3080 10GB",
+    "price": 699.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/71UStULnUyS.jpg",
+      "http://www.gainward.com/main/product/vga/pro/p01088/p01088_pic2_18035f4eea98dfc79.png",
+      "https://m.media-amazon.com/images/I/81UV-e3xgeL.jpg"
+    ],
+    "short_description": "The NVIDIA GeForce RTX 3080 offers exceptional performance for 4K gaming and high-end rendering.",
+    "GPU Model": "GeForce RTX 3080",
+    "Memory": 10,
+    "Memory Type": "GDDR6X",
+    "Core Clock": 1440,
+    "Boost Clock": 1710,
+    "Interface": "PCIe 4.0 x16",
+    "qt": 62
+  },
+  {
+    "id": 1111,
+    "part_type": "gpu",
+    "name": "AMD Radeon RX 6800 XT 16GB",
+    "price": 649.99,
+    "image_urls": [
+      "https://www.asrock.com/Graphics-Card/photo/Radeon%20RX%206800%20XT%2016G(M1).png",
+      "https://pg.asrock.com/Graphics-Card/photo/Radeon%20RX%206800%20XT%20Phantom%20Gaming%2016GB%20OC(L1).png",
+      "https://m.media-amazon.com/images/I/81ReRd8MrSL.jpg"
+    ],
+    "short_description": "The AMD Radeon RX 6800 XT is built for gaming at 1440p and 4K with ray tracing capabilities.",
+    "GPU Model": "Radeon RX 6800 XT",
+    "Memory": 16,
+    "Memory Type": "GDDR6",
+    "Core Clock": 1825,
+    "Boost Clock": 2250,
+    "Interface": "PCIe 4.0 x16",
+    "qt": 75
+  },
+  {
+    "id": 1112,
+    "part_type": "gpu",
+    "name": "NVIDIA GeForce RTX 3070 8GB",
+    "price": 499.99,
+    "image_urls": [
+      "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3070-3070ti/geforce-rtx-3070-ti-product-gallery-full-screen-3840-1.jpg",
+      "https://m.media-amazon.com/images/I/81Bfni5AVdL.jpg",
+      "http://www.gainward.com/main/product/vga/pro/p01130/p01130_pic2_67860b5a67b82627.png"
+    ],
+    "short_description": "The NVIDIA GeForce RTX 3070 is a powerful graphics card for 1440p gaming and content creation.",
+    "GPU Model": "GeForce RTX 3070",
+    "Memory": 8,
+    "Memory Type": "GDDR6",
+    "Core Clock": 1500,
+    "Boost Clock": 1730,
+    "Interface": "PCIe 4.0 x16",
+    "qt": 18
+  },
+  {
+    "id": 1113,
+    "part_type": "gpu",
+    "name": "AMD Radeon RX 6700 XT 12GB",
+    "price": 479.99,
+    "image_urls": [
+      "https://www.amd.com/content/dam/amd/en/images/products/graphics/2648997-amd-radeon-6700xt.jpg",
+      "https://pg.asrock.com/Graphics-Card/photo/Radeon%20RX%206700%20XT%20Phantom%20Gaming%20D%2012GB%20OC(L1).png",
+      "https://www.asrock.com/Graphics-Card/photo/Radeon%20RX%206700%20XT%2012GB(M1).png"
+    ],
+    "short_description": "The AMD Radeon RX 6700 XT offers excellent 1440p gaming performance with great value.",
+    "GPU Model": "Radeon RX 6700 XT",
+    "Memory": 12,
+    "Memory Type": "GDDR6",
+    "Core Clock": 2321,
+    "Boost Clock": 2581,
+    "Interface": "PCIe 4.0 x16",
+    "qt": 61
+  },
+  {
+    "id": 1114,
+    "part_type": "gpu",
+    "name": "NVIDIA GeForce RTX 3060 Ti 8GB",
+    "price": 399.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/81uFpNyjm5L.jpg",
+      "https://images.nvidia.com/aem-dam/Solutions/geforce/ampere/rtx-3060-ti/geforce-rtx-3060-ti-product-gallery-full-screen-3840-1-bl.jpg",
+      "https://m.media-amazon.com/images/I/81xKJJnXXXL.jpg"
+    ],
+    "short_description": "The NVIDIA GeForce RTX 3060 Ti is an excellent option for high frame rate 1080p and 1440p gaming.",
+    "GPU Model": "GeForce RTX 3060 Ti",
+    "Memory": 8,
+    "Memory Type": "GDDR6",
+    "Core Clock": 1410,
+    "Boost Clock": 1770,
+    "Interface": "PCIe 4.0 x16",
+    "qt": 21
+  },
+  {
+    "id": 1115,
+    "part_type": "gpu",
+    "name": "AMD Radeon RX 6600 XT 8GB",
+    "price": 379.99,
+    "image_urls": [
+      "https://pg.asrock.com/Graphics-Card/photo/Radeon%20RX%206600%20XT%20Phantom%20Gaming%20D%208GB%20OC(L1).png",
+      "https://m.media-amazon.com/images/I/718s0pX5zGL.jpg",
+      "https://www.asrock.com/Graphics-Card/photo/Radeon%20RX%206600%20XT%20Challenger%20D%208GB%20OC(M1).png"
+    ],
+    "short_description": "The AMD Radeon RX 6600 XT is ideal for smooth 1080p gaming at high settings.",
+    "GPU Model": "Radeon RX 6600 XT",
+    "Memory": 8,
+    "Memory Type": "GDDR6",
+    "Core Clock": 1968,
+    "Boost Clock": 2589,
+    "Interface": "PCIe 4.0 x16",
+    "qt": 90
+  },
+  {
+    "id": 1116,
+    "part_type": "gpu",
+    "name": "NVIDIA GeForce GTX 1660 Super 6GB",
+    "price": 239.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/71M4pG5B6zS.jpg",
+      "http://visiontek.com/cdn/shop/products/GTX-1660-Super-Top-Angle.jpg?v=1632941896",
+      "https://m.media-amazon.com/images/I/81mhOOhB+bL.jpg"
+    ],
+    "short_description": "The NVIDIA GeForce GTX 1660 Super is an excellent mid-range card for 1080p gaming.",
+    "GPU Model": "GeForce GTX 1660 Super",
+    "Memory": 6,
+    "Memory Type": "GDDR5",
+    "Core Clock": 1530,
+    "Boost Clock": 1785,
+    "Interface": "PCIe 3.0 x16",
+    "qt": 66
+  },
+  {
+    "id": 1117,
+    "part_type": "gpu",
+    "name": "AMD Radeon RX 580 8GB",
+    "price": 219.99,
+    "image_urls": [
+      "https://pg.asrock.com/Graphics-Card/photo/Radeon%20RX%20580%20Phantom%20Gaming%20Elite%208G(L1).png",
+      "https://m.media-amazon.com/images/I/71kh9AuWYcL.jpg",
+      "https://pg.asrock.com/Graphics-Card/photo/Radeon%20RX%20580%20Phantom%20Gaming%20Elite%208G(L4).png"
+    ],
+    "short_description": "The AMD Radeon RX 580 is a budget-friendly GPU that performs well for 1080p gaming.",
+    "GPU Model": "Radeon RX 580",
+    "Memory": 8,
+    "Memory Type": "GDDR5",
+    "Core Clock": 1257,
+    "Boost Clock": 1340,
+    "Interface": "PCIe 3.0 x16",
+    "qt": 28
+  },
+  {
+    "id": 1118,
+    "part_type": "gpu",
+    "name": "NVIDIA GeForce RTX 3090 24GB",
+    "price": 1499.99,
+    "image_urls": [
+      "http://www.gainward.com/main/product/vga/pro/p01090/p01090_pic2_8315f4ee9a04a51b.png",
+      "https://images.nvidia.com/aem-dam/Solutions/ampere/3090ti-gallery/geforce-rtx-3090-ti-product-gallery-full-screen-3840-1.jpg",
+      "https://m.media-amazon.com/images/I/51SaLmPQipL.jpg"
+    ],
+    "short_description": "The NVIDIA GeForce RTX 3090 is the ultimate card for 8K gaming and extreme content creation workloads.",
+    "GPU Model": "GeForce RTX 3090",
+    "Memory": 24,
+    "Memory Type": "GDDR6X",
+    "Core Clock": 1395,
+    "Boost Clock": 1695,
+    "Interface": "PCIe 4.0 x16",
+    "qt": 31
+  },
+  {
+    "id": 1119,
+    "part_type": "gpu",
+    "name": "AMD Radeon RX 5500 XT 4GB",
+    "price": 169.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/81hJ1x-oUfL.jpg",
+      "https://www.asrock.com/Graphics-Card/photo/Radeon%20RX%205500%20XT%20Challenger%20D%204G%20OC(M1).png",
+      "https://m.media-amazon.com/images/I/91ecfw4Yc8L.jpg"
+    ],
+    "short_description": "The AMD Radeon RX 5500 XT offers great 1080p gaming performance at a budget-friendly price.",
+    "GPU Model": "Radeon RX 5500 XT",
+    "Memory": 4,
+    "Memory Type": "GDDR6",
+    "Core Clock": 1670,
+    "Boost Clock": 1845,
+    "Interface": "PCIe 4.0 x16",
+    "qt": 59
+  },
+  {
+    "id": 1120,
+    "part_type": "cpu",
+    "name": "Intel Core i9-13900K 3.0GHz",
+    "price": 699.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/61My4F2-XUL.jpg",
+      "https://tonixcomputer.co.id/wp-content/uploads/sites/3/2022/10/Intel-Core-i9-13xxx.jpg",
+      "https://m.media-amazon.com/images/I/91CnBmI3G8L.jpg"
+    ],
+    "short_description": "The Intel Core i9-13900K offers top-tier performance with 24 cores for demanding tasks.",
+    "Model": "Core i9-13900K",
+    "Base Clock": 3,
+    "Boost Clock": 5.8,
+    "Cores": 24,
+    "Threads": 32,
+    "Socket": "LGA 1700",
+    "TDP": 125,
+    "Architecture": "Raptor Lake",
+    "qt": 32
+  },
+  {
+    "id": 1121,
+    "part_type": "cpu",
+    "name": "AMD Ryzen 9 7950X 4.5GHz",
+    "price": 799.99,
+    "image_urls": [
+      "https://www.amd.com/content/dam/amd/en/images/products/processors/ryzen/2505503-ryzen-9-7900x.jpg",
+      "https://m.media-amazon.com/images/I/5116zdA9uyL.jpg",
+      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6519/6519470cv11d.jpg;maxHeight=640;maxWidth=550;format=webp"
+    ],
+    "short_description": "The AMD Ryzen 9 7950X delivers exceptional performance with 16 cores and 32 threads.",
+    "Model": "Ryzen 9 7950X",
+    "Base Clock": 4.5,
+    "Boost Clock": 5.7,
+    "Cores": 16,
+    "Threads": 32,
+    "Socket": "AM5",
+    "TDP": 170,
+    "Architecture": "Zen 4",
+    "qt": 36
+  },
+  {
+    "id": 1122,
+    "part_type": "cpu",
+    "name": "Intel Core i7-12700K 3.6GHz",
+    "price": 399.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/51bW9uJzJFL.jpg",
+      "http://cdna.pcpartpicker.com/static/forever/images/product/3f7037db801def4db8418df8e7498e6a.256p.jpg",
+      "https://www.dateks.lv/images/pic/1200/1200/924/1085.jpg"
+    ],
+    "short_description": "The Intel Core i7-12700K offers excellent performance with 12 cores, perfect for gaming and productivity.",
+    "Model": "Core i7-12700K",
+    "Base Clock": 3.6,
+    "Boost Clock": 5,
+    "Cores": 12,
+    "Threads": 20,
+    "Socket": "LGA 1700",
+    "TDP": 125,
+    "Architecture": "Alder Lake",
+    "qt": 38
+  },
+  {
+    "id": 1123,
+    "part_type": "cpu",
+    "name": "AMD Ryzen 7 5800X 3.8GHz",
+    "price": 449.99,
+    "image_urls": [
+      "https://www.amd.com/content/dam/amd/en/images/products/processors/ryzen/2505503-ryzen-7-5800x.jpg",
+      "https://m.media-amazon.com/images/I/61l7QVhSBwL._AC_UF894,1000_QL80_.jpg",
+      "https://90a1c75758623581b3f8-5c119c3de181c9857fcb2784776b17ef.ssl.cf2.rackcdn.com/674509_643775_04_package_comping.jpg"
+    ],
+    "short_description": "The AMD Ryzen 7 5800X is a high-performance 8-core processor for gaming and content creation.",
+    "Model": "Ryzen 7 5800X",
+    "Base Clock": 3.8,
+    "Boost Clock": 4.7,
+    "Cores": 8,
+    "Threads": 16,
+    "Socket": "AM4",
+    "TDP": 105,
+    "Architecture": "Zen 3",
+    "qt": 51
+  },
+  {
+    "id": 1124,
+    "part_type": "cpu",
+    "name": "Intel Core i5-12600K 3.7GHz",
+    "price": 289.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/41aSuHA3FuL.jpg",
+      "http://cdna.pcpartpicker.com/static/forever/images/product/3f727799b9fc5e83f0e8953759946bd2.256p.jpg",
+      "https://m.media-amazon.com/images/I/71JLGgvUYPL.jpg"
+    ],
+    "short_description": "The Intel Core i5-12600K provides great value with 10 cores, ideal for gaming and everyday tasks.",
+    "Model": "Core i5-12600K",
+    "Base Clock": 3.7,
+    "Boost Clock": 4.9,
+    "Cores": 10,
+    "Threads": 16,
+    "Socket": "LGA 1700",
+    "TDP": 125,
+    "Architecture": "Alder Lake",
+    "qt": 10
+  },
+  {
+    "id": 1125,
+    "part_type": "cpu",
+    "name": "AMD Ryzen 5 5600X 3.7GHz",
+    "price": 299.99,
+    "image_urls": [
+      "https://www.amd.com/content/dam/amd/en/images/products/processors/ryzen/2505503-ryzen-5-5600x.jpg",
+      "https://m.media-amazon.com/images/I/51ld6RR8IrL.jpg",
+      "https://90a1c75758623581b3f8-5c119c3de181c9857fcb2784776b17ef.ssl.cf2.rackcdn.com/674505_643734_04_package_comping.jpg"
+    ],
+    "short_description": "The AMD Ryzen 5 5600X is a 6-core processor, offering fantastic performance for gaming and light workloads.",
+    "Model": "Ryzen 5 5600X",
+    "Base Clock": 3.7,
+    "Boost Clock": 4.6,
+    "Cores": 6,
+    "Threads": 12,
+    "Socket": "AM4",
+    "TDP": 65,
+    "Architecture": "Zen 3",
+    "qt": 65
+  },
+  {
+    "id": 1126,
+    "part_type": "cpu",
+    "name": "Intel Core i3-12100F 3.3GHz",
+    "price": 119.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/51C8njBn7mL.jpg",
+      "https://www.memoryc.com/images/products/550x550/intel-2120326-1_88326.jpg",
+      "https://m.media-amazon.com/images/I/91DXweB4obL.jpg"
+    ],
+    "short_description": "The Intel Core i3-12100F is an affordable 4-core processor for budget gaming and everyday use.",
+    "Model": "Core i3-12100F",
+    "Base Clock": 3.3,
+    "Boost Clock": 4.3,
+    "Cores": 4,
+    "Threads": 8,
+    "Socket": "LGA 1700",
+    "TDP": 60,
+    "Architecture": "Alder Lake",
+    "qt": 60
+  },
+  {
+    "id": 1127,
+    "part_type": "cpu",
+    "name": "AMD Ryzen 3 3100 3.9GHz",
+    "price": 99.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/61L6qbhLx0L.jpg",
+      "https://i.ebayimg.com/images/g/q38AAOSwyd1m8JCq/s-l225.jpg",
+      "https://m.media-amazon.com/images/I/61HlerrzQbL.jpg"
+    ],
+    "short_description": "The AMD Ryzen 3 3100 is a budget-friendly quad-core processor for casual gaming and light tasks.",
+    "Model": "Ryzen 3 3100",
+    "Base Clock": 3.9,
+    "Boost Clock": 3.9,
+    "Cores": 4,
+    "Threads": 4,
+    "Socket": "AM4",
+    "TDP": 65,
+    "Architecture": "Zen 2",
+    "qt": 15
+  },
+  {
+    "id": 1128,
+    "part_type": "cpu",
+    "name": "Intel Core i7-11700K 3.6GHz",
+    "price": 409.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/71idAEIDhvL.jpg",
+      "http://cdna.pcpartpicker.com/static/forever/images/product/41358d31a00cc8fb673bfa7716ea9498.256p.jpg",
+      "https://m.media-amazon.com/images/I/61LfLy6j4vL.jpg"
+    ],
+    "short_description": "The Intel Core i7-11700K is perfect for gamers and creators with 8 cores and fast speeds.",
+    "Model": "Core i7-11700K",
+    "Base Clock": 3.6,
+    "Boost Clock": 5,
+    "Cores": 8,
+    "Threads": 16,
+    "Socket": "LGA 1200",
+    "TDP": 125,
+    "Architecture": "Rocket Lake",
+    "qt": 95
+  },
+  {
+    "id": 1129,
+    "part_type": "cpu",
+    "name": "AMD Ryzen 9 5900X 3.7GHz",
+    "price": 549.99,
+    "image_urls": [
+      "https://www.amd.com/content/dam/amd/en/images/products/processors/ryzen/2505503-ryzen-9-5900x.jpg",
+      "https://cdn.cs.1worldsync.com/44/36/44365a2c-22fd-4049-8a26-d45a98935ef9.jpg",
+      "https://m.media-amazon.com/images/I/51S-lEYQZJL.jpg"
+    ],
+    "short_description": "The AMD Ryzen 9 5900X offers incredible multi-threaded performance with 12 cores and 24 threads.",
+    "Model": "Ryzen 9 5900X",
+    "Base Clock": 3.7,
+    "Boost Clock": 4.8,
+    "Cores": 12,
+    "Threads": 24,
+    "Socket": "AM4",
+    "TDP": 105,
+    "Architecture": "Zen 3",
+    "qt": 78
+  },
+  {
+    "id": 1130,
+    "part_type": "case",
+    "name": "Fractal Design Meshify C",
+    "price": 89.99,
+    "image_urls": [
+      "https://www.fractal-design.com/app/uploads/2019/06/Meshify-C_1-810x810.jpg",
+      "https://m.media-amazon.com/images/I/91ZWqN3wloL.jpg",
+      "https://www.fractal-design.com/app/uploads/2019/06/Meshify-C_23.jpg"
+    ],
+    "short_description": "The Meshify C offers excellent airflow and a clean, compact design, perfect for a mid-tower build.",
+    "Form Factor": "Mid Tower",
+    "Motherboard Support": "ATX, Micro ATX, Mini ITX",
+    "Cooling Support": "Up to 360mm radiator in front, 240mm in top",
+    "Max GPU Length": 315,
+    "Max CPU Cooler Height": 170,
+    "Drive Bays": {
+      "3.5": 2,
+      "2.5": 2
+    },
+    "Airflow": "Mesh front panel",
+    "qt": 67
+  },
+  {
+    "id": 1131,
+    "part_type": "case",
+    "name": "NZXT H510",
+    "price": 69.99,
+    "image_urls": [
+      "https://nzxt.com/assets/cms/34299/1621623292-newsroom-productupdate-creatorpc.png?auto=format&fit=clip&h=193&w=342",
+      "https://m.media-amazon.com/images/I/51oclTFjIFL.jpg",
+      "https://preview.redd.it/3a5daaphzq561.jpg?width=640&crop=smart&auto=webp&s=7244176dec168bcfe19f50e025af1ca770cae3c1"
+    ],
+    "short_description": "The NZXT H510 is a sleek and minimalistic mid-tower with a tempered glass side panel.",
+    "Form Factor": "Mid Tower",
+    "Motherboard Support": "ATX, Micro ATX, Mini ITX",
+    "Cooling Support": "Up to 280mm radiator in front, 120mm in rear",
+    "Max GPU Length": 381,
+    "Max CPU Cooler Height": 165,
+    "Drive Bays": {
+      "3.5": 1,
+      "2.5": 2
+    },
+    "Airflow": "Optimized front panel with dust filter",
+    "qt": 37
+  },
+  {
+    "id": 1132,
+    "part_type": "case",
+    "name": "Corsair 4000D Airflow",
+    "price": 74.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/81XN95aqKOL.jpg",
+      "https://assets.corsair.com/image/upload/c_pad,q_auto,h_1024,w_1024,f_auto/products/Cases/base-4000d-airflow-config/Gallery/4000D_AF_BLACK_08.webp",
+      "https://m.media-amazon.com/images/I/71J4iohAlaL.jpg"
+    ],
+    "short_description": "The Corsair 4000D provides excellent airflow and easy cable management in a spacious, mid-tower case.",
+    "Form Factor": "Mid Tower",
+    "Motherboard Support": "ATX, Micro ATX, Mini ITX",
+    "Cooling Support": "Up to 360mm radiator in front, 240mm in top",
+    "Max GPU Length": 360,
+    "Max CPU Cooler Height": 170,
+    "Drive Bays": {
+      "3.5": 2,
+      "2.5": 2
+    },
+    "Airflow": "Full mesh front panel",
+    "qt": 93
+  },
+  {
+    "id": 1133,
+    "part_type": "case",
+    "name": "Phanteks Eclipse P400A",
+    "price": 79.99,
+    "image_urls": [
+      "http://www.phanteks.store/cdn/shop/products/P400AMFPWT.png?v=1639674250",
+      "https://m.media-amazon.com/images/I/41Ko7vDklkL._AC_UF350,350_QL80_.jpg",
+      "https://www.phanteks.store/cdn/shop/products/P400AMFPWT_800x.png?v=1639674250"
+    ],
+    "short_description": "The Phanteks Eclipse P400A is a high-airflow mid-tower with a mesh front panel and great cooling support.",
+    "Form Factor": "Mid Tower",
+    "Motherboard Support": "ATX, Micro ATX, Mini ITX",
+    "Cooling Support": "Up to 360mm radiator in front, 240mm in top",
+    "Max GPU Length": 420,
+    "Max CPU Cooler Height": 160,
+    "Drive Bays": {
+      "3.5": 2,
+      "2.5": 4
+    },
+    "Airflow": "Mesh front panel for optimal airflow",
+    "qt": 33
+  },
+  {
+    "id": 1134,
+    "part_type": "case",
+    "name": "Cooler Master MasterBox Q300L",
+    "price": 59.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/81I9Ef0fOIL.jpg",
+      "https://90a1c75758623581b3f8-5c119c3de181c9857fcb2784776b17ef.ssl.cf2.rackcdn.com/503389_710970_01_front_comping.jpg",
+      "https://m.media-amazon.com/images/I/81Aav04jy-L._AC_UF894,1000_QL80_.jpg"
+    ],
+    "short_description": "The Cooler Master MasterBox Q300L offers great versatility in a compact, modular design.",
+    "Form Factor": "Mini Tower",
+    "Motherboard Support": "Micro ATX, Mini ITX",
+    "Cooling Support": "Up to 240mm radiator in front, 120mm in top",
+    "Max GPU Length": 360,
+    "Max CPU Cooler Height": 157,
+    "Drive Bays": {
+      "3.5": 1,
+      "2.5": 2
+    },
+    "Airflow": "Removable mesh panels for optimal airflow",
+    "qt": 69
+  },
+  {
+    "id": 1135,
+    "part_type": "case",
+    "name": "be quiet! Pure Base 500DX",
+    "price": 99.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/61YQafwg6gL.jpg",
+      "http://tech-legend.com/wp-content/uploads/2020/05/IMG_8862.jpg",
+      "https://m.media-amazon.com/images/I/710Tqa6q+4L.jpg"
+    ],
+    "short_description": "The be quiet! Pure Base 500DX is a high-performance case that combines excellent airflow and noise reduction.",
+    "Form Factor": "Mid Tower",
+    "Motherboard Support": "ATX, Micro ATX, Mini ITX",
+    "Cooling Support": "Up to 360mm radiator in front, 240mm in top",
+    "Max GPU Length": 369,
+    "Max CPU Cooler Height": 190,
+    "Drive Bays": {
+      "3.5": 2,
+      "2.5": 3
+    },
+    "Airflow": "Front mesh panel with optimized airflow",
+    "qt": 39
+  },
+  {
+    "id": 1136,
+    "part_type": "case",
+    "name": "Lian Li PC-011 Dynamic",
+    "price": 139.99,
+    "image_urls": [
+      "https://lian-li.com/wp-content/uploads/2023/09/O11DEXLX-002.jpg",
+      "https://m.media-amazon.com/images/I/615BWkgsuUL.jpg",
+      "https://lian-li.com/wp-content/uploads/2021/12/evo-600-000.jpg"
+    ],
+    "short_description": "The Lian Li PC-011 Dynamic is a premium, dual-chamber design case with tempered glass panels and fantastic cooling.",
+    "Form Factor": "Mid Tower",
+    "Motherboard Support": "ATX, Micro ATX, Mini ITX",
+    "Cooling Support": "Up to 360mm radiator in front, 360mm in top",
+    "Max GPU Length": 420,
+    "Max CPU Cooler Height": 170,
+    "Drive Bays": {
+      "3.5": 3,
+      "2.5": 3
+    },
+    "Airflow": "Dual-chamber design for optimal airflow",
+    "qt": 12
+  },
+  {
+    "id": 1137,
+    "part_type": "case",
+    "name": "Thermaltake Core P3",
+    "price": 119.99,
+    "image_urls": [
+      "https://i.ytimg.com/vi/Uu5o-8tiPZI/hqdefault.jpg",
+      "https://m.media-amazon.com/images/I/61Fvvb88NTL.jpg",
+      "https://i.ytimg.com/vi/HJnGqsAgbEs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAVzykNEkyP72R80EenybeG16bYzA"
+    ],
+    "short_description": "The Thermaltake Core P3 offers an open-frame chassis for custom cooling solutions and a unique look.",
+    "Form Factor": "Open Frame",
+    "Motherboard Support": "ATX, Micro ATX, Mini ITX",
+    "Cooling Support": "Up to 420mm radiator in front",
+    "Max GPU Length": 380,
+    "Max CPU Cooler Height": 160,
+    "Drive Bays": {
+      "3.5": 1,
+      "2.5": 2
+    },
+    "Airflow": "Open-frame design for unrestricted airflow",
+    "qt": 7
+  },
+  {
+    "id": 1138,
+    "part_type": "case",
+    "name": "Corsair iCUE 5000X RGB",
+    "price": 189.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/81rVXV6sslL._AC_UF894,1000_QL80_.jpg",
+      "https://cdn.cs.1worldsync.com/0d/f3/0df321dd-9030-4d0f-aedd-7f09a8a027ce.jpg",
+      "https://m.media-amazon.com/images/I/71lWtpNqxmL.jpg"
+    ],
+    "short_description": "The Corsair iCUE 5000X RGB is a premium mid-tower case with RGB fans and a fully removable glass panel.",
+    "Form Factor": "Mid Tower",
+    "Motherboard Support": "ATX, Micro ATX, Mini ITX",
+    "Cooling Support": "Up to 360mm radiator in front, 240mm in top",
+    "Max GPU Length": 420,
+    "Max CPU Cooler Height": 170,
+    "Drive Bays": {
+      "3.5": 2,
+      "2.5": 3
+    },
+    "Airflow": "Four RGB fans included for optimized airflow",
+    "qt": 80
+  },
+  {
+    "id": 1139,
+    "part_type": "cooler",
+    "name": "Cooler Master Hyper 212 EVO",
+    "price": 34.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/715wWDab8pL.jpg",
+      "https://aphnetworks.com/review/cooler_master_hyper_212_evo/02.jpg",
+      "https://m.media-amazon.com/images/I/71mH5hNkJfL._AC_UF894,1000_QL80_.jpg"
+    ],
+    "short_description": "The Hyper 212 EVO is a reliable air cooler with excellent cooling performance for budget builds.",
+    "Type": "Air Cooler",
+    "Fan Size": "120mm",
+    "Heat Pipes": 4,
+    "Max Fan Speed": "2000 RPM",
+    "Noise Level": "26 dBA",
+    "Compatibility": "Intel LGA 1200/1151, AMD AM4",
+    "qt": 43
+  },
+  {
+    "id": 1140,
+    "part_type": "cooler",
+    "name": "Noctua NH-D15",
+    "price": 89.99,
+    "image_urls": [
+      "https://noctua.at/pub/media/wysiwyg/news/nh_d15_g2_launch_web.jpg",
+      "https://m.media-amazon.com/images/I/91Hw1zcAIjL.jpg",
+      "https://noctua.at/pub/media/catalog/product/cache/0cdbea399f8ed06da39b3854134f6934/n/h/nh_d15_1_10.jpg"
+    ],
+    "short_description": "The Noctua NH-D15 is a premium air cooler known for its exceptional cooling performance and quiet operation.",
+    "Type": "Air Cooler",
+    "Fan Size": "140mm x 2",
+    "Heat Pipes": 6,
+    "Max Fan Speed": "1500 RPM",
+    "Noise Level": "19.2 dBA",
+    "Compatibility": "Intel LGA 1200/1151, AMD AM4",
+    "qt": 85
+  },
+  {
+    "part_type": "cooler",
+    "name": "Corsair iCUE H100i ELITE CAPELLIX",
+    "price": 179.99,
+    "image_urls": [
+      "https://assets.corsair.com/image/upload/c_pad,q_auto,h_1024,w_1024,f_auto/products/Custom-Cooling/CW-9060072-WW/-base-elite-capellix-xt-cooler-wht-config-Gallery-H100i-ELITE-CAPELLIX-XT-WHITE-01.webp",
+      "https://m.media-amazon.com/images/I/81LOYoM3MoL.jpg",
+      "https://assets.corsair.com/image/upload/c_pad,q_auto,h_1024,w_1024,f_auto/products/Custom-Cooling/CW-9060068-WW/-base-elite-capellix-xt-cooler-config-Gallery-H100i-ELITE-CAPELLIX-XT-01.webp"
+    ],
+    "short_description": "The Corsair iCUE H100i ELITE CAPELLIX is a 240mm liquid cooler with RGB lighting and powerful cooling performance.",
+    "Type": "Liquid Cooler",
+    "Radiator Size": "240mm",
+    "Fan Size": "120mm x 2",
+    "Pump Speed": "3000 RPM",
+    "Noise Level": "30 dBA",
+    "Compatibility": "Intel LGA 1200/1151, AMD AM4",
+    "RGB Lighting": "Yes",
+    "id": 1141,
+    "qt": 79
+  },
+  {
+    "id": 1142,
+    "part_type": "cooler",
+    "name": "NZXT Kraken Z63",
+    "price": 249.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/71TvN0tgWjL.jpg",
+      "https://techa.sg/media/catalog/product/cache/3c8e17bac8aeb50ecdeaf92c67b30b6c/p/r/product_image_nzxt-rl-krz63-r1-0.png",
+      "https://m.media-amazon.com/images/I/41mXy-Ql5EL.jpg"
+    ],
+    "short_description": "The NZXT Kraken Z63 is a 280mm liquid cooler with customizable LCD display and superb performance.",
+    "Type": "Liquid Cooler",
+    "Radiator Size": "280mm",
+    "Fan Size": "140mm x 2",
+    "Pump Speed": "2500 RPM",
+    "Noise Level": "40 dBA",
+    "Compatibility": "Intel LGA 1200/1151, AMD AM4",
+    "RGB Lighting": "Yes, LCD Display",
+    "qt": 68
+  },
+  {
+    "id": 1143,
+    "part_type": "cooler",
+    "name": "be quiet! Dark Rock Pro 4",
+    "price": 89.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/71umF+wr+iL.jpg",
+      "https://i.redd.it/46biy5qazlz11.jpg",
+      "https://m.media-amazon.com/images/I/61CGQH59UGL.jpg"
+    ],
+    "short_description": "The be quiet! Dark Rock Pro 4 is an air cooler designed for quiet performance while providing high cooling efficiency.",
+    "Type": "Air Cooler",
+    "Fan Size": "135mm x 2",
+    "Heat Pipes": 7,
+    "Max Fan Speed": "2000 RPM",
+    "Noise Level": "24.3 dBA",
+    "Compatibility": "Intel LGA 1200/1151, AMD AM4",
+    "qt": 26
+  },
+  {
+    "id": 1144,
+    "part_type": "cooler",
+    "name": "Corsair iCUE H150i ELITE CAPELLIX",
+    "price": 239.99,
+    "image_urls": [
+      "https://assets.corsair.com/image/upload/c_pad,q_auto,h_1024,w_1024,f_auto/products/Custom-Cooling/CW-9060070-WW/-base-elite-capellix-xt-cooler-config-Gallery-H150i-ELITE-CAPELLIX-XT-01.webp",
+      "https://m.media-amazon.com/images/I/61YRHOGBhaL.jpg",
+      "https://cdn.cs.1worldsync.com/30/79/3079b26d-37f9-48bd-a85c-20fcf8c8253a.jpg"
+    ],
+    "short_description": "The Corsair iCUE H150i ELITE CAPELLIX is a 360mm liquid cooler with RGB fans and customizable lighting.",
+    "Type": "Liquid Cooler",
+    "Radiator Size": "360mm",
+    "Fan Size": "120mm x 3",
+    "Pump Speed": "3000 RPM",
+    "Noise Level": "35 dBA",
+    "Compatibility": "Intel LGA 1200/1151, AMD AM4",
+    "RGB Lighting": "Yes",
+    "qt": 40
+  },
+  {
+    "id": 1145,
+    "part_type": "cooler",
+    "name": "ARCTIC Liquid Freezer II 240",
+    "price": 119.99,
+    "image_urls": [
+      "https://www.arctic.de/media/b4/1f/c1/1661423837/liquid-freezer-ii-240-argb-g00_Badge.png",
+      "https://m.media-amazon.com/images/I/61Fp9vzL-0L.jpg",
+      "https://www.arctic.de/media/29/c9/16/1621429759/liquid-freezer-ii-240-argb-g00.png"
+    ],
+    "short_description": "The ARCTIC Liquid Freezer II 240 is a high-performance 240mm liquid cooler that offers low noise and excellent cooling.",
+    "Type": "Liquid Cooler",
+    "Radiator Size": "240mm",
+    "Fan Size": "120mm x 2",
+    "Pump Speed": "2200 RPM",
+    "Noise Level": "25.5 dBA",
+    "Compatibility": "Intel LGA 1200/1151, AMD AM4",
+    "qt": 1
+  },
+  {
+    "part_type": "cooler",
+    "name": "Thermaltake Water 3.0 ARGB Sync",
+    "price": 129.99,
+    "image_urls": [
+      "https://www.thermaltake.com/media/catalog/product/cache/cc8b24283b13da6bc2ff91682c03b54b/db/imgs/pdt/angle/CL-W234-PL12SW-A_0a0500231eaf4f1f8b4b30b685b2cb22.jpg",
+      "https://m.media-amazon.com/images/I/51HEdqmHNfL.jpg",
+      "https://www.thermaltake.com/pub/media/wysiwyg/key3/db/products/lcs/water30ARGBau/pic8m1.jpg"
+    ],
+    "short_description": "The Thermaltake Water 3.0 ARGB Sync is a 240mm liquid cooler with RGB lighting and a sleek design for efficient cooling.",
+    "Type": "Liquid Cooler",
+    "Radiator Size": "240mm",
+    "Fan Size": "120mm x 2",
+    "Pump Speed": "2500 RPM",
+    "Noise Level": "31 dBA",
+    "Compatibility": "Intel LGA 1200/1151, AMD AM4",
+    "RGB Lighting": "Yes",
+    "id": 1146,
+    "qt": 58
+  },
+  {
+    "part_type": "cooler",
+    "name": "Cooler Master MasterLiquid ML240L RGB",
+    "price": 89.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/61g3UkYPnmL.jpg",
+      "https://a.storyblok.com/f/281110/2cb1686f65/ml240l-v2-rgb-white-gallery-0.png",
+      "https://m.media-amazon.com/images/I/71FU2fLM3zL.jpg"
+    ],
+    "short_description": "The Cooler Master MasterLiquid ML240L RGB is a 240mm liquid cooler offering high performance and stunning RGB lighting.",
+    "Type": "Liquid Cooler",
+    "Radiator Size": "240mm",
+    "Fan Size": "120mm x 2",
+    "Pump Speed": "2000 RPM",
+    "Noise Level": "25 dBA",
+    "Compatibility": "Intel LGA 1200/1151, AMD AM4",
+    "RGB Lighting": "Yes",
+    "id": 1147,
+    "qt": 30
+  },
+  {
+    "part_type": "ram",
+    "name": "Corsair Vengeance LPX 16GB (2 x 8GB) DDR4 3200MHz",
+    "price": 69.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/61wCOVcyvFL.jpg",
+      "https://microless.com/cdn/products/18dc29f9e1a72e70a7daa0157ef94f13-md.jpg",
+      "https://m.media-amazon.com/images/I/51Y7ugfDRWS.jpg"
+    ],
+    "short_description": "Corsair Vengeance LPX is a high-performance DDR4 memory kit designed for overclocking with a low-profile design.",
+    "Type": "DDR4",
+    "Capacity": 16,
+    "Speed": 3200,
+    "Latency": "16-18-18-36",
+    "Voltage": 1.35,
+    "Heat Spreader": "Aluminum",
+    "ECC": false,
+    "id": 1148,
+    "qt": 92
+  },
+  {
+    "part_type": "ram",
+    "name": "G.SKILL Ripjaws V 32GB (2 x 16GB) DDR4 3600MHz",
+    "price": 129.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/71Krg0lCOyL.jpg",
+      "https://www.gskill.com/_upload/images/156283178410.png",
+      "https://m.media-amazon.com/images/I/618SEnJR1nL.jpg"
+    ],
+    "short_description": "The G.SKILL Ripjaws V is a performance DDR4 memory kit offering excellent speed and stability for gaming and content creation.",
+    "Type": "DDR4",
+    "Capacity": 32,
+    "Speed": 3600,
+    "Latency": "16-19-19-39",
+    "Voltage": 1.35,
+    "Heat Spreader": "Aluminum",
+    "ECC": false,
+    "id": 1149,
+    "qt": 63
+  },
+  {
+    "part_type": "ram",
+    "name": "Kingston HyperX Fury 16GB (2 x 8GB) DDR4 2666MHz",
+    "price": 59.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/61V+kySLtDL.jpg",
+      "http://cdna.pcpartpicker.com/static/forever/images/product/a327de796ee4ac064a04eee08c843019.256p.jpg",
+      "https://m.media-amazon.com/images/I/71fih8O2BBL.jpg"
+    ],
+    "short_description": "The Kingston HyperX Fury is an affordable and reliable DDR4 memory kit with automatic overclocking capabilities.",
+    "Type": "DDR4",
+    "Capacity": 16,
+    "Speed": 2666,
+    "Latency": "15-17-17-35",
+    "Voltage": 1.2,
+    "Heat Spreader": "Aluminum",
+    "ECC": false,
+    "id": 1150,
+    "qt": 97
+  },
+  {
+    "part_type": "ram",
+    "name": "Corsair Vengeance RGB Pro 32GB (2 x 16GB) DDR4 3600MHz",
+    "price": 179.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/61GpY38PAWL.jpg",
+      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6449/6449223_sd.jpg",
+      "https://m.media-amazon.com/images/I/51plQyRoadL.jpg"
+    ],
+    "short_description": "Corsair Vengeance RGB Pro combines high performance with stunning RGB lighting and overclocking headroom.",
+    "Type": "DDR4",
+    "Capacity": 32,
+    "Speed": 3600,
+    "Latency": "18-22-22-42",
+    "Voltage": 1.35,
+    "Heat Spreader": "Aluminum",
+    "ECC": false,
+    "id": 1151,
+    "qt": 50
+  },
+  {
+    "part_type": "ram",
+    "name": "Crucial Ballistix 16GB (2 x 8GB) DDR4 3200MHz",
+    "price": 64.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/81oA51UJAkL.jpg",
+      "http://cdna.pcpartpicker.com/static/forever/images/product/8ca8bf9040a74f567b633b5b538d641c.256p.jpg",
+      "https://m.media-amazon.com/images/I/61gZr-hI6lL.jpg"
+    ],
+    "short_description": "Crucial Ballistix DDR4 memory is built for high performance, with low latency and energy efficiency.",
+    "Type": "DDR4",
+    "Capacity": 16,
+    "Speed": 3200,
+    "Latency": "16-18-18-38",
+    "Voltage": 1.35,
+    "Heat Spreader": "Aluminum",
+    "ECC": false,
+    "id": 1152,
+    "qt": 17
+  },
+  {
+    "part_type": "ram",
+    "name": "Teamgroup T-Force Delta RGB 16GB (2 x 8GB) DDR4 3000MHz",
+    "price": 89.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/71VqAosXatL._AC_UF894,1000_QL80_.jpg",
+      "https://images.teamgroupinc.com/products/memory/u-dimm/ddr4/delta-rgb/black/dual_01.jpg",
+      "https://m.media-amazon.com/images/I/71yyY+Y29WL.jpg"
+    ],
+    "short_description": "Teamgroup T-Force Delta RGB combines performance with dazzling RGB lighting and low latency.",
+    "Type": "DDR4",
+    "Capacity": 16,
+    "Speed": 3000,
+    "Latency": "16-18-18-38",
+    "Voltage": 1.35,
+    "Heat Spreader": "Aluminum",
+    "ECC": false,
+    "id": 1153,
+    "qt": 71
+  },
+  {
+    "part_type": "ram",
+    "name": "Patriot Viper Steel 16GB (2 x 8GB) DDR4 3200MHz",
+    "price": 69.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/917jhv56PSL.jpg",
+      "https://cdn.prod.website-files.com/63b6412d4ef17b35c8b5f9d5/6434b07c111f06066b94edc7_kv_banner_steel.jpg",
+      "https://m.media-amazon.com/images/I/71w15HP3aLL.jpg"
+    ],
+    "short_description": "Patriot Viper Steel offers high-speed DDR4 memory with great performance and sleek styling.",
+    "Type": "DDR4",
+    "Capacity": 16,
+    "Speed": 3200,
+    "Latency": "16-18-18-36",
+    "Voltage": 1.35,
+    "Heat Spreader": "Aluminum",
+    "ECC": false,
+    "id": 1154,
+    "qt": 42
+  },
+  {
+    "part_type": "ram",
+    "name": "G.SKILL Trident Z Royal 32GB (2 x 16GB) DDR4 4000MHz",
+    "price": 249.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/716+2U6zSUL.jpg",
+      "https://media.ldlc.com/r1600/ld/products/00/05/85/05/LD0005850572_1_0005850584_0005850649_0005850652_0005909674.jpg",
+      "https://m.media-amazon.com/images/I/51B2Q9zTN6L.jpg"
+    ],
+    "short_description": "G.SKILL Trident Z Royal DDR4 memory offers extreme performance with elegant RGB lighting and crystal-clear design.",
+    "Type": "DDR4",
+    "Capacity": 32,
+    "Speed": 4000,
+    "Latency": "19-19-19-39",
+    "Voltage": 1.35,
+    "Heat Spreader": "Aluminum",
+    "ECC": false,
+    "id": 1155,
+    "qt": 84
+  },
+  {
+    "part_type": "ram",
+    "name": "Corsair Dominator Platinum 64GB (2 x 32GB) DDR4 3200MHz",
+    "price": 329.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/615DV0X0qDL.jpg",
+      "https://i.ebayimg.com/images/g/gskAAOSwB5VkGG2g/s-l1200.jpg",
+      "https://m.media-amazon.com/images/I/91yJpTPnu4L.jpg"
+    ],
+    "short_description": "Corsair Dominator Platinum is a premium memory kit offering excellent speed and performance for overclocking.",
+    "Type": "DDR4",
+    "Capacity": 64,
+    "Speed": 3200,
+    "Latency": "16-18-18-36",
+    "Voltage": 1.35,
+    "Heat Spreader": "Aluminum",
+    "ECC": false,
+    "id": 1156,
+    "qt": 89
+  },
+  {
+    "part_type": "motherboard",
+    "name": "ASUS ROG Strix Z590-E Gaming WiFi 6E",
+    "price": 299.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/712eN7mlJwL.jpg",
+      "https://dlcdnwebimgs.asus.com/gain/6F6281D9-75F5-48A9-AF2C-9501C3C52EB5/w717/h525",
+      "https://m.media-amazon.com/images/I/712eN7mlJwL._AC_UF894,1000_QL80_.jpg"
+    ],
+    "short_description": "The ASUS ROG Strix Z590-E offers premium features, excellent overclocking capabilities, and next-gen connectivity with Wi-Fi 6E support.",
+    "Socket": "LGA 1200",
+    "Chipset": "Intel Z590",
+    "Form Factor": "ATX",
+    "Memory Support": "DDR4 5333MHz (OC)",
+    "Max Memory Capacity": 128,
+    "PCIe Slots": 3,
+    "Wi-Fi": true,
+    "Ethernet": "10Gbps",
+    "id": 1157,
+    "qt": 8
+  },
+  {
+    "part_type": "motherboard",
+    "name": "MSI MAG B550 TOMAHAWK WIFI",
+    "price": 179.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/71KORocMK0L.jpg",
+      "https://asset.msi.com/resize/image/global/product/product_16492305295c5ae4988ebb6356fcbaa215ee5ec04b.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png",
+      "https://cdn.cs.1worldsync.com/b6/1b/b61b119c-4834-4cbe-a74f-7717ae80ae0e.jpg"
+    ],
+    "short_description": "The MSI MAG B550 TOMAHAWK is a robust motherboard that supports PCIe 4.0 and offers solid performance for AMD Ryzen processors.",
+    "Socket": "AM4",
+    "Chipset": "AMD B550",
+    "Form Factor": "ATX",
+    "Memory Support": "DDR4 4866MHz (OC)",
+    "Max Memory Capacity": 64,
+    "PCIe Slots": 2,
+    "Wi-Fi": true,
+    "Ethernet": "2.5Gbps",
+    "id": 1158,
+    "qt": 24
+  },
+  {
+    "part_type": "motherboard",
+    "name": "Gigabyte Z490 AORUS Master",
+    "price": 399.99,
+    "image_urls": [
+      "https://static.gigabyte.com/StaticFile/Image/Global/256aa594fb8d3734f7e6a79fbe012963/Product/25011/Png",
+      "https://www.gigabyte.com/FileUpload/Global/KeyFeature/1493/innergigabyteimages/banner.jpg",
+      "https://static.gigabyte.com/StaticFile/Image/Global/a3215e504eb1811b44bdaa75639f8d44/Product/25694"
+    ],
+    "short_description": "The Gigabyte Z490 AORUS Master is a high-end motherboard with exceptional power delivery, ideal for Intel 10th-gen CPUs and extreme overclocking.",
+    "Socket": "LGA 1200",
+    "Chipset": "Intel Z490",
+    "Form Factor": "ATX",
+    "Memory Support": "DDR4 4800MHz (OC)",
+    "Max Memory Capacity": 128,
+    "PCIe Slots": 3,
+    "Wi-Fi": true,
+    "Ethernet": "10Gbps",
+    "id": 1159,
+    "qt": 100
+  },
+  {
+    "part_type": "motherboard",
+    "name": "ASRock B550 Steel Legend",
+    "price": 129.99,
+    "image_urls": [
+      "https://www.asrock.com/mb/photo/B550%20Steel%20Legend(M1).png",
+      "https://m.media-amazon.com/images/I/71O3pdmuUoL.jpg",
+      "https://www.asrock.com/mb/photo/B550M%20Steel%20Legend(M1).png"
+    ],
+    "short_description": "ASRock B550 Steel Legend offers a solid performance with PCIe 4.0 and a rugged design, perfect for gamers on a budget.",
+    "Socket": "AM4",
+    "Chipset": "AMD B550",
+    "Form Factor": "ATX",
+    "Memory Support": "DDR4 4733MHz (OC)",
+    "Max Memory Capacity": 64,
+    "PCIe Slots": 2,
+    "Wi-Fi": false,
+    "Ethernet": "2.5Gbps",
+    "id": 1160,
+    "qt": 56
+  },
+  {
+    "part_type": "motherboard",
+    "name": "ASUS TUF Gaming X570-Plus Wi-Fi",
+    "price": 189.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/81JvaK1zSwL.jpg",
+      "https://www.asus.com/media/global/products/5awsickoptqkycdu/P_setting_xxx_0_90_end_692.png",
+      "https://dlcdnimgs.asus.com/websites/global/products/5awsickoptqkycdu/img/fan/fan.png"
+    ],
+    "short_description": "The ASUS TUF Gaming X570-Plus offers military-grade durability, enhanced power delivery, and Wi-Fi support for AMD Ryzen processors.",
+    "Socket": "AM4",
+    "Chipset": "AMD X570",
+    "Form Factor": "ATX",
+    "Memory Support": "DDR4 4400MHz (OC)",
+    "Max Memory Capacity": 64,
+    "PCIe Slots": 2,
+    "Wi-Fi": true,
+    "Ethernet": "2.5Gbps",
+    "id": 1161,
+    "qt": 6
+  },
+  {
+    "part_type": "motherboard",
+    "name": "MSI MPG Z590 GAMING EDGE WIFI",
+    "price": 239.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/91wQ2e8-U3L.jpg",
+      "https://cdn.cs.1worldsync.com/33/7b/337b0fbe-6c13-4826-b219-5047ac30dcea.jpg",
+      "https://c1.neweggimages.com/BizIntell/item/13/144/13-144-387/MSI%20Motherboard-MPG%20Z590%20GAMING%20EDGE%20WIFI-a1.jpg"
+    ],
+    "short_description": "The MSI MPG Z590 GAMING EDGE WIFI offers premium features like PCIe 4.0, Wi-Fi 6 support, and a robust VRM design for Intel 10th and 11th Gen CPUs.",
+    "Socket": "LGA 1200",
+    "Chipset": "Intel Z590",
+    "Form Factor": "ATX",
+    "Memory Support": "DDR4 5333MHz (OC)",
+    "Max Memory Capacity": 128,
+    "PCIe Slots": 3,
+    "Wi-Fi": true,
+    "Ethernet": "2.5Gbps",
+    "id": 1162,
+    "qt": 77
+  },
+  {
+    "part_type": "motherboard",
+    "name": "Gigabyte B450 AORUS PRO WIFI",
+    "price": 114.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/71C2EflN31L.jpg",
+      "https://static.gigabyte.com/StaticFile/Image/Global/65382c2b2fe5ab4c8c984caf95729748/Product/21281/Png",
+      "https://m.media-amazon.com/images/I/61zELY1SG3L.jpg"
+    ],
+    "short_description": "The Gigabyte B450 AORUS PRO WIFI motherboard provides excellent value, offering PCIe Gen3, Wi-Fi, and ample I/O options for AMD Ryzen processors.",
+    "Socket": "AM4",
+    "Chipset": "AMD B450",
+    "Form Factor": "ATX",
+    "Memory Support": "DDR4 3200MHz (OC)",
+    "Max Memory Capacity": 64,
+    "PCIe Slots": 2,
+    "Wi-Fi": true,
+    "Ethernet": "1Gbps",
+    "id": 1163,
+    "qt": 34
+  },
+  {
+    "part_type": "motherboard",
+    "name": "ASRock Z590 Taichi",
+    "price": 359.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/71LGq4vPdeL.jpg",
+      "https://www.vortez.net/articles_file/45613_asrock_z590_taichi_review_intro.jpg",
+      "https://m.media-amazon.com/images/I/71fZVOFFQ-S.jpg"
+    ],
+    "short_description": "The ASRock Z590 Taichi offers premium features, including Wi-Fi 6E, PCIe 4.0, and advanced thermal management for Intel 10th and 11th Gen CPUs.",
+    "Socket": "LGA 1200",
+    "Chipset": "Intel Z590",
+    "Form Factor": "ATX",
+    "Memory Support": "DDR4 5000MHz (OC)",
+    "Max Memory Capacity": 128,
+    "PCIe Slots": 3,
+    "Wi-Fi": true,
+    "Ethernet": "10Gbps",
+    "id": 1164,
+    "qt": 45
+  },
+  {
+    "part_type": "motherboard",
+    "name": "MSI B450 TOMAHAWK MAX",
+    "price": 109.99,
+    "image_urls": [
+      "https://asset.msi.com/resize/image/global/product/product_7_20200923154001_5f6afbd1125e2.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png",
+      "https://storage-asset.msi.com/global/picture/image/feature/mb/B450/B450TomagawkMaxII/msi-mag-b450-tomahawk-max-ii-hero-board01.png",
+      "https://asset.msi.com/resize/image/global/product/product_5_20200923154005_5f6afbd5eded7.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png"
+    ],
+    "short_description": "MSI B450 TOMAHAWK MAX is a popular motherboard for budget-conscious builders, with great stability and Ryzen 3000 series CPU support.",
+    "Socket": "AM4",
+    "Chipset": "AMD B450",
+    "Form Factor": "ATX",
+    "Memory Support": "DDR4 4133MHz (OC)",
+    "Max Memory Capacity": 64,
+    "PCIe Slots": 2,
+    "Wi-Fi": false,
+    "Ethernet": "1Gbps",
+    "id": 1165,
+    "qt": 70
+  },
+  {
+    "part_type": "psu",
+    "name": "Corsair RM850x 850W 80+ Gold",
+    "price": 139.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/81k55rfk1iL.jpg",
+      "https://assets.corsair.com/image/upload/c_pad,q_auto,h_1024,w_1024,f_auto/products/Power-Supply-Units/base-rmx-2021-config/Gallery/RMx_SERIES_2021_RM850x_Artboard02_AB.webp",
+      "https://m.media-amazon.com/images/I/81OwObzrzLL.jpg"
+    ],
+    "short_description": "The Corsair RM850x delivers stable power with 80+ Gold efficiency and fully modular cables for a cleaner build.",
+    "Wattage": 850,
+    "Efficiency Rating": "80+ Gold",
+    "Form Factor": "ATX",
+    "Modular": "Fully Modular",
+    "Fan Size": 140,
+    "Cooling": "Active",
+    "id": 1166,
+    "qt": 83
+  },
+  {
+    "part_type": "psu",
+    "name": "EVGA SuperNOVA 750 G5 750W 80+ Gold",
+    "price": 109.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/71POUO-MQCL._AC_UF894,1000_QL80_.jpg",
+      "https://images.evga.com/products/gallery/png/220-G6-0750-X1_LG_1.png",
+      "https://m.media-amazon.com/images/I/71POUO-MQCL.jpg"
+    ],
+    "short_description": "EVGA SuperNOVA 750 G5 offers excellent reliability and high efficiency with an 80+ Gold rating and fully modular cables.",
+    "Wattage": 750,
+    "Efficiency Rating": "80+ Gold",
+    "Form Factor": "ATX",
+    "Modular": "Fully Modular",
+    "Fan Size": 135,
+    "Cooling": "Active",
+    "id": 1167,
+    "qt": 46
+  },
+  {
+    "part_type": "psu",
+    "name": "Seasonic FOCUS GX-750, 750W 80+ Gold",
+    "price": 109.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/711M4LSSltL.jpg",
+      "https://www.toppc.ee/images/pic/1200/1200/512/1623.jpg",
+      "https://m.media-amazon.com/images/I/71ZF-B456FL.jpg"
+    ],
+    "short_description": "Seasonic FOCUS GX-750 offers superior performance, exceptional stability, and a compact design with full modular cables.",
+    "Wattage": 750,
+    "Efficiency Rating": "80+ Gold",
+    "Form Factor": "ATX",
+    "Modular": "Fully Modular",
+    "Fan Size": 120,
+    "Cooling": "Active",
+    "id": 1168,
+    "qt": 74
+  },
+  {
+    "part_type": "psu",
+    "name": "Thermaltake Toughpower GF1 850W 80+ Gold",
+    "price": 129.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/61CaiXJ6DNL._AC_UF894,1000_QL80_.jpg",
+      "https://thermaltakeusa.com/cdn/shop/files/toughpower_gf1_snow_850_6.jpg?v=1691174754&width=1445",
+      "https://m.media-amazon.com/images/I/61CaiXJ6DNL.jpg"
+    ],
+    "short_description": "Thermaltake Toughpower GF1 delivers excellent performance, high efficiency, and a sleek design with fully modular cables.",
+    "Wattage": 850,
+    "Efficiency Rating": "80+ Gold",
+    "Form Factor": "ATX",
+    "Modular": "Fully Modular",
+    "Fan Size": 140,
+    "Cooling": "Active",
+    "id": 1169,
+    "qt": 76
+  },
+  {
+    "part_type": "psu",
+    "name": "Cooler Master MWE Gold 850W",
+    "price": 109.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/81bWdWehkRL.jpg",
+      "http://cdna.pcpartpicker.com/static/forever/images/product/c1a872ef01f2c1b202a91e8dcabdc507.256p.jpg",
+      "https://m.media-amazon.com/images/I/81X1hRKY6ML.jpg"
+    ],
+    "short_description": "Cooler Master MWE Gold 850W offers great value, high efficiency, and stability, with a fully modular design for easy cable management.",
+    "Wattage": 850,
+    "Efficiency Rating": "80+ Gold",
+    "Form Factor": "ATX",
+    "Modular": "Fully Modular",
+    "Fan Size": 120,
+    "Cooling": "Active",
+    "id": 1170,
+    "qt": 14
+  },
+  {
+    "part_type": "psu",
+    "name": "NZXT C850 850W 80+ Gold",
+    "price": 129.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/513-cOwIEYL.jpg",
+      "https://www.datocms-assets.com/34299/1654117724-power_c_series_gold_c850_hero-shot_png-clear-background.png",
+      "https://m.media-amazon.com/images/I/519OhBFhfpL.jpg"
+    ],
+    "short_description": "The NZXT C850 offers 80+ Gold efficiency and high reliability with a fully modular design and compact form factor.",
+    "Wattage": 850,
+    "Efficiency Rating": "80+ Gold",
+    "Form Factor": "ATX",
+    "Modular": "Fully Modular",
+    "Fan Size": 120,
+    "Cooling": "Active",
+    "id": 1171,
+    "qt": 52
+  },
+  {
+    "part_type": "psu",
+    "name": "Corsair HX1000i 1000W 80+ Platinum",
+    "price": 199.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/81qkLv+EvdL.jpg",
+      "http://cdna.pcpartpicker.com/static/forever/images/product/c6c707c9177df677d1b642efe8a9fb2d.256p.jpg",
+      "https://m.media-amazon.com/images/I/61-BbHtSiJL.jpg"
+    ],
+    "short_description": "Corsair HX1000i delivers high efficiency with 80+ Platinum certification, fully modular cables, and a smart digital monitoring system.",
+    "Wattage": 1000,
+    "Efficiency Rating": "80+ Platinum",
+    "Form Factor": "ATX",
+    "Modular": "Fully Modular",
+    "Fan Size": 140,
+    "Cooling": "Active",
+    "id": 1172,
+    "qt": 3
+  },
+  {
+    "part_type": "psu",
+    "name": "EVGA 600 W1 600W 80+ White",
+    "price": 39.99,
+    "image_urls": [
+      "https://images.evga.com/products/gallery/png/100-W1-0600-K1_LG_1.png",
+      "https://m.media-amazon.com/images/I/61JIZLFj3eL.jpg",
+      "https://images.evga.com/products/gallery/png/100-W1-0600-K3_XL_1.png"
+    ],
+    "short_description": "The EVGA 600 W1 is an affordable PSU with 80+ White certification, ideal for budget builds with basic power requirements.",
+    "Wattage": 600,
+    "Efficiency Rating": "80+ White",
+    "Form Factor": "ATX",
+    "Modular": "Non-Modular",
+    "Fan Size": 120,
+    "Cooling": "Active",
+    "id": 1173,
+    "qt": 94
+  },
+  {
+    "part_type": "psu",
+    "name": "Rosewill PHANTOM-850 850W 80+ Bronze",
+    "price": 79.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/81w6ZqxK7wL.jpg",
+      "https://alfrensia.com/wp-content/smush-webp/2023/05/CORSAIR-RM850X-SHIFT-850W-80-PLUS-GOLD-FULLY-MODULAR-POWER-Supply2.jpg.webp",
+      "https://m.media-amazon.com/images/I/61HiDxGqsQL.jpg"
+    ],
+    "short_description": "Rosewill PHANTOM-850 offers solid performance and reliability with an 80+ Bronze rating and a semi-modular design.",
+    "Wattage": 850,
+    "Efficiency Rating": "80+ Bronze",
+    "Form Factor": "ATX",
+    "Modular": "Semi-Modular",
+    "Fan Size": 140,
+    "Cooling": "Active",
+    "id": 1174,
+    "qt": 9
+  },
+  {
+    "part_type": "psu",
+    "name": "Be Quiet! Straight Power 11 750W 80+ Platinum",
+    "price": 149.99,
+    "image_urls": [
+      "https://m.media-amazon.com/images/I/81zUEspWZwL.jpg",
+      "http://cdna.pcpartpicker.com/static/forever/images/product/64bedfcd6c904c42841806e4673c611f.256p.jpg",
+      "https://m.media-amazon.com/images/I/81bmCv27YTL._AC_UF350,350_QL80_.jpg"
+    ],
+    "short_description": "Be Quiet! Straight Power 11 offers extreme efficiency with 80+ Platinum certification and ultra-low noise operation for a silent PC build.",
+    "Wattage": 750,
+    "Efficiency Rating": "80+ Platinum",
+    "Form Factor": "ATX",
+    "Modular": "Fully Modular",
+    "Fan Size": 135,
+    "Cooling": "Active",
+    "id": 1175,
+    "qt": 91
+  }
+]
