@@ -57,12 +57,6 @@ footer{
     font-size: large;
 }
 
-#descriprom{
-    color: white;
-    font-weight: 500;
-    font-size: large;
-}
-
 #promotion{
     display: flex;
     gap: 0.5rem;
@@ -94,6 +88,7 @@ footer{
 #texte-promo, .promo-images {
     position: relative;
     z-index: 2;
+    color: rgb(216, 81, 71);
 }
 
 #texte-promo {
@@ -444,25 +439,59 @@ footer{
 
 .produit1:hover{
     transform: scale(1.05);
+    transition: 0.4s;
 }
 
 .produit2:hover{
     transform: scale(1.05);
+    transition: 0.4s;
 }
 
 .produit3:hover{
     transform: scale(1.05);
+    transition: 0.4s;
 }
 
 .produit4:hover{
     transform: scale(1.05);
+    transition: 0.4s;
 }
 
 .produit5:hover{
     transform: scale(1.05);
+    transition: 0.4s;
 }
 
 .produit6:hover{
     transform: scale(1.05);
+    transition: 0.4s;
 }
 
+#promotion {
+    animation: changerCouleur 1s infinite;
+}
+
+@keyframes changerCouleur {
+    0% { color: red; }
+    50% { color: white; }
+    100% { color: red; }
+}
+
+#promotion {
+    animation: changerCouleur 1s infinite;
+}
+
+#promotion svg path {
+    fill: currentColor;
+}
+
+#promo {
+    color: red;
+    animation: changerCouleur 1s infinite;
+}
+
+@keyframes changerCouleur {
+    0% { color: red; }
+    50% { color: white; }
+    100% { color: red; }
+}
