@@ -87,7 +87,7 @@
             <!-- Commitment Section -->
             <div class="border-t border-b border-gray-200 py-4 mb-4">
                 <p class="text-sm font-semibold">QuantaPixels commitment</p>
-                <p class="text-sm font-semibold mt-2">Shipping: <span class="text-gray-600">1.13 MAD</span></p>
+                <p class="text-sm font-semibold mt-2">Shipping:  <span id="cartTotal">0</span></p>
                 <p class="text-gray-600">Delivery: Nov. 07 - Jan. 20</p>
             </div>
     
@@ -105,17 +105,18 @@
             <!-- Quantity Section -->
             <div class="mb-4">
                 <p class="text-sm font-semibold">Quantity</p>
+                <span id="quantite"></span>
+            
                 <div class="flex items-center mt-2">
-                    <button class="px-3 py-1 border border-gray-300 rounded-l">-</button>
-                    <input type="text" value="1" class="w-12 text-center border-t border-b border-gray-300" readonly>
-                    <button class="px-3 py-1 border border-gray-300 rounded-r">+</button>
-                    <p class="ml-4 text-gray-600 text-sm">3381 available</p>
+                    <button onclick="decreaseQuantity()" class="px-3 py-1 border border-gray-300 rounded-l">-</button>
+                    <input id="quantityInput" type="text" value="1" class="w-12 text-center border-t border-b border-gray-300" readonly>
+                    <button onclick="increaseQuantity()" class="px-3 py-1 border border-gray-300 rounded-r">+</button>
+                    <p class="ml-4 text-gray-600 text-sm"><span id="availableQuantity"></span> available</p>
                 </div>
             </div>
-    
             <!-- Buttons -->
             <div class="flex flex-col space-y-2">
-                <button class="bg-red-500 text-white py-2 rounded font-semibold">Add to cart</button>
+                <button onclick="addToCart()" class="bg-red-500 text-white py-2 rounded font-semibold">Add to cart</button>
             </div>
 
         <div >
@@ -128,7 +129,7 @@
             </div>
         </div>
     </div>
-
+  
     <div id="full"></div>
     <div id="product_description">
              
