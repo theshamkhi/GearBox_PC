@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-4 sm:p-8">
+    <div class="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+       <!-- Left Side: Image Gallery -->
+<div class="lg:col-span-4 flex">
+    <!-- Thumbnail Images -->
+
+    <div id="pop"></div>
+    <div class="flex flex-col space-y-2 mr-4"  style="position: relative; top:180px;" >
+        <img src="" alt="Thumb 1" class="w-16 h-16 object-cover border cursor-pointer" id="img_prod_first">
+        <img src="" alt="Thumb 2" class="w-16 h-16 object-cover border cursor-pointer" id="img_prod_second">
+        <img src="" alt="Thumb 3" class="w-16 h-16 object-cover border cursor-pointer" id="img_prod_third">
+        <img src="" alt="Thumb 4" class="w-16 h-16 object-cover border cursor-pointer" id="img_prod_for">
+    </div>
+    
+    <!-- Main Image with Navigation Buttons -->
+    <div class="relative w-full">
+        <img src="" style="position: relative; top:180px;" alt="Main Product" class="w-full h-64 object-cover" id="Full_image">
+
+        <!-- Left Navigation Button -->
+        <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 bg-opacity-50 text-white p-2 rounded-full"  style="position: relative; top:180px;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+
+        <!-- Right Navigation Button -->
+        
+        <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 bg-opacity-50 text-white p-2 rounded-full"  style="position: relative; top:180px; left:316px;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+</div>
+        <!-- Middle Section: Product Details -->
+        <div class="lg:col-span-5 space-y-4">
+            <!-- Price and Discount -->
+            <div class="text-2xl font-bold"   > <span class="text-2xl font-bold"  id="prix_promotion"></span><span class="line-through text-gray-500 text-xl" id="Prix" ></span> <span class="text-red-600 text-xl">39% off</span></div>
+            <div class="text-sm text-red-500">Buy 3 pieces get 1% off</div>
+            
+            <!-- Product Title -->
+            <h1 class="text-xl font-semibold" id="name_product"></h1>
+            <div class="flex items-center text-yellow-500 space-x-1">
+                <span class="text-sm">★ ★ ★ ★ ☆</span>
+                <span class="text-gray-600 text-sm ml-2">4.4 | 12,277 Reviews | 10,000+ sold</span>
+            </div>
+
+            <div class="description">
+                <p id="description_product"></p>
+            </div>
+            
+            <!-- Color Options -->
+            <div class="text-lg font-semibold">Photo concernant le produit </div>
+            <div class="grid grid-cols-4 gap-2">
+                <img src="" alt="Option" class="border p-1" id="prod_zome_1">
+                <img src="" alt="Option" class="border p-1" id="prod_zome_2">
+                <img src="" alt="Option" class="border p-1" id="prod_zome_3">
+                <img src="" alt="Option" class="border p-1" id="prod_zome_4">
+            </div>
+        </div>
+
+        <!-- Right Side: Purchase Details -->
+        <div class="lg:col-span-3 bg-white p-6 rounded-lg shadow-md border border-gray-200 space-y-4">
+            <!-- Seller Info -->
+            <div class="mb-4 cursor-pointer" id="seller-info-toggle">
+                <p class="text-sm font-semibold">Sold by <span class="text-gray-600">Patriot</span> <span class="text-sm font-light">(Trader)</span></p>
+            </div>
+            <!-- Shipping Info -->
+            <div class="mb-4">
+                <p class="text-sm font-semibold">Ship to</p>
+                <p class="text-gray-600 flex items-center">
+                    <!-- Icône de localisation SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13401 2 5 5.13401 5 9c0 4.692 5.633 11.29 6.211 11.96a1 1 0 0 0 1.578 0C13.367 20.29 19 13.692 19 9c0-3.866-3.134-7-7-7zm0 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8z" />
+                    </svg>
+                    Morocco
+                </p>
+            </div>
+            <!-- Commitment Section -->
+            <div class="border-t border-b border-gray-200 py-4 mb-4">
+                <p class="text-sm font-semibold">QuantaPixels commitment</p>
+                <p class="text-sm font-semibold mt-2">Shipping: <span class="text-gray-600">1.13 MAD</span></p>
+                <p class="text-gray-600">Delivery: Nov. 07 - Jan. 20</p>
+            </div>
+    
+            <!-- Security and Privacy -->
+            <div class="border-b border-gray-200 pb-4 mb-4">
+                <p class="text-sm font-semibold">Security & Privacy</p>
+                <p class="text-gray-600 text-xs mt-2">
+                    Safe payments: We do not share your personal details with any third parties without your consent.
+                </p>
+                <p class="text-gray-600 text-xs mt-2">
+                    Secure personal details: We protect your privacy and keep your personal details safe and secure.
+                </p>
+            </div>
+    
+            <!-- Quantity Section -->
+            <div class="mb-4">
+                <p class="text-sm font-semibold">Quantity</p>
+                <div class="flex items-center mt-2">
+                    <button class="px-3 py-1 border border-gray-300 rounded-l">-</button>
+                    <input type="text" value="1" class="w-12 text-center border-t border-b border-gray-300" readonly>
+                    <button class="px-3 py-1 border border-gray-300 rounded-r">+</button>
+                    <p class="ml-4 text-gray-600 text-sm">3381 available</p>
+                </div>
+            </div>
+    
+            <!-- Buttons -->
+            <div class="flex flex-col space-y-2">
+                <button class="bg-red-500 text-white py-2 rounded font-semibold">Add to cart</button>
+            </div>
+
+                    <!-- Modal Content (Hidden by default) -->
+                    <!-- id="seller-info-modal" class="absolute top-8 left-0 bg-white border border-gray-200 shadow-lg rounded-lg p-4 w-64 hidden" -->
+        <div >
+            <!-- Store info -->
+           
+        </div>
+
+    </div>
+
+    
+
+    <div id="full"></div>
+    <div id="product_description">
+             
+    </div>
+
+    <script src="../assets/js/GearBox.js"></script>
+</body>
+</html>
+
+
+<!-- <p class="text-lg font-bold mb-2">Store info</p>
+<p><span class="font-semibold">Marque:</span> Patriot</p>
+<p><span class="font-semibold">Type de mémoire:</span> DDR4</p>
+<p><span class="font-semibold">Capacité totale:</span> 16 GB</p>
+<p><span class="font-semibold">Fréquence(s) Mémoire:</span> 3200 Mhz</p>
+<p><span class="font-semibold">Nombre de barrette(s):</span> 1</p>
+<p><span class="font-semibold">CAS Latency:</span> CL16</p>
+<p><span class="font-semibold">Tension (certification):</span> 1.35 V</p>
+<p><span class="font-semibold">Garantie:</span> 12 Mois</p> -->
