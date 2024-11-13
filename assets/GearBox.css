@@ -352,7 +352,7 @@ footer{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.8); 
+    background-color: rgba(41, 232, 155, 0.8); 
 }
 
 #texte-promo1, .promo-images1 {
@@ -363,7 +363,7 @@ footer{
 #texte-promo1 {
     max-width: 50%;
     margin-left: 5%;
-    color: #5e0691;
+    color: #9e062e;
 }
 
 #texte-promo1 h1 {
@@ -386,3 +386,83 @@ footer{
     left: 50px;
     filter: drop-shadow(2px 2px 2px #000);
 }
+
+#bannière2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+    height: 600px;
+    background-image: url('../assets/media/Fond1.png');
+    background-size: cover;
+    background-position: center;
+}
+
+#bannière2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); 
+}
+
+#texte-promo2, .promo-images2 {
+    position: relative;
+    z-index: 2;
+}
+
+#texte-promo2 {
+    max-width: 50%;
+    margin-left: 5%;
+    color: #c345d3;
+}
+
+#texte-promo2 h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+#texte-promo2 p {
+    font-size: 1.5rem;
+    margin: 10px 0 0;
+}
+
+.promo-images2{
+    right: 100px;
+    filter: drop-shadow(5px 5px 5px #000);
+}
+
+#texte-promo2{
+    left: 50px;
+    filter: drop-shadow(2px 2px 2px #000);
+}
+
+.produit1:hover{
+    transform: scale(1.05);
+}
+
+.produit2:hover{
+    transform: scale(1.05);
+}
+
+.produit3:hover{
+    transform: scale(1.05);
+}
+
+.produit4:hover{
+    transform: scale(1.05);
+}
+
+.produit5:hover{
+    transform: scale(1.05);
+}
+
+.produit6:hover{
+    transform: scale(1.05);
+}
+
