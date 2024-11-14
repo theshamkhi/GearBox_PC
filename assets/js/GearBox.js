@@ -158,6 +158,9 @@ function addToCart() {
     console.log("Added Quantity:", quantity, "Unit Price (Promotion):", calul_prix_promotion, "Total Item Price:", totalItemPrice, "Cart Total:", cartTotal);
 }
 
+
+
+
 // Toggle modal visibility
 function toggleModal() {
     const modal = document.getElementById("descriptionModal");
@@ -217,4 +220,5 @@ const checkInterval = setInterval(() => {
     }
 }, 1000);
 
-localStorage.clear()
+// localStorage.clear()
+
