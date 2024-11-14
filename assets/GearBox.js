@@ -5001,20 +5001,18 @@
 
 
 
-
 const carouselWrapper = document.getElementById('carousel-wrapper');
 const prevButton = document.getElementById('prev');
 const nextButton = document.getElementById('next');
 
 let currentIndex = 0;
-const itemsPerSlide = 2; // Adjust based on the number of items visible at once
+const itemsPerSlide = 2; 
 const totalItems = document.querySelectorAll('#carousel-wrapper .group').length;
 const totalSlides = Math.ceil(totalItems / itemsPerSlide);
 
 function updateCarousel() {
-    // Calculate the translateX based on the current index
     const translateX = -(currentIndex * 100) / itemsPerSlide;
-    carouselWrapper.style.transform = `translateX(${translateX}%)`;
+    carouselWrapper.style.transform = `translateX(${translateX}%)`;  
 }
 
 nextButton.addEventListener('click', () => {
@@ -5029,4 +5027,6 @@ prevButton.addEventListener('click', () => {
         currentIndex++;
         updateCarousel();
     }
-});
+}); 
+
+

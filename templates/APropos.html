@@ -28,158 +28,136 @@
         </div>
     </nav>
 
-    <section class="title bg-[#477590] w-full h-[500px]">
-        <h1
-            class="title_propos text-center text-black text-3xl absolute left-1/2 transform -translate-x-1/2 top-[150px]">
-            A propos
-        </h1>
-    </section>
-
-    <div class="container flex items-center justify-between px-[10%] py-6">
-        <div class="text-section flex-1 pr-5">
-            <h2 class="text-2xl font-bold">Notre Historique</h2>
-            <p>
-                Le Lorem Ipsum est simplement du faux texte employé dans <br> la composition et la mise en page avant
-                impression...
+    <section class="relative text-center py-20 bg-cover bg-center" style="background-image: url('./images/pexels-nikhil-soni-159587696-16230157.jpg');">
+        <div class="bg-[#477590] bg-opacity-70 p-20 md:p-30">
+            <h1 class="text-4xl font-bold text-white mb-4">À propos de Schneider Electric</h1>
+            <p class="text-white text-lg mb-8">
+                Notre raison d'être est de créer un impact en permettant à chacun de tirer le meilleur de son énergie et de ses ressources, afin de concilier progrès et développement durable pour tous. Chez Schneider Electric, nous nommons cette ambition : Life Is On.
             </p>
+            <button class="bg-[#477590] text-white font-semibold py-2 px-6 rounded hover:bg-[#1200C4] transition duration-300">
+                Regarder maintenant
+            </button>
         </div>
-        <div class="image-section flex-2 flex justify-end">
-            <img src="./images/PIC.jpg" alt="historique image" class="max-w-[500px]  rounded-[0px_100px_0_100px]">
+    </section>
+    
+
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-8 md:px-10 md:py-12">
+        <div class="text-section flex-1 mb-6 md:mb-0 md:pr-8">
+            <h2 class="text-3xl font-semibold mb-4 text-gray-800">Notre Historique</h2>
+            <p class="text-lg text-gray-600 leading-relaxed">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. C'est un texte standard de l'imprimerie depuis les années 1500...</p>
+        </div>
+        <div class="image-section flex-1 flex justify-center md:justify-end">
+            <img src="./images/PIC.jpg" alt="Historique Image" class="max-w-full md:max-w-[500px] rounded-[10px] shadow-xl transform hover:scale-105 transition-transform duration-300">
         </div>
     </div>
-    <div class="text-center">
-        <!-- Section Title -->
-        <h2 class="text-3xl font-bold mb-8">Notre historique</h2>
-
-        <!-- Grid for Items -->
-        <div class="grid grid-cols-3 gap-8">
-            <!-- Item 1: Mouse -->
-            <div class="flex flex-col items-center">
-                <img src="./images/mouse.webp" alt="PC Mouse" class="w-40 h-40 object-cover">
-                <p class="mt-4 text-2xl">Notre historique</p>
+    
+ 
+    <div class="text-center my-12 px-6">
+        <h2 class="text-3xl font-semibold mb-10 text-gray-800">Notre Historique</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <!-- Item 1: PC Mouse -->
+            <div class="flex flex-col items-center bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow to-black">
+                <img src="./images/mouse.webp" alt="PC Mouse" class="w-36 h-36 object-cover rounded-full mb-4">
+                <p class="text-xl font-semibold text-black">PC Mouse</p>
             </div>
-
+            
             <!-- Item 2: Gaming Chair -->
-            <div class="flex flex-col items-center">
-                <img src="./images/chair.webp" alt="Gaming Chair" class="w-43 h-43 object-cover">
-                <p class="mt-4 text-2xl">Notre historique</p>
+            <div class="flex flex-col items-center bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow [#477590]">
+                <img src="./images/chair.webp" alt="Gaming Chair" class="w-36 h-36 object-cover rounded-full mb-4">
+                <p class="text-xl font-semibold text-black">Gaming Chair</p>
             </div>
-
-            <!-- Item 3: Monitor with Border -->
-            <div class="flex flex-col items-center">
-                <div>
-                    <img src="./images/television.webp" alt="Gaming Monitor" class="w-40 h-40 object-cover">
-                </div>
-                <p class="mt-4 text-2xl font-bold">Notre historique</p>
+            
+            <!-- Item 3: Gaming Monitor -->
+            <div class="flex flex-col items-center bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow [#477590]">
+                <img src="./images/television.webp" alt="Gaming Monitor" class="w-36 h-36 object-cover rounded-full mb-4">
+                <p class="text-xl font-semibold text-black">Gaming Monitor</p>
             </div>
+    
         </div>
     </div>
-
-
-    <div class="title bg-[#477590] w-full h-[500px] py-12">
-        <!-- Header Section -->
-        <section class="title bg-[#477590] w-full h-[500px]">
-            <div class="max-w-6xl mx-auto px-6 md:flex md:items-center md:justify-between">
-                <div class="md:w-1/2 space-y-4">
-                    <h1 class="text-2xl md:text-4xl font-bold">est-ce que tu veux faire partie de l'équipe</h1>
-                    <p class="text-sm md:text-base">
-                        Le Lorem Ipsum est simplement du faux texte employé dans <br> la composition et la mise en page avant
-                        impression,<br>
-                        aux texte standard de l'imprimerie depuis les années.
-                    </p>
-                </div>
-                <div class="md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
-                    <img src="./images/Group_41-removebg-preview.png" alt="Promotion"
-                        class="w-100 h-50 ">
-                </div>
-            </div>
-        </section>
-
-        <!-- Components Section -->
-        <section class="bg-white py-12 ">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="relative overflow-hidden">
-                    <!-- Carousel Wrapper -->
-                    <div id="carousel-wrapper" class=" flex  mx-20   gap-8 text-center transition-transform duration-500">
-                        <!-- Carousel Items -->
-                        <div class="group">
-                            <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
-                                <img class="w-20 h-20" src="./images/Carte-mere 1.png" alt="Carte-mère">
-                            </div>
-                            <p class="mt-2 text-gray-700">Carte-mère</p>
-                        </div>
-                        <div class="group">
-                            <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
-                                <img class="w-20 h-20" src="./images/Processeur 1.png" alt="Processeur">
-                            </div>
-                            <p class="mt-2 text-gray-700">Processeur</p>
-                        </div>
-                        <div class="group">
-                            <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
-                                <img class="w-20 h-20" src="./images/Carte-graphique 1.png" alt="Carte graphique">
-                            </div>
-                            <p class="mt-2 text-gray-700">Carte graphique</p>
-                        </div>
-                        <div class="group">
-                            <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
-                                <img class="w-20 h-20" src="./images/RAM 1.png" alt="RAM">
-                            </div>
-                            <p class="mt-2 text-gray-700">RAM</p>
-                        </div>
-                        <div class="group">
-                            <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
-                                <img class="w-20 h-20" src="./images/Refroidissement 1.png" alt="Refroidissement">
-                            </div>
-                            <p 
-                            class="mt-2 text-gray-700">Refroidissement</p>
-                        </div>
-                        <div class="group">
-                            <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
-                                <img class="w-20 h-20" src="./images/Refroidissement 1.png" alt="Refroidissement">
-                            </div>
-                            <p class="mt-2 text-gray-700">Refroidissement</p>
-                        </div>
-
-                        <div class="group">
-                            <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
-                                <img class="w-20 h-20" src="./images/Refroidissement 1.png" alt="Refroidissement">
-                            </div>
-                            <p class="mt-2 text-gray-700">Refroidissement</p>
-                        </div>    <div class="group">
-                            <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
-                                <img class="w-20 h-20" src="./images/Refroidissement 1.png" alt="Refroidissement">
-                            </div>
-                            <p class="mt-2 text-gray-700">Refroidissement</p>
-                        </div>    <div class="group">
-                            <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
-                                <img class="w-20 h-20" src="./images/Refroidissement 1.png" alt="Refroidissement">
-                            </div>
-                            <p class="mt-2 text-gray-700">Refroidissement</p>
-                        </div>
-                        
+    
+<section class="bg-white py-12 ">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="relative overflow-hidden">
+            <!-- Carousel Wrapper -->
+            <div id="carousel-wrapper" class=" flex  mx-20   gap-8 text-center transition-transform duration-500">
+                <!-- Carousel Items -->
+                <div class="group">
+                    <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
+                        <img class="w-20 h-20" src="./images/Carte-mere 1.png" alt="Carte-mère">
                     </div>
-                    <!-- Carousel Navigation Buttons -->
-                    <button id="prev" class="absolute left-0  top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-4 py-2 rounded-full font-extrabold">&lt;</button>
-                    <button id="next" class="absolute right-0  top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-4  py-2 rounded-full font-extrabold">&gt;</button>
+                    <p class="mt-2 text-gray-700">Carte-mère</p>
                 </div>
-            </div>
-        </section>
-        
-        
+                <div class="group">
+                    <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
+                        <img class="w-20 h-20" src="./images/Processeur 1.png" alt="Processeur">
+                    </div>
+                    <p class="mt-2 text-gray-700">Processeur</p>
+                </div>
+                <div class="group">
+                    <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
+                        <img class="w-20 h-20" src="./images/Carte-graphique 1.png" alt="Carte graphique">
+                    </div>
+                    <p class="mt-2 text-gray-700">Carte graphique</p>
+                </div>
+                <div class="group">
+                    <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
+                        <img class="w-20 h-20" src="./images/RAM 1.png" alt="RAM">
+                    </div>
+                    <p class="mt-2 text-gray-700">RAM</p>
+                </div>
+                <div class="group">
+                    <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
+                        <img class="w-20 h-20" src="./images/Refroidissement 1.png" alt="Refroidissement">
+                    </div>
+                    <p 
+                    class="mt-2 text-gray-700">Refroidissement</p>
+                </div>
+                <div class="group">
+                    <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
+                        <img class="w-20 h-20" src="./images/Refroidissement 1.png" alt="Refroidissement">
+                    </div>
+                    <p class="mt-2 text-gray-700">Refroidissement</p>
+                </div>
 
-        <!-- Clients Section -->
-        <section class="btitle bg-[#477590] w-full h-[500px] py-20">
-            <div class="max-w-6xl mx-auto px-6 text-center">
-                <h2 class="text-3xl font-semibold mb-6 text-white">tous les clients</h2>
-                <div class="flex justify-center items-center space-x-8 py-20 gap-x-5 >
-                    <img src="./" alt="">
-                    <img src="./images/apple.png" alt="Apple" class="h-30 hover:scale-110 transition-transform">
-                    <img src="./images/Oraimo.png" alt="Oraimo" class="h-30 hover:scale-110 transition-transform">
-                    <img src="./images/samsung.png" alt="Samsung" class="h-30 hover:scale-110 transition-transform">
-                    <img src="./images/olg.png" alt="LG" class="h-30 hover:scale-110 transition-transform">
+                <div class="group">
+                    <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
+                        <img class="w-20 h-20" src="./images/Refroidissement 1.png" alt="Refroidissement">
+                    </div>
+                    <p class="mt-2 text-gray-700">Refroidissement</p>
+                </div>    <div class="group">
+                    <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
+                        <img class="w-20 h-20" src="./images/Refroidissement 1.png" alt="Refroidissement">
+                    </div>
+                    <p class="mt-2 text-gray-700">Refroidissement</p>
+                </div>    <div class="group">
+                    <div class="w-40 h-40 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition transform group-hover:scale-105 group-hover:bg-[#375a6d]">
+                        <img class="w-20 h-20" src="./images/Refroidissement 1.png" alt="Refroidissement">
+                    </div>
+                    <p class="mt-2 text-gray-700">Refroidissement</p>
                 </div>
+                
             </div>
-        </section>
+            <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-4 py-2 rounded-full font-extrabold">&lt;</button>
+            <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-4 py-2 rounded-full font-extrabold">&gt;</button>
+        </div>
+    </div>
+</section>
+
+<section class="btitle bg-[#477590] w-full py-20">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-semibold mb-6 text-white">Tous les Clients</h2>
+        <div class="flex justify-center items-center space-x-8 py-10 gap-5">
+            <img src="./images/apple.png" alt="Apple" class="h-20 hover:scale-110 transition-transform duration-200 ease-in-out">
+            <img src="./images/Oraimo.png" alt="Oraimo" class="h-20 hover:scale-110 transition-transform duration-200 ease-in-out">
+            <img src="./images/samsung.png" alt="Samsung" class="h-20 hover:scale-110 transition-transform duration-200 ease-in-out">
+            <img src="./images/olg.png" alt="LG" class="h-20 hover:scale-110 transition-transform duration-200 ease-in-out">
+        </div>
+    </div>
+</section>
+
+
 
           <!-- Footer -->
           <footer class="bg-black py-8 border-t">
@@ -244,6 +222,7 @@
               <hr class="h-px my-8 bg-gray-600 border-0">
               <div class="text-center text-gray-300 mt-8">&copy; 2024 - Designed by <strong>CHAMKHI</strong></div>
           </footer>
-
+        
 </body>
+<script src="../assets/GearBox.js"></script>
 </html>
