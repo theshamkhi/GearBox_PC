@@ -3133,34 +3133,6 @@ cartButton.addEventListener('click', () => {
     cartDropdown.classList.toggle('translate-y-0');
 });
 
-function DisplayProduct(product, index) {
-    const TaskCard = document.createElement("div");
-    TaskCard.classList.add("Task", "bg-gray-800", "p-5", "rounded-lg", "shadow-lg", "cardShadow", "transition", "transform", "hover:scale-105");
-  
-    let priorityClass = task.priority === "P1" ? "text-red-600" : task.priority === "P2" ? "text-blue-600" : "text-green-500";
-    
-    TaskCard.innerHTML = `
-      <div class="flex justify-between">
-        <p class="TaskTitle text-lg font-semibold">${product.title}</p>
-        <p class="text-sm">${product.priority}</p>
-      </div>
-      <p class="text-sm text-gray-400">Due: ${product.dueDate}</p>
-      <p class="TaskDescription mt-2 text-gray-300">${product.description}</p>
-      <div class="flex mt-4 space-x-3">
-        <button class="DeleteTask bg-red-500 text-white text-sm font-semibold px-4 py-1.5 rounded-full hover:bg-red-600 transition">Delete</button>
-        <button class="EditTask bg-yellow-400 text-gray-800 text-sm font-semibold px-4 py-1.5 rounded-full hover:bg-yellow-500 transition">Edit</button>
-      </div>
-    `;
-  
-    document.getElementById(columnId).querySelector(".Tasks").appendChild(TaskCard);
-  
-    TaskCard.querySelector(".DeleteProduct").addEventListener("click", () => {
-      TaskCard.remove();
-      removeTaskFromLocalStorage(task);
-    });
-
-  }
-
 
 
 
