@@ -13,7 +13,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pacifico&family=Sofia&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
- </head>
+<script>
+    // Function to load cart data from localStorage on devis.html page
+function loadCartDataOnDevisPage() {
+    const savedCartTotal = localStorage.getItem("cartTotal");
+    const savedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    // Display cart total if available
+    if (savedCartTotal) {
+        document.getElementById("cartTotalDevis").textContent = `${parseFloat(savedCartTotal).toFixed(2)} MAD`;
+    }
+
+    // Display each item in the cart
+    const cartContainer = document.getElementById("cartItemsContainer");
+    savedCartItems.forEach(item => {
+        const itemElement = document.createElement("div");
+        itemElement.innerHTML = `
+            <p><strong>Product Name:</strong> ${item.productName}</p>
+            <p><strong>Promotional Price:</strong> ${item.promotionalPrice} MAD</p>
+            <p><strong>Quantity:</strong> ${item.quantity}</p>
+        `;
+        cartContainer.appendChild(itemElement);
+    });
+}
+
+// Call the function to load data when the page loads
+window.onload = loadCartDataOnDevisPage;
+
+</script> 
+
+</head>
 <body class="bg-gray-100">
 
     <!-- Header -->
@@ -125,5 +154,28 @@
         <div class="text-center text-gray-600 mt-8">&copy; 2024 - Designed by <strong>CHAMKHI</strong></div>
     </footer>
 
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devis Page</title>
+</head>
+<body>
+    <h1>Devis</h1>
+    <p><strong>Cart Total:</strong> <span id="cartTotalDevis">0 MAD</span></p>
+    <div>
+        <p><strong>Product Name:</strong> <span id="productName"></span></p>
+        <p><strong>Promotional Price:</strong> <span id="promotionalPrice"></span></p>
+        <p><strong>Quantity:</strong> <span id="quantity"></span></p>
+    </div>
+    <script src="../assets/js/GearBox.js"></script>
+</body>
+</html>
+
+<!-- 
+ -->
+ 
+ 
 </body>
 </html>
