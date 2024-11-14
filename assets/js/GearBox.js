@@ -217,4 +217,4 @@ const checkInterval = setInterval(() => {
     }
 }, 1000);
 
-// localStorage.clear()
+localStorage.clear()
