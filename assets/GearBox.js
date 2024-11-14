@@ -3130,7 +3130,6 @@ function toggleCart() {
 }
 function toggleMenu() {
     const menuSidebar = document.getElementById('MenuSidebar');
-    // Toggle the transform class to show or hide the sidebar
     menuSidebar.classList.toggle('-translate-x-full');
 }
 
