@@ -88,7 +88,7 @@ footer{
 #texte-promo, .promo-images {
     position: relative;
     z-index: 2;
-    color: rgb(216, 81, 71);
+    color: white;
 }
 
 #texte-promo {
