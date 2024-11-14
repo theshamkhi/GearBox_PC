@@ -3123,19 +3123,16 @@ const checkInterval = setInterval(() => {
 
 /* Page Panier */
 
-// JavaScript to toggle the cart dropdown visibility
-const cartButton = document.getElementById('cart-button');
-const cartDropdown = document.getElementById('cart-dropdown');
-
-cartButton.addEventListener('click', () => {
-    cartDropdown.classList.toggle('hidden');
-    cartDropdown.classList.toggle('opacity-100');
-    cartDropdown.classList.toggle('translate-y-0');
-});
-
-
-
-
+function toggleCart() {
+    const cartDropdown = document.getElementById('CartBar');
+    cartDropdown.classList.toggle('translate-x-0');
+    cartDropdown.classList.toggle('translate-x-full');
+}
+function toggleMenu() {
+    const menuSidebar = document.getElementById('MenuSidebar');
+    // Toggle the transform class to show or hide the sidebar
+    menuSidebar.classList.toggle('-translate-x-full');
+}
 
 
 
