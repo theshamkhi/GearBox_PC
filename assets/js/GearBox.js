@@ -52,35 +52,14 @@ function fetchDataAndDisplay() {
                     name_product.innerHTML = item.name;
                     description_product.innerHTML = item.short_description;
 
-                    // Save product details to localStorage (part of your existing code)
+                    // Save product details to localStorage
                     localStorage.setItem("productName", item.name);
                     localStorage.setItem("productDescription", item.short_description);
                     localStorage.setItem("productImage", item.image_urls[0]);
 
                     // Save short_description and images array to localStorage
-                    const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
-
-                    // Create an updated product object
-                    const updatedProduct = {
-                        productName: item.name,
-                        productDescription: item.short_description,
-                        productImages: item.image_urls,
-                        price: item.price,
-                        qt: item.qt
-                    };
-
-                    // Add or update product in the localStorage array
-                    const productIndex = storedProducts.findIndex(product => product.productName === item.name);
-                    if (productIndex >= 0) {
-                        // Update the existing product
-                        storedProducts[productIndex] = updatedProduct;
-                    } else {
-                        // Add a new product
-                        storedProducts.push(updatedProduct);
-                    }
-
-                    // Save the updated products array back to localStorage
-                    localStorage.setItem("products", JSON.stringify(storedProducts));
+                    localStorage.setItem("short_description", item.short_description);
+                    localStorage.setItem("images", JSON.stringify(item.image_urls));  // Store image URLs as a JSON array
 
                     // Set maxQuantity based on item quantity
                     maxQuantity = item.qt;
@@ -174,14 +153,12 @@ function addToCart() {
         cartItems[existingItemIndex].quantity += quantity;
         cartItems[existingItemIndex].totalPrice = (cartItems[existingItemIndex].quantity * parseFloat(calul_prix_promotion)).toFixed(2);
     } else {
-        // Add new product to the cart with additional properties, storing only the image src
+        // Add new product to the cart
         const itemDetails = {
             productName: name_product.innerHTML,
             promotionalPrice: calul_prix_promotion,
             quantity: quantity,
-            totalPrice: totalItemPrice.toFixed(2),
-            shortDescription: description_product.innerHTML, // Adding short description
-            image: Full_image.src // Adding only the src of the main image
+            totalPrice: totalItemPrice.toFixed(2)
         };
         cartItems.push(itemDetails);
     }
@@ -192,8 +169,7 @@ function addToCart() {
     // Display updated cart total
     document.getElementById("cartTotal").textContent = `${cartTotal.toFixed(2)} MAD`;
 
-    // Log to verify calculation and structure
-    console.log("Added to Cart:", cartItems);
+    // Log to verify calculation
     console.log("Added Quantity:", quantity, "Unit Price (Promotion):", calul_prix_promotion, "Total Item Price:", totalItemPrice, "Cart Total:", cartTotal);
 }
 
@@ -256,4 +232,26 @@ const checkInterval = setInterval(() => {
     }
 }, 1000);
 
+// Sélectionnez toutes les images avec la classe "zoomable"
+const zoomableImages = document.querySelectorAll('.zoomable');
+
+// Zone modale et image zoomée
+const zoomModal = document.getElementById('zoomModal');
+const zoomedImage = document.getElementById('zoomedImage');
+
+// Fonction pour afficher l'image en zoom
+zoomableImages.forEach(image => {
+    image.addEventListener('click', () => {
+        zoomedImage.src = image.src; // Définit la source de l'image zoomée sur celle cliquée
+        zoomModal.classList.remove('hidden'); // Affiche le modal
+    });
+});
+
+// Fonction pour fermer le zoom
+function closeZoom() {
+    document.getElementById('zoomModal').classList.add('hidden'); // Cache le modal
+}
+
+// Appel de la fonction pour charger les images depuis l'API
+loadImagesFromAPI();
 localStorage.clear();
