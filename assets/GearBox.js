@@ -3015,25 +3015,8 @@ function toggleMenu() {
 //    { id: 3, name: 'Product 3', price: 300, description: 'Description for product 3', image: '../assets/media/Product1.png' }
 //];
 
-
-// Function to load cart data from localStorage on this page
-function loadCartDataOnPanierPage() {
-    const productsTotalPrice = localStorage.getItem("cartTotal");
-
-    // Display cart total if available
-    if (productsTotalPrice ) {
-        document.getElementById("STotal").textContent = `${parseFloat(productsTotalPrice).toFixed(2)} MAD`;
-    }
-    // Display each item in the cart
-    DisplayProducts();
-}
-
-// Call the function to load data when the page loads
-window.onload = loadCartDataOnPanierPage;
-
-
 // Storing the products in local storage for testing
-localStorage.setItem('products', JSON.stringify(products));
+//localStorage.setItem('products', JSON.stringify(products));
 
 function DisplayProducts() {
 
@@ -3042,8 +3025,6 @@ function DisplayProducts() {
     if (cartItems) {
         const ProductsDiv = document.querySelector('.ProductsDiv');
         const CartSidebarDiv = document.querySelector('.CartSidebarDiv');
-        const summarySubtotal = document.querySelector('.summarySubtotal');
-        const summaryTotal = document.querySelector('.summaryTotal');
 
         ProductsDiv.innerHTML = '';
         CartSidebarDiv.innerHTML = '';
@@ -3151,8 +3132,8 @@ function DeleteProduct(ProductId) {
 
 
 function Summary(cartItems) {
-    const SubTotal = document.querySelector('.SubTotal');
-    const Total = document.querySelector('.Total');
+    const SubTotal = document.getElementById("SubTotal");
+    const Total = document.getElementById("Total");
 
     let subtotal = 0;
     cartItems.forEach(product => {
@@ -3167,7 +3148,11 @@ function Summary(cartItems) {
     const total = subtotal + DeliveryFee;
 
     // Update the summary display
-    SubTotal.textContent = `${subtotal.toFixed(2)} MAD`;
+    const productsTotalPrice = localStorage.getItem("cartTotal");
+
+    if (productsTotalPrice) {
+        SubTotal.textContent = `${parseFloat(productsTotalPrice).toFixed(2)} MAD`;
+    }
     Total.textContent = `${total.toFixed(2)} MAD`;
 }
 
