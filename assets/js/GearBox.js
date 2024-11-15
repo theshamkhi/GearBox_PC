@@ -89,22 +89,30 @@ function fetchDataAndDisplay() {
     document.getElementById("addToCartBtn").onclick = addToCart;
 }
 
+
 // Function to display a temporary promotion message
 function showPromotionMessage() {
-    const messageDiv = document.createElement("div");
-    messageDiv.id = "promotionMessage";
-    messageDiv.style.color = "green";
-    messageDiv.style.fontWeight = "bold";
-    messageDiv.style.marginTop = "10px";
-    messageDiv.textContent = "Vous avez reçu une promotion de 1% !";
+    const modal = document.createElement("div");
+    modal.id = "promotionModal";
+    modal.classList.add("fixed", "top-0", "left-0", "w-full", "h-full", "bg-gray-800", "bg-opacity-50", "flex", "items-center", "justify-center");
 
-    document.body.appendChild(messageDiv);
+    const modalContent = document.createElement("div");
+    modalContent.classList.add("bg-white", "p-6", "rounded", "shadow-lg", "text-center");
 
-    // Remove the message after 3 seconds
+    const message = document.createElement("p");
+    message.classList.add("text-green-500", "font-bold", "text-lg");
+    message.textContent = "Vous avez reçu une promotion de 1% !";
+
+    modalContent.appendChild(message);
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+
+    // Remove the modal after 3 seconds
     setTimeout(() => {
-        document.body.removeChild(messageDiv);
+        document.body.removeChild(modal);
     }, 3000);
 }
+
 
 // Function to add the item to the cart and calculate the total
 function addToCart() {
@@ -282,3 +290,4 @@ loadImagesFromAPI();
 
 // localStorage.clear()
 
+ 
