@@ -3014,34 +3014,22 @@ function toggleMenu() {
 //    { id: 2, name: 'Product 2', price: 200, description: 'Description for product 2', image: '../assets/media/Product1.png' },
 //    { id: 3, name: 'Product 3', price: 300, description: 'Description for product 3', image: '../assets/media/Product1.png' }
 //];
-const product = { name, description, image, price, quantity };
-const products = JSON.parse(localStorage.getItem("cartItems")) || [];
+
 
 // Function to load cart data from localStorage on this page
-function loadCartDataOnDevisPage() {
-    const savedCartTotal = localStorage.getItem("cartTotal");
-    const savedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+function loadCartDataOnPanierPage() {
+    const productsTotalPrice = localStorage.getItem("cartTotal");
 
     // Display cart total if available
-    if (savedCartTotal) {
-        document.getElementById("cartTotalDevis").textContent = `${parseFloat(savedCartTotal).toFixed(2)} MAD`;
+    if (productsTotalPrice ) {
+        document.getElementById("STotal").textContent = `${parseFloat(productsTotalPrice).toFixed(2)} MAD`;
     }
-
     // Display each item in the cart
-    const cartContainer = document.getElementById("cartItemsContainer");
-    savedCartItems.forEach(item => {
-        const itemElement = document.createElement("div");
-        itemElement.innerHTML = `
-            <p><strong>Product Name:</strong> ${item.productName}</p>
-            <p><strong>Promotional Price:</strong> ${item.promotionalPrice} MAD</p>
-            <p><strong>Quantity:</strong> ${item.quantity}</p>
-        `;
-        cartContainer.appendChild(itemElement);
-    });
+    DisplayProducts();
 }
 
 // Call the function to load data when the page loads
-window.onload = loadCartDataOnDevisPage;
+window.onload = loadCartDataOnPanierPage;
 
 
 // Storing the products in local storage for testing
@@ -3049,18 +3037,18 @@ localStorage.setItem('products', JSON.stringify(products));
 
 function DisplayProducts() {
 
-    let products = JSON.parse(localStorage.getItem('products'));
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-    if (products) {
+    if (cartItems) {
         const ProductsDiv = document.querySelector('.ProductsDiv');
         const CartSidebarDiv = document.querySelector('.CartSidebarDiv');
-        const summarySubtotal = document.querySelector('.summary-subtotal');
-        const summaryTotal = document.querySelector('.summary-total');
+        const summarySubtotal = document.querySelector('.summarySubtotal');
+        const summaryTotal = document.querySelector('.summaryTotal');
 
         ProductsDiv.innerHTML = '';
         CartSidebarDiv.innerHTML = '';
 
-        products.forEach(product => {
+        cartItems.forEach(item => {
             const newProduct = document.createElement('div');
             newProduct.classList.add('border-b', 'rounded-lg', 'bg-white', 'shadow-lg', 'mb-6', 'grid', 'grid-cols-1', 'md:grid-cols-3', 'gap-2', 'items-center');
 
@@ -3069,20 +3057,20 @@ function DisplayProducts() {
                 <!-- Product Item -->
                 <div class="col-span-1">
                     <!-- Image Section -->
-                    <img src="${product.image || '../assets/media/Product1.png'}" alt="${product.productName}" class="w-full h-full object-cover rounded-l-lg max-h-56 md:max-h-64">
+                    <img src="${item.image || '../assets/media/Product1.png'}" alt="${item.productName}" class="w-full h-full object-cover rounded-l-lg max-h-56 md:max-h-64">
                 </div>
                 <!-- Content Section -->
                 <div class="col-span-1 md:col-span-2 flex flex-col space-y-4 p-4">
                     <!-- Title and Remove Button -->
                     <div class="flex justify-between items-center">
-                        <h3 class="text-lg md:text-xl font-semibold text-gray-800">${product.name}</h3>
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-800">${item.productName}</h3>
                         <button class="text-red-500 text-xl hover:text-red-600 transition duration-150" title="Remove" data-id="${product.id}">&#128465;</button>
                     </div>
                     <!-- Description -->
-                    <p class="text-gray-600 text-sm md:text-base leading-relaxed">${product.description || 'No description available'}</p>
+                    <p class="text-gray-600 text-sm md:text-base leading-relaxed">${item.short_description || 'No description available'}</p>
                     <!-- Price and Quantity Section -->
                     <div class="flex justify-between items-center">
-                        <p class="text-lg md:text-xl font-bold text-gray-900" id="Price-${product.id}">${product.totalPrice} MAD</p>
+                        <p class="text-lg md:text-xl font-bold text-gray-900" id="Price-${product.id}">${item.totalPrice} MAD</p>
                         <div class="flex items-center space-x-2">
                             <button aria-label="Decrease quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" data-id="${product.id}" id="MinusBtn-${product.id}">-</button>
                             <input type="number" value="1" class="w-12 text-center border rounded-md text-base md:text-lg" aria-label="Quantity" id="Quantity-${product.id}">
@@ -3099,11 +3087,11 @@ function DisplayProducts() {
             sidebarProduct.classList.add('flex', 'items-center', 'space-x-4', 'border-b', 'pb-4');
 
             sidebarProduct.innerHTML = `
-                <img src="${product.image || '../assets/media/Product1.png'}" alt="${product.name}" class="w-16 h-16 object-cover rounded">
+                <img src="${product.image || '../assets/media/Product1.png'}" alt="${item.productName}" class="w-16 h-16 object-cover rounded">
                 <div class="flex-1">
-                    <h4 class="font-bold text-gray-800">${product.name}</h4>
+                    <h4 class="font-bold text-gray-800">${item.productName}</h4>
                     <div class="flex justify-between items-center">
-                        <p class="text-gray-600 text-sm">${product.price} MAD</p>
+                        <p class="text-gray-600 text-sm">${item.totalPrice} MAD</p>
                         <button class="text-md" title="Remove" data-id="${product.id}">&#128465;</button>
                     </div>
                 </div>
@@ -3123,7 +3111,7 @@ function DisplayProducts() {
                 Quantity.value = currentQuantity;
                 // Update price based on quantity
                 Price.textContent = `${(currentQuantity * product.price)} MAD`;
-                Summary(products); // Update the summary based on the new quantities
+                Summary(cartItems); // Update the summary based on the new quantities
             });
 
             MinusBtn.addEventListener('click', () => {
@@ -3133,7 +3121,7 @@ function DisplayProducts() {
                     Quantity.value = currentQuantity;
 
                     Price.textContent = `${(currentQuantity * product.price)} MAD`;
-                    Summary(products);
+                    Summary(cartItems);
                 }
             });
         });
@@ -3143,7 +3131,7 @@ function DisplayProducts() {
             button.addEventListener('click', function () {
                 const ProductId = parseInt(this.getAttribute('data-id'));
                 DeleteProduct(ProductId);
-                Summary(products);
+                Summary(cartItems);
             });
         });
 
@@ -3153,22 +3141,21 @@ function DisplayProducts() {
 }
 
 function DeleteProduct(ProductId) {
-    let products = JSON.parse(localStorage.getItem('products'));
 
-    const RemainingProducts = products.filter(product => product.id !== ProductId);
+    const RemainingProducts = cartItems.filter(product => product.id !== ProductId);
 
-    localStorage.setItem('products', JSON.stringify(RemainingProducts));
+    localStorage.setItem('cartItems', JSON.stringify(RemainingProducts));
 
     DisplayProducts();
 }
 
 
-function Summary(products) {
+function Summary(cartItems) {
     const SubTotal = document.querySelector('.SubTotal');
     const Total = document.querySelector('.Total');
 
     let subtotal = 0;
-    products.forEach(product => {
+    cartItems.forEach(product => {
         const Quantity = parseInt(document.getElementById(`Quantity-${product.id}`).value);
         subtotal += product.price * Quantity;
     });
