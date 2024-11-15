@@ -1,11 +1,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 function toggleMenu() {
     const menuSidebar = document.getElementById('MenuSidebar');
     menuSidebar.classList.toggle('-translate-x-full');
 }
+=======
+
+>>>>>>> 8d808b37221ec5e582b7a1c39535f8d0c9c82467
 
 
 
@@ -1041,7 +1045,10 @@ let currentPage = 1;
 let catalogData = [];
 let filteredData = [];  
 let totalPages = 1;
+<<<<<<< HEAD
 >>>>>>> b0eedb2c0f79fd767d9b3427ebe1b34f8cd9a638
+=======
+>>>>>>> 8d808b37221ec5e582b7a1c39535f8d0c9c82467
 
 async function theData() {
     try{
@@ -1056,6 +1063,7 @@ async function theData() {
 
 console.log(theData());
 
+<<<<<<< HEAD
 
 
 
@@ -3077,12 +3085,24 @@ console.log(img_prod_first);
 function getURLParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
+=======
+async function loadCatalogData() {
+    try {
+        const response = await fetch('../data/data.json');  
+        const data = await response.json();
+        catalogData = data;
+        filteredData = catalogData;  
+
+        updatePagination();  
+        renderPage();        
+    } catch (error) {
+        console.error("Error loading catalog data:", error);
+    }
+>>>>>>> 8d808b37221ec5e582b7a1c39535f8d0c9c82467
 }
 
-function fetchDataAndDisplay() {
-    const urlId = getURLParameter('id'); 
-    console.log(urlId);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     if (!urlId) {
         console.log("Aucun ID dans l'URL, nouvelle vérification dans une seconde.");
@@ -3178,10 +3198,52 @@ const checkInterval = setInterval(() => {
         console.log("Vérification de l'ID chaque seconde...");
     }
 }, 1000);  // Check every 1000ms (1 second)
+=======
+async function renderPage() {
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const items = filteredData.slice(start, end);  
+    const catalogItemsContainer = document.querySelector('.catalogItems');
+    catalogItemsContainer.innerHTML = '';
+
+    for (const item of items) {
+        const imageUrl = item.image_urls[0]; 
+
+        const itemHTML = `
+            <div class="item_cards w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 item-card" id="${item.part_type}">
+                <a href="#">
+                    <img class="p-8 rounded-t-lg" src="${imageUrl}" alt="product image" />
+                </a>
+                <div class="atSec px-5 ">
+                    <a href="#">
+                        <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white" id="item${item.id}">${item.name}</h5>
+                    </a>
+                    <div class="flex items-center justify-between">
+                    <span class="text-3xl font-bold text-gray-900 dark:text-white">${(item.price*9).toFixed(2)} MAD</span>
+                    <a href="#" class="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                        </svg>
+                    </a>
+                    </div>
+                </div>
+
+            </div>`;
+
+        catalogItemsContainer.insertAdjacentHTML('beforeend', itemHTML);
+        document.getElementById(`item${item.id}`).addEventListener('click', function() {
+            const data = { id: item.id};
+            const queryString = new URLSearchParams(data).toString();
+            window.location.href = `Details.html?${queryString}`;
+        });
+    } 
+}
+>>>>>>> 8d808b37221ec5e582b7a1c39535f8d0c9c82467
 
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -6246,6 +6308,8 @@ document.querySelector('#sort-select').addEventListener('change', function () {
 });
 
 
+=======
+>>>>>>> 8d808b37221ec5e582b7a1c39535f8d0c9c82467
 function sortCatalog(sortOption) {
     if (sortOption === 'price-asc') {
         // Sort by price in ascending order
@@ -6679,4 +6743,8 @@ closeFi.addEventListener('click', function(){
     let filterPanel = document.querySelector('.rightSide');
     filterPanel.style.display = 'none';
 })
+<<<<<<< HEAD
 >>>>>>> b0eedb2c0f79fd767d9b3427ebe1b34f8cd9a638
+=======
+
+>>>>>>> 8d808b37221ec5e582b7a1c39535f8d0c9c82467
