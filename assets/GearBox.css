@@ -3297,7 +3297,10 @@ footer{
     font-size: 24px;
 }
 
-
+#Apagination{
+    position: relative;
+    left: 670px;
+}
 
 
 
