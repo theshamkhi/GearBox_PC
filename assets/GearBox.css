@@ -40,28 +40,6 @@ footer{
     grid-template-columns: 100% minmax(100%, auto);
 }
 
-#bandeau{
-    background-color: #B6B5D0;
-    padding: 30px;
-    display: flex;
-}
-
-#exclamation{
-    width: 2%;
-    margin-right: 1rem;
-}
-
-#promo{
-    color: white;
-    font-weight: 800;
-    font-size: large;
-}
-
-#promotion{
-    display: flex;
-    gap: 0.5rem;
-}
-
 #bannière {
     position: relative;
     display: flex;
@@ -193,12 +171,12 @@ footer{
 
 .Carte-mere{
     filter: drop-shadow(5px 5px 5px #000);
-    width: 100%;
+    width: 90%;
 }
 
 .Processeur{
     filter: drop-shadow(5px 5px 5px #000);
-    width: 65%;
+    width: 63%;
     position: relative;
     bottom: 10px;
     left: 30px;
@@ -213,19 +191,19 @@ footer{
 
 .Refroidissement{
     filter: drop-shadow(5px 5px 5px #000);
-    width: 100%;
+    width: 90%;
 }
 
 .Boîtier{
     filter: drop-shadow(5px 5px 5px #000);
-    width: 75%;
+    width: 70%;
     position: relative;
     left: 20px;
 }
 
 .RAM{
     filter: drop-shadow(5px 5px 5px #000);
-    width: 73%;
+    width: 70%;
     position: relative;
     left: 25px;
 }
@@ -577,7 +555,65 @@ footer{
 .vente{
     display: none;
 }
+}
 
+.vente img{
+    width: 384px;
+    height: 250px;
+}
 
+#MenuSidebar ul li .submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    margin-left: 0;
+    margin-top: 0;
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
+#MenuSidebar ul li:hover .submenu {
+    display: block;
+}
+
+#bandeau {
+    width: 100%;
+    overflow: hidden;
+    background-color: #B6B5D0;
+    position: relative;
+    padding: 30px;
+}
+
+.scrolling-text {
+    display: flex;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+#promotion {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+#exclamation {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+#promo {
+    color: #fff;
+    font-size: 24px;
 }
