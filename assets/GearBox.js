@@ -3038,16 +3038,16 @@ function DisplayProducts() {
                     <img src="${item.image || '../assets/media/Product1.png'}" alt="${item.productName}" class="w-full h-full object-cover rounded-l-lg max-h-56 md:max-h-64">
                 </div>
                 <div class="col-span-1 md:col-span-2 flex flex-col space-y-4 p-4">
-                    <div class="flex justify-between items-center">
+                    <div class="flex justify-between items-center mb-4">
                         <h3 class="text-lg md:text-xl font-semibold text-gray-800">${item.productName}</h3>
                         <button class="text-red-500 text-xl hover:text-red-600 transition duration-150" title="Remove" data-id="${item.id}">&#128465;</button>
                     </div>
-                    <p class="text-gray-600 text-sm md:text-base leading-relaxed">${item.short_description || 'No description available'}</p>
+                    <p class="text-gray-600 text-sm md:text-base leading-relaxed">${item.shortDescription || 'No description available'}</p>
                     <div class="flex justify-between items-center">
                         <p class="text-lg md:text-xl font-bold text-gray-900" id="Price-${item.id}">${item.totalPrice} MAD</p>
                         <div class="flex items-center space-x-2">
                             <button class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" data-id="${item.id}" id="MinusBtn-${item.id}">-</button>
-                            <input type="number" value="1" class="w-12 text-center border rounded-md text-base md:text-lg" id="Quantity-${item.id}">
+                            <input type="number" value="1" class="w-12 text-center border rounded-md text-base md:text-lg" id="quantity">
                             <button class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" data-id="${item.id}" id="PlusBtn-${item.id}">+</button>
                         </div>
                     </div>
@@ -3076,7 +3076,7 @@ function DisplayProducts() {
             // Add event listeners for the quantity buttons
             const PlusBtn = document.getElementById(PlusBtn-`${item.id}`);
             const MinusBtn = document.getElementById(MinusBtn-`${item.id}`);
-            const Quantity = document.getElementById(Quantity-`${item.id}`);
+            const Quantity = document.getElementById('quantity`');
             const Price = document.getElementById(Price-`${item.id}`);
 
             PlusBtn.addEventListener('click', () => {
@@ -3123,7 +3123,7 @@ function Summary(cartItems) {
 
     let subtotal = 0;
     cartItems.forEach(item => {
-        const Quantity = parseInt(document.getElementById(Quantity-`${item.id}`).value) || 1;
+        const Quantity = parseInt(document.getElementById('quantity').value) || 1;
         subtotal += item.price * Quantity;
     });
 
