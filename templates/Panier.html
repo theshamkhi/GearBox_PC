@@ -74,15 +74,15 @@
                 <aside class="bg-white rounded-lg shadow-lg p-6 h-64 overflow-y-auto">
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-gray-700">Sous-total</span>
-                        <span class="text-gray-700 SubTotal">79.26 MAD</span>
+                        <span class="text-gray-700 SubTotal" id="cartTotalDevis">0 MAD</span>
                     </div>
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-gray-700">Frais de livraison</span>
-                        <span class="text-gray-700">21.30 MAD</span>
+                        <span class="text-gray-700">0 MAD</span>
                     </div>
                     <div class="flex justify-between items-center font-semibold text-lg mb-8">
                         <span>Total estimé</span>
-                        <span class="Total">100.56 MAD</span>
+                        <span class="Total">0 MAD</span>
                     </div>
                     <button class="w-full bg-black text-white py-3 rounded-md hover:bg-gray-800 transition duration-200">Payer</button>
                 </aside>
@@ -90,6 +90,12 @@
 
         </div>
     </main>
+
+    <div>
+        <p><strong>Product Name:</strong> <span id="productName"></span></p>
+        <p><strong>Promotional Price:</strong> <span id="promotionalPrice"></span></p>
+        <p><strong>Quantity:</strong> <span id="quantity"></span></p>
+    </div>
 
     <!-- Footer -->
     <footer class="py-8 pt-16 border-t" style="background-color: #212847;">
