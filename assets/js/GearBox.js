@@ -254,4 +254,4 @@ function closeZoom() {
 
 // Appel de la fonction pour charger les images depuis l'API
 loadImagesFromAPI();
-localStorage.clear();
+
