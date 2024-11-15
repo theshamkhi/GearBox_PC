@@ -220,5 +220,65 @@ const checkInterval = setInterval(() => {
     }
 }, 1000);
 
+// Sélectionnez toutes les images avec la classe "zoomable"
+const zoomableImages = document.querySelectorAll('.zoomable');
+
+// Zone modale et image zoomée
+const zoomModal = document.getElementById('zoomModal');
+const zoomedImage = document.getElementById('zoomedImage');
+
+// Fonction pour afficher l'image en zoom
+zoomableImages.forEach(image => {
+    image.addEventListener('click', () => {
+        zoomedImage.src = image.src; // Définit la source de l'image zoomée sur celle cliquée
+        zoomModal.classList.remove('hidden'); // Affiche le modal
+    });
+});
+
+// Fonction pour fermer le zoom
+// Fonction pour charger les images via l'API
+function loadImagesFromAPI() {
+    fetch('../data/data.json') // Remplacez l'URL par celle de votre API
+        .then(response => response.json())
+        .then(data => {
+            // Assurez-vous que les données de l'API contiennent les images nécessaires
+            if (data && data.length > 0) {
+                document.getElementById('prod_zome_1').src = data[0].image_urls[0];
+                document.getElementById('prod_zome_2').src = data[0].image_urls[1];
+                document.getElementById('prod_zome_3').src = data[0].image_urls[2];
+                document.getElementById('prod_zome_4').src = data[0].image_urls[3];
+
+                // Ajouter les événements de zoom après le chargement des images
+                addZoomEventListeners();
+            }
+        })
+        .catch(error => console.log("Erreur lors du chargement des images :", error));
+}
+
+// Fonction pour ajouter des écouteurs d'événements de zoom aux images
+function addZoomEventListeners() {
+    const zoomableImages = document.querySelectorAll('.zoomable');
+    const zoomModal = document.getElementById('zoomModal');
+    const zoomedImage = document.getElementById('zoomedImage');
+
+    zoomableImages.forEach(image => {
+        image.addEventListener('click', () => {
+            zoomedImage.src = image.src; // Définit la source de l'image zoomée sur celle cliquée
+            zoomModal.classList.remove('hidden'); // Affiche le modal
+        });
+    });
+}
+
+// Fonction pour fermer le zoom
+function closeZoom() {
+    document.getElementById('zoomModal').classList.add('hidden'); // Cache le modal
+}
+
+// Appel de la fonction pour charger les images depuis l'API
+loadImagesFromAPI();
+
+
+
+
 // localStorage.clear()
 
