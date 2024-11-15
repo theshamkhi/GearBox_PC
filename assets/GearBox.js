@@ -3221,6 +3221,7 @@ function DisplayProducts() {
                 Quantity.value = currentQuantity;
                 // Update price based on quantity
                 Price.textContent = `${(currentQuantity * product.price)} MAD`;
+                Summary(products); // Update the summary based on the new quantities
             });
 
             MinusBtn.addEventListener('click', () => {
@@ -3230,6 +3231,7 @@ function DisplayProducts() {
                     Quantity.value = currentQuantity;
                     // Update price based on quantity
                     Price.textContent = `${(currentQuantity * product.price)} MAD`;
+                    Summary(products); // Update the summary based on the new quantities
                 }
             });
         });
@@ -3261,7 +3263,28 @@ function DeleteProduct(ProductId) {
     DisplayProducts();
 }
 
+// Function to update the summary (subtotal, delivery, total)
+function Summary(products) {
+    const SubTotal = document.querySelector('.SubTotal');
+    const Total = document.querySelector('.Total');
 
+    // Calculate subtotal
+    let subtotal = 0;
+    products.forEach(product => {
+        const Quantity = parseInt(document.getElementById(`Quantity-${product.id}`).value);
+        subtotal += product.price * Quantity;
+    });
+
+    // Static for now
+    const DeliveryFee = 21.30;
+
+    // Total
+    const total = subtotal + DeliveryFee;
+
+    // Update the summary display
+    SubTotal.textContent = `${subtotal.toFixed(2)} MAD`;
+    Total.textContent = `${total.toFixed(2)} MAD`;
+}
 
 document.addEventListener('DOMContentLoaded', DisplayProducts);
 
