@@ -2999,11 +2999,21 @@
 
 
 /* Page Panier */
+
+// Wait for the DOM to fully load before running the functions
+document.addEventListener('DOMContentLoaded', () => {
+    DisplayProducts();
+    Quantity();
+    Summary();
+    DeleteProduct();
+});
+
 function toggleCart() {
     const cartDropdown = document.getElementById('CartBar');
     cartDropdown.classList.toggle('translate-x-0');
     cartDropdown.classList.toggle('translate-x-full');
 }
+
 function toggleMenu() {
     const menuSidebar = document.getElementById('MenuSidebar');
     menuSidebar.classList.toggle('-translate-x-full');
@@ -3108,8 +3118,7 @@ function Quantity() {
             document.querySelector(`#quantity-${index}`).textContent = cartItems[index].quantity;
             document.querySelector(`#Price-${index}`).textContent = `${cartItems[index].totalPrice} MAD`;
 
-            // Optional: Refresh cart sidebar
-            // DisplayProducts(); // Uncomment if sidebar requires a full refresh
+            // Refresh summary
             Summary();
         }
     });
@@ -3136,13 +3145,31 @@ function Summary() {
     document.getElementById("Total").textContent = `${total.toFixed(2)} MAD`;
 }
 
+// Function to handle product deletion
+function DeleteProduct() {
+    document.addEventListener("click", (event) => {
+        // Check if the clicked element is a delete button
+        if (event.target.matches('button[title="Remove"]')) {
+            const index = event.target.getAttribute("data-index");
 
-// Wait for the DOM to fully load before running the functions
-document.addEventListener('DOMContentLoaded', () => {
-    DisplayProducts();
-    Quantity();
-    Summary();
-});
+            // Retrieve cart items from localStorage
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+            // Remove the product at the specified index
+            if (index >= 0 && index < cartItems.length) {
+                cartItems.splice(index, 1);
+
+                // Update localStorage with the modified cart
+                localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+                // Update UI dynamically
+                DisplayProducts(); // Re-display products
+                Summary(); // Update the summary section
+            }
+        }
+    });
+}
+
 
 
 
