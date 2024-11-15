@@ -18,26 +18,30 @@
 </head>
 <body>
     <main>
-        <table class="table-auto">
-            <thead>
-              <tr>
-                <th>Produit</th>
-                <th>Prix</th>
-                <th>Qantité</th>
-                <th>Total</th>
-              </tr>
-            </thead>
-            <tbody id="tbd">
-                
-            </tbody>
-          </table>
+        <div class="flex flex-col">
+            <!-- Ajout d'un conteneur responsive pour le tableau -->
+            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                    <div class="overflow-hidden">
+                        <table class="min-w-full text-left text-sm font-light text-black">
+                            <thead class="border-b border-neutral-200 font-medium">
+                                <tr>
+                                    <th scope="col" class="px-6 py-4">Produit</th>
+                                    <th scope="col" class="px-6 py-4">Prix</th>
+                                    <th scope="col" class="px-6 py-4">Qantité</th>
+                                    <th scope="col" class="px-6 py-4">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbd">
+                                <!-- Remplir dynamiquement le tableau si nécessaire -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
         
-        <section class="produits-mobi">
-            <div class="prduitname"></div>
-            <div class="qantite-mobi"><p class="para1">Qantité :</p></div>
-            <div class="qantite-mobi"><p class="para2">Prix :</p></div>
-            <div class="qantite-mobi"><p class="para3">Total :</p></div>
-        </section>
+       
     </main>
         <center><button  class="px-6 py-3.5 text-base font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" 
             id="download" onclick="funprint()">télécharger PDF</button></center>
