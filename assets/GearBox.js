@@ -4,11 +4,32 @@ slides.addEventListener("wheel",(evnt)=>{
     slides.scrollLeft += evnt.deltaX
 })
 
+function toggleMenu() {
+    const menuSidebar = document.getElementById('MenuSidebar');
+    menuSidebar.classList.toggle('-translate-x-full');
+}
 
+var imgapi1 = document.getElementById('imgapi1')
+var carte1 = document.getElementById('carte1')
+var txtapi1 = document.getElementById('txtapi1')
+var descriapi1 = document.getElementById('descriapi1')
+var descriapi2 = document.getElementById('descriapi2')
+fetch('data/data.json')
+.then(response=>response.json())
+.then(data=>{
+    data.forEach(item => {
+if (item.id == 1100){
+    let elementA = document.createElement('div')
+    imgapi1.src = `${item.image_urls[0]}`
+    txtapi1.innerHTML = `${item.name}`
+    descriapi1.innerHTML = `${item.short_description}`
+    var prgapi1 = document.createElement('p')
+    prgapi1.innerHTML = `${item.Interface}`
+    descriapi1.appendChild(prgapi1)
 
-
-
-
+}
+    });
+})
 
 
 
