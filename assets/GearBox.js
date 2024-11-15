@@ -3019,10 +3019,9 @@ function toggleMenu() {
 //localStorage.setItem('products', JSON.stringify(products));
 
 function DisplayProducts() {
-
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-    if (cartItems) {
+    if (cartItems.length) {
         const ProductsDiv = document.querySelector('.ProductsDiv');
         const CartSidebarDiv = document.querySelector('.CartSidebarDiv');
 
@@ -3035,27 +3034,21 @@ function DisplayProducts() {
 
             // Main Products Div
             newProduct.innerHTML = `
-                <!-- Product Item -->
                 <div class="col-span-1">
-                    <!-- Image Section -->
                     <img src="${item.image || '../assets/media/Product1.png'}" alt="${item.productName}" class="w-full h-full object-cover rounded-l-lg max-h-56 md:max-h-64">
                 </div>
-                <!-- Content Section -->
                 <div class="col-span-1 md:col-span-2 flex flex-col space-y-4 p-4">
-                    <!-- Title and Remove Button -->
                     <div class="flex justify-between items-center">
                         <h3 class="text-lg md:text-xl font-semibold text-gray-800">${item.productName}</h3>
-                        <button class="text-red-500 text-xl hover:text-red-600 transition duration-150" title="Remove" data-id="${product.id}">&#128465;</button>
+                        <button class="text-red-500 text-xl hover:text-red-600 transition duration-150" title="Remove" data-id="${item.id}">&#128465;</button>
                     </div>
-                    <!-- Description -->
                     <p class="text-gray-600 text-sm md:text-base leading-relaxed">${item.short_description || 'No description available'}</p>
-                    <!-- Price and Quantity Section -->
                     <div class="flex justify-between items-center">
-                        <p class="text-lg md:text-xl font-bold text-gray-900" id="Price-${product.id}">${item.totalPrice} MAD</p>
+                        <p class="text-lg md:text-xl font-bold text-gray-900" id="Price-${item.id}">${item.totalPrice} MAD</p>
                         <div class="flex items-center space-x-2">
-                            <button aria-label="Decrease quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" data-id="${product.id}" id="MinusBtn-${product.id}">-</button>
-                            <input type="number" value="1" class="w-12 text-center border rounded-md text-base md:text-lg" aria-label="Quantity" id="Quantity-${product.id}">
-                            <button aria-label="Increase quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" data-id="${product.id}" id="PlusBtn-${product.id}">+</button>
+                            <button class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" data-id="${item.id}" id="MinusBtn-${item.id}">-</button>
+                            <input type="number" value="1" class="w-12 text-center border rounded-md text-base md:text-lg" id="Quantity-${item.id}">
+                            <button class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" data-id="${item.id}" id="PlusBtn-${item.id}">+</button>
                         </div>
                     </div>
                 </div>
@@ -3068,12 +3061,12 @@ function DisplayProducts() {
             sidebarProduct.classList.add('flex', 'items-center', 'space-x-4', 'border-b', 'pb-4');
 
             sidebarProduct.innerHTML = `
-                <img src="${product.image || '../assets/media/Product1.png'}" alt="${item.productName}" class="w-16 h-16 object-cover rounded">
+                <img src="${item.image || '../assets/media/Product1.png'}" alt="${item.productName}" class="w-16 h-16 object-cover rounded">
                 <div class="flex-1">
                     <h4 class="font-bold text-gray-800">${item.productName}</h4>
                     <div class="flex justify-between items-center">
                         <p class="text-gray-600 text-sm">${item.totalPrice} MAD</p>
-                        <button class="text-md" title="Remove" data-id="${product.id}">&#128465;</button>
+                        <button class="text-md" title="Remove" data-id="${item.id}">&#128465;</button>
                     </div>
                 </div>
             `;
@@ -3081,18 +3074,17 @@ function DisplayProducts() {
             CartSidebarDiv.appendChild(sidebarProduct);
 
             // Add event listeners for the quantity buttons
-            const PlusBtn = document.getElementById(`PlusBtn-${product.id}`);
-            const MinusBtn = document.getElementById(`MinusBtn-${product.id}`);
-            const Quantity = document.getElementById(`Quantity-${product.id}`);
-            const Price = document.getElementById(`Price-${product.id}`);
+            const PlusBtn = document.getElementById(PlusBtn-`${item.id}`);
+            const MinusBtn = document.getElementById(MinusBtn-`${item.id}`);
+            const Quantity = document.getElementById(Quantity-`${item.id}`);
+            const Price = document.getElementById(Price-`${item.id}`);
 
             PlusBtn.addEventListener('click', () => {
                 let currentQuantity = parseInt(Quantity.value);
                 currentQuantity++;
                 Quantity.value = currentQuantity;
-                // Update price based on quantity
-                Price.textContent = `${(currentQuantity * product.price)} MAD`;
-                Summary(cartItems); // Update the summary based on the new quantities
+                Price.textContent = `${(currentQuantity * item.price).toFixed(2)} MAD`;
+                Summary(cartItems);
             });
 
             MinusBtn.addEventListener('click', () => {
@@ -3100,8 +3092,7 @@ function DisplayProducts() {
                 if (currentQuantity > 1) {
                     currentQuantity--;
                     Quantity.value = currentQuantity;
-
-                    Price.textContent = `${(currentQuantity * product.price)} MAD`;
+                    Price.textContent = `${(currentQuantity * item.price).toFixed(2)} MAD`;
                     Summary(cartItems);
                 }
             });
@@ -3112,47 +3103,34 @@ function DisplayProducts() {
             button.addEventListener('click', function () {
                 const ProductId = parseInt(this.getAttribute('data-id'));
                 DeleteProduct(ProductId);
-                Summary(cartItems);
             });
         });
-
     } else {
         console.log('No products found in local storage.');
     }
 }
 
 function DeleteProduct(ProductId) {
-
-    const RemainingProducts = cartItems.filter(product => product.id !== ProductId);
-
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const RemainingProducts = cartItems.filter(item => item.id !== ProductId);
     localStorage.setItem('cartItems', JSON.stringify(RemainingProducts));
-
     DisplayProducts();
 }
-
 
 function Summary(cartItems) {
     const SubTotal = document.getElementById("SubTotal");
     const Total = document.getElementById("Total");
 
     let subtotal = 0;
-    cartItems.forEach(product => {
-        const Quantity = parseInt(document.getElementById(`Quantity-${product.id}`).value);
-        subtotal += product.price * Quantity;
+    cartItems.forEach(item => {
+        const Quantity = parseInt(document.getElementById(Quantity-`${item.id}`).value) || 1;
+        subtotal += item.price * Quantity;
     });
 
-    // Static for now
     const DeliveryFee = 21.30;
-
-    // Total
     const total = subtotal + DeliveryFee;
 
-    // Update the summary display
-    const productsTotalPrice = localStorage.getItem("cartTotal");
-
-    if (productsTotalPrice) {
-        SubTotal.textContent = `${parseFloat(productsTotalPrice).toFixed(2)} MAD`;
-    }
+    SubTotal.textContent = `${subtotal.toFixed(2)} MAD`;
     Total.textContent = `${total.toFixed(2)} MAD`;
 }
 
