@@ -42,7 +42,8 @@
     </section>
     
 
-    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-8 md:px-10 md:py-12 ">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-8 md:px-10 md:py-12 ">^
+        <div data-aos="fade-down-right"></div>
         <div class="text-section flex-1 mb-6 md:mb-0 md:pr-8">
             <h2 class="text-3xl font-semibold mb-4 text-gray-800 mx-40">Notre Historique</h2>
             <p class="text-lg text-gray-600 leading-relaxed mx-40">Le Lorem Ipsum est simplement du faux texte employé <br> dans la composition et la mise en page avant impression. C'est un texte standard de l'imprimerie depuis les années 1500...</p>
@@ -163,11 +164,12 @@
     </section>
     
 
-    <section class="btitle bg-gradient-to-r from-[#477590] to-[#6fa2d0] w-full py-16 sm:py-20">
+    <section class="btitle bg-gradient-to-r from-[#477590] to-[#6fa2d0] w-full py-16 sm:py-20">*
+        <div data-aos="zoom-in-down"></div>
         <div class="max-w-7xl mx-auto px-6 text-center text-black">
           <h2 class="text-4xl sm:text-5xl font-semibold mb-8 tracking-wide">Nos Clients</h2>
-          <p class="text-lg sm:text-xl max-w-4xl mx-auto mb-12 leading-relaxed text-gray-200">
-            Nous collaborons avec des marques renommées telles qu'Apple, Oraimo, Samsung et LG, reconnues pour leur excellence et leur innovation. Leur confiance reflète notre engagement envers la qualité et l'excellence.
+          <p class="text-lg sm:text-xl max-w-4xl mx-auto mb-12 leading-relaxed text-black">
+            Nous collaborons avec des marques renommées telles qu'Apple, Oraimo, Samsung et LG..., reconnues pour leur excellence et leur innovation. Leur confiance reflète notre engagement envers la qualité et l'excellence.
           </p>
           <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-10">
             <img src="./images/apple.png" alt="Apple" class="h-16 sm:h-24 transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
@@ -249,4 +251,7 @@
         
 </body>
 <script src="../assets/GearBox.js"></script>
+<script>
+    AOS.init();
+  </script>
 </html>
