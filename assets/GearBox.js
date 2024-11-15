@@ -2,11 +2,43 @@
 <<<<<<< HEAD
 =======
 
+function toggleMenu() {
+    const menuSidebar = document.getElementById('MenuSidebar');
+    menuSidebar.classList.toggle('-translate-x-full');
+}
 
 
 
+var imgapi1 = document.getElementById('imgapi1')
+var carte1 = document.getElementById('carte1')
+var txtapi1 = document.getElementById('txtapi1')
+var descriapi1 = document.getElementById('descriapi1')
+var descriapi2 = document.getElementById('descriapi2')
+fetch('data/data.json')
+.then(response=>response.json())
+.then(data=>{
+    let index = 0;
+    data.forEach(item => {
 
+        let inner = `
+        <a href="#" id="carte1">
+                    <img id="imgapi1" class="rounded-t-lg" src="${item.image_urls[0]}" alt="" />
+                </a>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 id="txtapi1" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${item.name}</h5>
+                        <div id="descriapi1">${(item.price * 9)} MAD</div>
+                    </a>
+                    <a href="#" id="bouton1" class="inline-flex items-center px-10 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-7 mt-5">
+                        Ajouter au panier
+                    </a>
+                </div>`;
+        document.getElementById(`gamer${index+1}`).innerHTML = inner;
 
+        index++;
+
+    });
+})
 
 
 
