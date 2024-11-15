@@ -1001,6 +1001,7 @@
 
 
 
+
 const itemsPerPage = 9;
 let currentPage = 1;
 let catalogData = [];
@@ -1515,3 +1516,4 @@ closeFi.addEventListener('click', function(){
     let filterPanel = document.querySelector('.rightSide');
     filterPanel.style.display = 'none';
 })
+
