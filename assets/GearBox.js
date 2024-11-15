@@ -3231,7 +3231,7 @@ function DisplayProducts() {
                     Quantity.value = currentQuantity;
                     // Update price based on quantity
                     Price.textContent = `${(currentQuantity * product.price)} MAD`;
-                    Summary(products); // Update the summary based on the new quantities
+                    Summary(products);
                 }
             });
         });
@@ -3241,6 +3241,7 @@ function DisplayProducts() {
             button.addEventListener('click', function () {
                 const ProductId = parseInt(this.getAttribute('data-id'));
                 DeleteProduct(ProductId);
+                Summary(products);
             });
         });
 
@@ -3250,16 +3251,12 @@ function DisplayProducts() {
 }
 
 function DeleteProduct(ProductId) {
-    // Get the products from local storage
     let products = JSON.parse(localStorage.getItem('products'));
 
-    // Filter out the product to remove
     const RemainingProducts = products.filter(product => product.id !== ProductId);
 
-    // Update the products in local storage
     localStorage.setItem('products', JSON.stringify(RemainingProducts));
 
-    // Re-render the products
     DisplayProducts();
 }
 
