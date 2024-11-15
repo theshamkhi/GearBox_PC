@@ -23,7 +23,6 @@ footer{
     border: 1px solid black;
     box-shadow: 0 0 0 0 white;
 }
-<<<<<<< HEAD
   
   #contactb:hover {
     transform: translateY(-4px) translateX(-2px);
@@ -497,35 +496,3 @@ footer{
     100% { color: red; }
 }
 
-=======
-#boutton,#download{
-    margin:2em 0 2em 0;
-    background-color:#8976B5;
-    width:320px;
-}
-#boutton,#download:hover{
-    margin-top:2em;
-    background-color:#BFADE7;
-    color: black;;
-    width:320px;
-    transition:1s;
-}
-@media print {
-    #download{
-        display:none;
-        
-    }
-
-}
-@media (max-width:425px) {
-    h1{
-        margin-bottom:2em;
-    }
-    .produits-mobi{
-        display: block;
-    }
-    table {
-        display: none;
-    }
-}
->>>>>>> dceca510a3b57e368dd8d9a246b7e37005224a0c
