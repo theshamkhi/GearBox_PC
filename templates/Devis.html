@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pacifico&family=Sofia&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-   
 </head>
 <body class="bg-gray-100">
 
@@ -31,37 +30,38 @@
 
     <!-- Main -->
     <main>
-        <center><h1>Devis</h1></center>
+        <center><h1 class="text-2xl font-semibold my-4">Devis</h1></center>
         <center>
-          <div class="flex flex-col">
-            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-              <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                <div class="overflow-hidden">
-                  <table class="min-w-full text-left text-sm font-light text-black">
-                    <thead class="border-b border-neutral-200 font-medium">
-                      <tr>
-                        <th scope="col" class="px-6 py-4">#</th>
-                        <th scope="col" class="px-6 py-4">First</th>
-                        <th scope="col" class="px-6 py-4">Last</th>
-                        <th scope="col" class="px-6 py-4">Handle</th>
-                      </tr>
-                    </thead>
-                    <tbody id="tbd">
-                     
-                    </tbody>
-                  </table>
+            <div class="flex flex-col">
+                <!-- Ajout d'un conteneur responsive pour le tableau -->
+                <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                        <div class="overflow-hidden">
+                            <table class="min-w-full text-left text-sm font-light text-black">
+                                <thead class="border-b border-neutral-200 font-medium">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-4">#</th>
+                                        <th scope="col" class="px-6 py-4">First</th>
+                                        <th scope="col" class="px-6 py-4">Last</th>
+                                        <th scope="col" class="px-6 py-4">Handle</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbd">
+                                    <!-- Remplir dynamiquement le tableau si nécessaire -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-          
         </center>
-        
-       
- <center><a href="facture.html" target="_blank"><button type="button" class="px-6 py-3.5 text-base font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-    id="boutton">Facture</button></a></center>
-    
 
+        <!-- Bouton de facturation -->
+        <center>
+            <a href="facture.html" target="_blank">
+                <button type="button" class="px-6 py-3.5 text-base font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="boutton">Facture</button>
+            </a>
+        </center>
     </main>
 
     <!-- Footer -->
@@ -78,7 +78,6 @@
                     <a href="#" class="text-gray-600">&#128722;</a>
                     <a href="#" class="text-gray-600">&#128100;</a>
                 </div>
-                
             </div>
 
             <!-- Support Section -->
@@ -95,11 +94,11 @@
             <div class="w-full">
                 <h3 class="font-semibold text-lg">Besoin d'aide ?</h3>
                 <p class="text-gray-700 mt-2 text-sm">
-                    Notre équipe est là pour vous aider avec toutes vos questions concernant nos produits, services, et commandes. N'hésitez pas à nous contacter pour un support rapide et personnalisé. Nous sommes à votre écoute pour vous offrir la meilleure expérience d'achat possible.
+                    Notre équipe est là pour vous aider avec toutes vos questions concernant nos produits, services, et commandes. N'hésitez pas à nous contacter pour un support rapide et personnalisé.
                 </p>            
                 <button class="bg-black text-white py-2 px-6 rounded-md mt-4">Contactez-nous</button>
                 <div class="flex justify-center lg:justify-start space-x-4 mt-4 text-xl">
-                    <a href="#" class="text-gray-600"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="..." /></svg></a> <!-- Replace with actual SVG icons for each social media -->
+                    <a href="#" class="text-gray-600"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="..." /></svg></a>
                     <a href="#" class="text-gray-600"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="..." /></svg></a>
                     <a href="#" class="text-gray-600"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="..." /></svg></a>
                 </div>
@@ -107,7 +106,8 @@
         </div>
         <div class="text-center text-gray-600 mt-8">&copy; 2024 - Designed by <strong>CHAMKHI</strong></div>
     </footer>
-<script src="/assets/GearBox.js"></script>
-<script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="/assets/GearBox.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </body>
 </html>
