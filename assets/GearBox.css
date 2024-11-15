@@ -711,6 +711,14 @@ th{
     }
 }
 
+/* Cache les boutons entre 768px et 1020px */
+@media (min-width: 768px) and (max-width: 1020px) {
+    .hide-between {
+        display: none !important;
+    }
+}
+
+
 
 
 
