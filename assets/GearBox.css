@@ -4,7 +4,7 @@
 }
 table,tr,th{
     border:1px black solid;
-    margin-left:11em;
+    margin-left:1.2em;
     
 }
 tr,th{
@@ -45,7 +45,7 @@ th{
     .produits-mobi{
         display: block;
     }
-    table {
-        display: none;
-    }
+   
+    
+    
 }

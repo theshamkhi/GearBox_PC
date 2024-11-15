@@ -10,9 +10,11 @@
     <meta name="author" content="CloudBlast">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/GearBox.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://cdn.tailwindcss.com"></script>   
+ <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pacifico&family=Sofia&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>  
 </head>
 <body class="bg-gray-100">
 
@@ -32,48 +34,20 @@
     <!-- Main -->
     <main>
         <center><h1>Devis</h1></center>
-        <table>
-            <tr>
-                <th>Le produit</th>
-                <th>Le Prix</th>
+        <table class="table-auto">
+            <thead>
+              <tr>
+                <th>Produit</th>
+                <th>Prix</th>
                 <th>Qantité</th>
                 <th>Total</th>
-            </tr>
-          <tbody>
-            <tr>
-                <td>
-                    11
-                </td>
-                <td>
-                    11
-                </td>
-                <td>
-                    11
-                </td>
-                <td>
-                    11
-                </td>
-            </tr>
-          </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="3">TVA</td>
-                    <td>20%</td>
-                </tr>
-                <tr>
-                    <td colspan="3">Total</td>
-                    <td>480$</td>
-                </tr>
-            </tfoot>
-        </table>
-        <section class="produits-mobi">
-            <center>
-            <div class="deviproduit"><h1>Produit</h1></div>
-            <div class="deviqantite"><h1>Qantité</h1></div>
-            <div class="deviprix"><h1>Prix</h1></div>
-            <div class="devitotal"><h1>Total</h1></div>
-        </center>
-        </section>
+              </tr>
+            </thead>
+            <tbody id="tbd">
+
+            </tbody>
+          </table>
+       
  <center><a href="facture.html" target="_blank"><button type="button" class="px-6 py-3.5 text-base font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
     id="boutton">Facture</button></a></center>
     

@@ -13,32 +13,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pacifico&family=Sofia&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 <body>
     <main>
-        <center><h1>Devis</h1></center>
-        <table>
-            <tr>
-                <th>Le produit</th>
-                <th>Le Prix</th>
+        <table class="table-auto">
+            <thead>
+              <tr>
+                <th>Produit</th>
+                <th>Prix</th>
                 <th>Qantité</th>
                 <th>Total</th>
-            </tr>
-          <tbody id="tbd">
-          
-          </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="3">TVA</td>
-                    <td>20%</td>
-                </tr>
-                <tr>
-                    <td colspan="3">Total</td>
-                    <td>480$</td>
-                </tr>
-            </tfoot>
-        </table>
+              </tr>
+            </thead>
+            <tbody id="tbd">
+                
+            </tbody>
+          </table>
+        
         <section class="produits-mobi">
             <div class="prduitname"></div>
             <div class="qantite-mobi"><p class="para1">Qantité :</p></div>
