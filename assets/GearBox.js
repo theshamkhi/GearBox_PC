@@ -3143,7 +3143,7 @@ let products = [
 localStorage.setItem('products', JSON.stringify(products));
 
 function DisplayProducts() {
-    // Get the products from local storage
+
     let products = JSON.parse(localStorage.getItem('products'));
 
     if (products) {
@@ -3152,7 +3152,6 @@ function DisplayProducts() {
         const summarySubtotal = document.querySelector('.summary-subtotal');
         const summaryTotal = document.querySelector('.summary-total');
 
-        // Clear both divs first
         ProductsDiv.innerHTML = '';
         CartSidebarDiv.innerHTML = '';
 
@@ -3188,7 +3187,6 @@ function DisplayProducts() {
                 </div>
             `;
 
-            // Append to the main Products Div
             ProductsDiv.appendChild(newProduct);
 
             // Cart Sidebar Div
@@ -3206,7 +3204,6 @@ function DisplayProducts() {
                 </div>
             `;
 
-            // Append to the Cart Sidebar Div
             CartSidebarDiv.appendChild(sidebarProduct);
 
             // Add event listeners for the quantity buttons
@@ -3229,7 +3226,7 @@ function DisplayProducts() {
                 if (currentQuantity > 1) {
                     currentQuantity--;
                     Quantity.value = currentQuantity;
-                    // Update price based on quantity
+
                     Price.textContent = `${(currentQuantity * product.price)} MAD`;
                     Summary(products);
                 }
@@ -3260,12 +3257,11 @@ function DeleteProduct(ProductId) {
     DisplayProducts();
 }
 
-// Function to update the summary (subtotal, delivery, total)
+
 function Summary(products) {
     const SubTotal = document.querySelector('.SubTotal');
     const Total = document.querySelector('.Total');
 
-    // Calculate subtotal
     let subtotal = 0;
     products.forEach(product => {
         const Quantity = parseInt(document.getElementById(`Quantity-${product.id}`).value);
