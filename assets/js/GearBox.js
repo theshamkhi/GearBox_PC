@@ -174,14 +174,14 @@ function addToCart() {
         cartItems[existingItemIndex].quantity += quantity;
         cartItems[existingItemIndex].totalPrice = (cartItems[existingItemIndex].quantity * parseFloat(calul_prix_promotion)).toFixed(2);
     } else {
-        // Add new product to the cart with additional properties
+        // Add new product to the cart with additional properties, storing only the image src
         const itemDetails = {
             productName: name_product.innerHTML,
             promotionalPrice: calul_prix_promotion,
             quantity: quantity,
             totalPrice: totalItemPrice.toFixed(2),
             shortDescription: description_product.innerHTML, // Adding short description
-            images: [Full_image.src] // Adding the main image or an array of images if needed
+            image: Full_image.src // Adding only the src of the main image
         };
         cartItems.push(itemDetails);
     }
