@@ -3139,7 +3139,7 @@ let products = [
     { id: 3, name: 'Product 3', price: 300, description: 'Description for product 3', image: '../assets/media/Product1.png' }
 ];
 
-// Store the products in local storage
+// Storing the products in local storage for testing
 localStorage.setItem('products', JSON.stringify(products));
 
 function DisplayProducts() {
@@ -3150,11 +3150,10 @@ function DisplayProducts() {
         const ProductsDiv = document.querySelector('.ProductsDiv'); // Main products section
         const CartSidebarDiv = document.querySelector('.CartSidebarDiv'); // Cart sidebar section
 
-        // Clear both containers first
+        // Clear both divs first
         ProductsDiv.innerHTML = '';
         CartSidebarDiv.innerHTML = '';
 
-        // Loop through the products and display them
         products.forEach(product => {
             const newProduct = document.createElement('div');
             newProduct.classList.add('border-b', 'rounded-lg', 'bg-white', 'shadow-lg', 'mb-6', 'grid', 'grid-cols-1', 'md:grid-cols-3', 'gap-2', 'items-center');
@@ -3171,17 +3170,17 @@ function DisplayProducts() {
                     <!-- Title and Remove Button -->
                     <div class="flex justify-between items-center">
                         <h3 class="text-lg md:text-xl font-semibold text-gray-800">${product.name}</h3>
-                        <button class="text-red-500 text-xl hover:text-red-600 transition duration-150" title="Remove">&#128465;</button>
+                        <button class="text-red-500 text-xl hover:text-red-600 transition duration-150" title="Remove" data-id="${product.id}">&#128465;</button>
                     </div>
                     <!-- Description -->
                     <p class="text-gray-600 text-sm md:text-base leading-relaxed">${product.description || 'No description available'}</p>
                     <!-- Price and Quantity Section -->
                     <div class="flex justify-between items-center">
-                        <p class="text-lg md:text-xl font-bold text-gray-900">${product.price} MAD</p>
+                        <p class="text-lg md:text-xl font-bold text-gray-900" id="productPrice-${product.id}">${product.price} MAD</p>
                         <div class="flex items-center space-x-2">
-                            <button aria-label="Decrease quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg">-</button>
-                            <input type="text" value="1" class="w-12 text-center border rounded-md text-base md:text-lg" aria-label="Quantity">
-                            <button aria-label="Increase quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg">+</button>
+                            <button aria-label="Decrease quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" data-id="${product.id}" id="decreaseBtn-${product.id}">-</button>
+                            <input type="number" value="1" class="w-12 text-center border rounded-md text-base md:text-lg" aria-label="Quantity" id="quantityInput-${product.id}">
+                            <button aria-label="Increase quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" data-id="${product.id}" id="increaseBtn-${product.id}">+</button>
                         </div>
                     </div>
                 </div>
@@ -3190,7 +3189,7 @@ function DisplayProducts() {
             // Append to the main Products Div
             ProductsDiv.appendChild(newProduct);
 
-            // Sidebar format
+            // Cart Sidebar Div
             const sidebarProduct = document.createElement('div');
             sidebarProduct.classList.add('flex', 'items-center', 'space-x-4', 'border-b', 'pb-4');
 
@@ -3200,20 +3199,27 @@ function DisplayProducts() {
                     <h4 class="font-bold text-gray-800">${product.name}</h4>
                     <div class="flex justify-between items-center">
                         <p class="text-gray-600 text-sm">${product.price} MAD</p>
-                        <button class="text-md" title="Remove">&#128465;</button>
+                        <button class="text-md" title="Remove" data-id="${product.id}">&#128465;</button>
                     </div>
                 </div>
             `;
 
             // Append to the Cart Sidebar Div
             CartSidebarDiv.appendChild(sidebarProduct);
+
+
+
         });
+
+
     } else {
         console.log('No products found in local storage.');
     }
 }
 
 document.addEventListener('DOMContentLoaded', DisplayProducts);
+
+
 
 
 
