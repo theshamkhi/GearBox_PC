@@ -3211,10 +3211,31 @@ function DisplayProducts() {
 
         });
 
+        // Add event listeners to the remove buttons
+        document.querySelectorAll('button[title="Remove"]').forEach(button => {
+            button.addEventListener('click', function () {
+                const ProductId = parseInt(this.getAttribute('data-id'));
+                DeleteProduct(ProductId);
+            });
+        });
 
     } else {
         console.log('No products found in local storage.');
     }
+}
+
+function DeleteProduct(ProductId) {
+    // Get the products from local storage
+    let products = JSON.parse(localStorage.getItem('products'));
+
+    // Filter out the product to remove
+    const RemainingProducts = products.filter(product => product.id !== ProductId);
+
+    // Update the products in local storage
+    localStorage.setItem('products', JSON.stringify(RemainingProducts));
+
+    // Re-render the products
+    DisplayProducts();
 }
 
 document.addEventListener('DOMContentLoaded', DisplayProducts);
