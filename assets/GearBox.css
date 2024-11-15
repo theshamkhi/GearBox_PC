@@ -3,9 +3,13 @@
 
 
 /* Main Layout */
-main {
+#mainflex {
     display: flex;
-    padding: 2rem;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
 }
 
 /* Sidebar Filters */
@@ -31,7 +35,9 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    width: 80%;
+    width: 100%;
+    padding: 10px;
+    justify-content: center;
 }
 
 /* Pagination */
@@ -81,12 +87,25 @@ footer .flex a {
 footer .flex a:hover {
     color: #1e40af;
 }
-
-.item_cards img{
-    height: 50%;
-    width: 90%;
-    background-size: auto;
+.atSec{
+    height: auto;
 }
+.item_cards img{
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+    background-color: white;
+}
+.atSec{
+    padding: 10%;
+}
+
+.item_cards{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 
 
 body{
@@ -110,4 +129,27 @@ body{
 }
 .rightSide{
     width: 30%;
+}
+.leftSide{
+    width: 70%;
+}
+.atSec{
+    align-items: flex-end;
+    height: 50%;
+    justify-content: space-around;
+}
+
+.thisinnerItem{
+    display: flex;
+    justify-content: space-between;
+}
+
+.thisinnerOut{
+    width: 100%;
+}
+.listImage{
+    width: 40%;
+}
+.listImage img{
+    width: 100%;
 }
