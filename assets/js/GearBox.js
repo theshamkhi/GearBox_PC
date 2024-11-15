@@ -52,6 +52,36 @@ function fetchDataAndDisplay() {
                     name_product.innerHTML = item.name;
                     description_product.innerHTML = item.short_description;
 
+                    // Save product details to localStorage (part of your existing code)
+                    localStorage.setItem("productName", item.name);
+                    localStorage.setItem("productDescription", item.short_description);
+                    localStorage.setItem("productImage", item.image_urls[0]);
+
+                    // Save short_description and images array to localStorage
+                    const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
+
+                    // Create an updated product object
+                    const updatedProduct = {
+                        productName: item.name,
+                        productDescription: item.short_description,
+                        productImages: item.image_urls,
+                        price: item.price,
+                        qt: item.qt
+                    };
+
+                    // Add or update product in the localStorage array
+                    const productIndex = storedProducts.findIndex(product => product.productName === item.name);
+                    if (productIndex >= 0) {
+                        // Update the existing product
+                        storedProducts[productIndex] = updatedProduct;
+                    } else {
+                        // Add a new product
+                        storedProducts.push(updatedProduct);
+                    }
+
+                    // Save the updated products array back to localStorage
+                    localStorage.setItem("products", JSON.stringify(storedProducts));
+
                     // Set maxQuantity based on item quantity
                     maxQuantity = item.qt;
                     document.getElementById("availableQuantity").textContent = maxQuantity;
@@ -89,7 +119,6 @@ function fetchDataAndDisplay() {
     document.getElementById("addToCartBtn").onclick = addToCart;
 }
 
-
 // Function to display a temporary promotion message
 function showPromotionMessage() {
     const modal = document.createElement("div");
@@ -112,7 +141,6 @@ function showPromotionMessage() {
         document.body.removeChild(modal);
     }, 3000);
 }
-
 
 // Function to add the item to the cart and calculate the total
 function addToCart() {
@@ -165,9 +193,6 @@ function addToCart() {
     // Log to verify calculation
     console.log("Added Quantity:", quantity, "Unit Price (Promotion):", calul_prix_promotion, "Total Item Price:", totalItemPrice, "Cart Total:", cartTotal);
 }
-
-
-
 
 // Toggle modal visibility
 function toggleModal() {
@@ -228,66 +253,4 @@ const checkInterval = setInterval(() => {
     }
 }, 1000);
 
-// Sélectionnez toutes les images avec la classe "zoomable"
-const zoomableImages = document.querySelectorAll('.zoomable');
-
-// Zone modale et image zoomée
-const zoomModal = document.getElementById('zoomModal');
-const zoomedImage = document.getElementById('zoomedImage');
-
-// Fonction pour afficher l'image en zoom
-zoomableImages.forEach(image => {
-    image.addEventListener('click', () => {
-        zoomedImage.src = image.src; // Définit la source de l'image zoomée sur celle cliquée
-        zoomModal.classList.remove('hidden'); // Affiche le modal
-    });
-});
-
-// Fonction pour fermer le zoom
-// Fonction pour charger les images via l'API
-function loadImagesFromAPI() {
-    fetch('../data/data.json') // Remplacez l'URL par celle de votre API
-        .then(response => response.json())
-        .then(data => {
-            // Assurez-vous que les données de l'API contiennent les images nécessaires
-            if (data && data.length > 0) {
-                document.getElementById('prod_zome_1').src = data[0].image_urls[0];
-                document.getElementById('prod_zome_2').src = data[0].image_urls[1];
-                document.getElementById('prod_zome_3').src = data[0].image_urls[2];
-                document.getElementById('prod_zome_4').src = data[0].image_urls[3];
-
-                // Ajouter les événements de zoom après le chargement des images
-                addZoomEventListeners();
-            }
-        })
-        .catch(error => console.log("Erreur lors du chargement des images :", error));
-}
-
-// Fonction pour ajouter des écouteurs d'événements de zoom aux images
-function addZoomEventListeners() {
-    const zoomableImages = document.querySelectorAll('.zoomable');
-    const zoomModal = document.getElementById('zoomModal');
-    const zoomedImage = document.getElementById('zoomedImage');
-
-    zoomableImages.forEach(image => {
-        image.addEventListener('click', () => {
-            zoomedImage.src = image.src; // Définit la source de l'image zoomée sur celle cliquée
-            zoomModal.classList.remove('hidden'); // Affiche le modal
-        });
-    });
-}
-
-// Fonction pour fermer le zoom
-function closeZoom() {
-    document.getElementById('zoomModal').classList.add('hidden'); // Cache le modal
-}
-
-// Appel de la fonction pour charger les images depuis l'API
-loadImagesFromAPI();
-
-
-
-
-// localStorage.clear()
-
- 
+localStorage.clear()
