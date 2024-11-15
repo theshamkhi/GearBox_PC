@@ -3037,9 +3037,21 @@ function DisplayProducts() {
                     <div class="flex justify-between items-center">
                         <p class="text-lg md:text-xl font-bold text-gray-900" id="Price-${index}">${item.totalPrice} MAD</p>
                         <div class="flex items-center space-x-2">
-                            <button class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" data-index="${index}" id="MinusBtn-${index}">-</button>
-                            <input type="number" value="${item.quantity}" min="1" class="w-12 text-center border rounded-md text-base md:text-lg" id="quantity-${index}">
-                            <button class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" data-index="${index}" id="PlusBtn-${index}">+</button>
+                            <button 
+                                class="quantityBtn decrease px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" 
+                                data-index="${index}">
+                                -
+                            </button>
+                            <span 
+                                class="quantity-display w-12 text-center border rounded-md text-base md:text-lg" 
+                                id="quantity-${index}">
+                                ${item.quantity}
+                            </span>
+                            <button 
+                                class="quantityBtn increase px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" 
+                                data-index="${index}">
+                                +
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -3069,7 +3081,44 @@ function DisplayProducts() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', DisplayProducts);
+function Quantity() {
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    document.addEventListener("click", (event) => {
+        if (event.target.classList.contains("quantityBtn")) {
+            const index = event.target.getAttribute("data-index");
+            const action = event.target.classList.contains("increase") ? "increase" : "decrease";
+
+            // Update quantity based on action
+            if (action === "increase") {
+                cartItems[index].quantity++;
+            } else if (action === "decrease" && cartItems[index].quantity > 1) {
+                cartItems[index].quantity--;
+            }
+
+            // Update total price
+            cartItems[index].totalPrice = (
+                parseFloat(cartItems[index].promotionalPrice) * cartItems[index].quantity
+            ).toFixed(2);
+
+            // Update localStorage
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+            // Update the DOM
+            document.querySelector(`#quantity-${index}`).textContent = cartItems[index].quantity;
+            document.querySelector(`#Price-${index}`).textContent = `${cartItems[index].totalPrice} MAD`;
+
+            // Optional: Refresh cart sidebar
+            // DisplayProducts(); // Uncomment if sidebar requires a full refresh
+        }
+    });
+}
+
+// Wait for the DOM to fully load before running the functions
+document.addEventListener('DOMContentLoaded', () => {
+    DisplayProducts();
+    Quantity();
+});
 
 
 
