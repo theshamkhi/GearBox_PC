@@ -3110,14 +3110,38 @@ function Quantity() {
 
             // Optional: Refresh cart sidebar
             // DisplayProducts(); // Uncomment if sidebar requires a full refresh
+            Summary();
         }
     });
 }
+
+// Function to Update Summary Section
+const DELIVERY_FEE = 20; // Example: 20 MAD, modify as needed
+
+function Summary() {
+    // Define the constant delivery fee
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    let subtotal = 0;
+
+    // Calculate Subtotal
+    cartItems.forEach(item => {
+        subtotal += parseFloat(item.promotionalPrice) * item.quantity;
+    });
+
+    // Calculate Total
+    const total = subtotal + DELIVERY_FEE;
+
+    // Update DOM
+    document.getElementById("SubTotal").textContent = `${subtotal.toFixed(2)} MAD`;
+    document.getElementById("Total").textContent = `${total.toFixed(2)} MAD`;
+}
+
 
 // Wait for the DOM to fully load before running the functions
 document.addEventListener('DOMContentLoaded', () => {
     DisplayProducts();
     Quantity();
+    Summary();
 });
 
 
