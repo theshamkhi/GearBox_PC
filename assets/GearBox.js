@@ -3147,8 +3147,10 @@ function DisplayProducts() {
     let products = JSON.parse(localStorage.getItem('products'));
 
     if (products) {
-        const ProductsDiv = document.querySelector('.ProductsDiv'); // Main products section
-        const CartSidebarDiv = document.querySelector('.CartSidebarDiv'); // Cart sidebar section
+        const ProductsDiv = document.querySelector('.ProductsDiv');
+        const CartSidebarDiv = document.querySelector('.CartSidebarDiv');
+        const summarySubtotal = document.querySelector('.summary-subtotal');
+        const summaryTotal = document.querySelector('.summary-total');
 
         // Clear both divs first
         ProductsDiv.innerHTML = '';
@@ -3176,11 +3178,11 @@ function DisplayProducts() {
                     <p class="text-gray-600 text-sm md:text-base leading-relaxed">${product.description || 'No description available'}</p>
                     <!-- Price and Quantity Section -->
                     <div class="flex justify-between items-center">
-                        <p class="text-lg md:text-xl font-bold text-gray-900" id="productPrice-${product.id}">${product.price} MAD</p>
+                        <p class="text-lg md:text-xl font-bold text-gray-900" id="Price-${product.id}">${product.price} MAD</p>
                         <div class="flex items-center space-x-2">
-                            <button aria-label="Decrease quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" data-id="${product.id}" id="decreaseBtn-${product.id}">-</button>
-                            <input type="number" value="1" class="w-12 text-center border rounded-md text-base md:text-lg" aria-label="Quantity" id="quantityInput-${product.id}">
-                            <button aria-label="Increase quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" data-id="${product.id}" id="increaseBtn-${product.id}">+</button>
+                            <button aria-label="Decrease quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" data-id="${product.id}" id="MinusBtn-${product.id}">-</button>
+                            <input type="number" value="1" class="w-12 text-center border rounded-md text-base md:text-lg" aria-label="Quantity" id="Quantity-${product.id}">
+                            <button aria-label="Increase quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" data-id="${product.id}" id="PlusBtn-${product.id}">+</button>
                         </div>
                     </div>
                 </div>
@@ -3207,11 +3209,32 @@ function DisplayProducts() {
             // Append to the Cart Sidebar Div
             CartSidebarDiv.appendChild(sidebarProduct);
 
+            // Add event listeners for the quantity buttons
+            const PlusBtn = document.getElementById(`PlusBtn-${product.id}`);
+            const MinusBtn = document.getElementById(`MinusBtn-${product.id}`);
+            const Quantity = document.getElementById(`Quantity-${product.id}`);
+            const Price = document.getElementById(`Price-${product.id}`);
 
+            PlusBtn.addEventListener('click', () => {
+                let currentQuantity = parseInt(Quantity.value);
+                currentQuantity++;
+                Quantity.value = currentQuantity;
+                // Update price based on quantity
+                Price.textContent = `${(currentQuantity * product.price)} MAD`;
+            });
 
+            MinusBtn.addEventListener('click', () => {
+                let currentQuantity = parseInt(Quantity.value);
+                if (currentQuantity > 1) {
+                    currentQuantity--;
+                    Quantity.value = currentQuantity;
+                    // Update price based on quantity
+                    Price.textContent = `${(currentQuantity * product.price)} MAD`;
+                }
+            });
         });
 
-        // Add event listeners to the remove buttons
+        // Add event listeners for remove buttons
         document.querySelectorAll('button[title="Remove"]').forEach(button => {
             button.addEventListener('click', function () {
                 const ProductId = parseInt(this.getAttribute('data-id'));
@@ -3237,6 +3260,8 @@ function DeleteProduct(ProductId) {
     // Re-render the products
     DisplayProducts();
 }
+
+
 
 document.addEventListener('DOMContentLoaded', DisplayProducts);
 
