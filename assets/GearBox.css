@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
     background-color: #F4F6F1;
     overflow-x: auto;
@@ -9,6 +10,24 @@ nav{
 
 footer{
     background-color: #3B5770;
+=======
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pacifico&family=Sofia&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+.produits-mobi{
+    display: none;
+}
+table,tr,th{
+    border:1px black solid;
+    margin-left:11em;
+    
+}
+tr,th{
+    padding-left:8em;
+}
+td{
+    text-align: center;
+    padding: 0 80px;
+    border: 1px solid black;
+>>>>>>> dceca510a3b57e368dd8d9a246b7e37005224a0c
 }
 
 #contactb {
@@ -23,6 +42,7 @@ footer{
     border: 1px solid black;
     box-shadow: 0 0 0 0 white;
 }
+<<<<<<< HEAD
   
   #contactb:hover {
     transform: translateY(-4px) translateX(-2px);
@@ -496,3 +516,35 @@ footer{
     100% { color: red; }
 }
 
+=======
+#boutton,#download{
+    margin:2em 0 2em 0;
+    background-color:#8976B5;
+    width:320px;
+}
+#boutton,#download:hover{
+    margin-top:2em;
+    background-color:#BFADE7;
+    color: black;;
+    width:320px;
+    transition:1s;
+}
+@media print {
+    #download{
+        display:none;
+        
+    }
+
+}
+@media (max-width:425px) {
+    h1{
+        margin-bottom:2em;
+    }
+    .produits-mobi{
+        display: block;
+    }
+    table {
+        display: none;
+    }
+}
+>>>>>>> dceca510a3b57e368dd8d9a246b7e37005224a0c
