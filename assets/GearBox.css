@@ -1013,19 +1013,18 @@
 #mainflex {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 20px;
+    margin: 8rem 50px;/*CHAMKHI did this*/
+    gap: 4vw;
 }
 
 /* Sidebar Filters */
 .rightSide {
     width: 20%;
+    height: max-content; /*CHAMKHI did this*/
+    max-height: 80vh; /*CHAMKHI did this*/
     padding: 1rem;
     background-color: #ffffff;
     border-radius: 8px;
-    margin-right: 2rem;
 }
 
 .rightSide select,
@@ -1067,33 +1066,12 @@
     color: #ffffff;
 }
 
-/* Footer */
-footer {
-    background-color: #ffffff;
-    padding: 2rem;
-    border-top: 1px solid #d1d5db;
-}
+/*CHAMKHI did this
 
-footer h3 {
-    font-weight: bold;
-    color: #111827;
+footer{
 }
+*/
 
-footer p {
-    color: #6b7280;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    margin-top: 0.5rem;
-}
-
-footer .flex a {
-    color: #1d4ed8;
-    transition: color 0.3s;
-}
-
-footer .flex a:hover {
-    color: #1e40af;
-}
 .atSec{
     height: auto;
 }
@@ -1113,11 +1091,13 @@ footer .flex a:hover {
     width: 100%;
 }
 
-
+/*CHAMKHI did this
 
 body{
     margin: 50px;
 }
+*/
+
 .sortOptions svg{
     height: 30px;
     width: 30px;
