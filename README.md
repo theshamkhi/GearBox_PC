@@ -26,23 +26,23 @@ Ce projet est développé avec :
 
 ```plaintext
 Conception&Maquettage/
-├── assets/
-│   ├── media/
-│   │   ├── GearBox.css
-│   │   ├── GearBox.js
-│   │   └── tailwind.config.js
-├── data/
-│   ├── data_ofComponents/
-│   │   └── data.json
-├── src/
-├── templates/
-│   ├── APropos.html
-│   ├── Catalogue.html
-│   ├── Details.html
-│   ├── Devis.html
-│   └── Panier.html
-├── .gitignore
-└── index.html
+assets/
+├── media/
+├── GearBox.css
+├── GearBox.js
+├── tailwind.config.js
+data/
+├── data_ofComponents/
+│   └── data.json
+src/
+templates/
+├── APropos.html
+├── Catalogue.html
+├── Details.html
+├── Devis.html
+└── Panier.html
+.gitignore
+index.html
 ````
 
 
