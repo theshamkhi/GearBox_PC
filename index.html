@@ -234,36 +234,76 @@
                 const productCard = document.createElement('div');
                 productCard.classList.add('max-w-sm', 'bg-white', 'border', 'border-gray-200', 'rounded-lg', 'shadow-md');
                 productCard.innerHTML = `
-                    <a href="#">
-                        <img class="rounded-t-lg" src="${product.image_urls[0]}" alt="${product.name}">
-                    </a>
-                    <div class="p-5">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">${product.name}</h5>
+                 <a href="#">
+                    <img class="rounded-t-lg" src="${product.image_urls[0]}" alt="${product.name}">
+                </a>
+                <div class="p-5">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">${product.name}</h5>
+                    <p class="text-gray-700">${product.short_description}</p>
+                    <p class="text-lg font-semibold text-gray-900">${product.promotionalPrice} dh</p>
                        
-                        <a href="#" id="bouton4" class="inline-flex items-center px-10 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-7 mt-5">
-                Ajouter au panier
-            </a>
+                         <a href="#" class="inline-flex items-center px-10 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-7 mt-5" onclick="addToCart('${product.id}', '${product.name}', '${product.image_urls[0]}', '${product.price}', '${product.short_description}')">
+                        Ajouter au panier
+                    </a>
                     </div>
                 `;
                 productList.appendChild(productCard);
             });
         }
+// Add product to cart and save to localStorage
+function addToCart(id, name, image, price, shortDescription) {
+        // Convert price to a float
+        const productPrice = parseFloat(price);
 
-        // Event listeners for pagination buttons
-        document.getElementById('page1').addEventListener('click', () => {
-            currentPage = 1;
-            displayProducts(currentPage);
-        });
+        // Generate random ID for each product in the cart
+        const productId = `product-${Math.random().toString(36).substring(7)}`;
 
-        document.getElementById('page2').addEventListener('click', () => {
-            currentPage = 2;
-            displayProducts(currentPage);
-        });
+        // Get existing cart from localStorage, or create a new array if none exists
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-        document.getElementById('page3').addEventListener('click', () => {
-            currentPage = 3;
-            displayProducts(currentPage);
-        });
+        // Check if product is already in cart
+        const existingProductIndex = cart.findIndex(item => item.id === id);
+
+        if (existingProductIndex > -1) {
+            // Update quantity and price if product already exists in cart
+            cart[existingProductIndex].quantity += 1;
+            cart[existingProductIndex].totalPrice = (productPrice * cart[existingProductIndex].quantity).toFixed(2);
+        } else {
+            // Add new product to cart
+            const newProduct = {
+                id: productId,
+                name: name,
+                image: image,
+                price: productPrice,
+                shortDescription: shortDescription,
+                quantity: 1,
+                totalPrice: productPrice.toFixed(2) // Set initial price as the product's price
+            };
+            cart.push(newProduct);
+        }
+
+        // Save updated cart to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Optionally, you can alert the user or update the cart icon in the UI
+        alert(`${name} a été ajouté au panier!`);
+    }
+
+    // Event listeners for pagination buttons
+    document.getElementById('page1').addEventListener('click', () => {
+        currentPage = 1;
+        displayProducts(currentPage);
+    });
+
+    document.getElementById('page2').addEventListener('click', () => {
+        currentPage = 2;
+        displayProducts(currentPage);
+    });
+
+    document.getElementById('page3').addEventListener('click', () => {
+        currentPage = 3;
+        displayProducts(currentPage);
+    });
     </script>
 </body>
 </html>
