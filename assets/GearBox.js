@@ -1,19 +1,11 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-/* Page Accueil */
->>>>>>> 17f628aab90189e7018028638bafd2df6df25784
+
+
 
 function toggleMenu() {
     const menuSidebar = document.getElementById('MenuSidebar');
     menuSidebar.classList.toggle('-translate-x-full');
 }
-=======
 
->>>>>>> 8d808b37221ec5e582b7a1c39535f8d0c9c82467
 
 
 
@@ -3223,7 +3215,7 @@ console.log(img_prod_first);
 function getURLParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
-=======
+
 async function loadCatalogData() {
     try {
         const response = await fetch('../data/data.json');  
@@ -3236,12 +3228,10 @@ async function loadCatalogData() {
     } catch (error) {
         console.error("Error loading catalog data:", error);
     }
->>>>>>> 8d808b37221ec5e582b7a1c39535f8d0c9c82467
+
 }
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     if (!urlId) {
         console.log("Aucun ID dans l'URL, nouvelle vérification dans une seconde.");
         return;
@@ -3336,7 +3326,7 @@ const checkInterval = setInterval(() => {
         console.log("Vérification de l'ID chaque seconde...");
     }
 }, 1000);  // Check every 1000ms (1 second)
-=======
+
 async function renderPage() {
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
@@ -3376,12 +3366,12 @@ async function renderPage() {
         });
     } 
 }
->>>>>>> 8d808b37221ec5e582b7a1c39535f8d0c9c82467
 
 
 
 
-<<<<<<< HEAD
+
+
 
 
 
@@ -5433,7 +5423,7 @@ async function renderPage() {
 
 
 
-=======
+
 function loadCartDataOnDevisPage() {
     const savedCartTotal = localStorage.getItem("cartTotal");
     const savedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -5452,7 +5442,7 @@ function loadCartDataOnDevisPage() {
     });
 }
 
-<<<<<<< HEAD
+
 
 
 
@@ -6397,7 +6387,7 @@ function loadCartDataOnDevisPage() {
 
 
 /* Page À Propos */
-=======
+
 /* Page Devis */
 document.addEventListener('DOMContentLoaded',() => {
     const boutton = document.getElementById('boutton');
@@ -6412,19 +6402,18 @@ document.addEventListener('DOMContentLoaded',() => {
         `
 
     const a=document.getElementById('download');
-=======
+
 // Call the function to load data when the page loads
 window.onload = loadCartDataOnDevisPage;
 const a=document.getElementById('download');
->>>>>>> 17f628aab90189e7018028638bafd2df6df25784
+
     a.addEventListener('click',funprint);
     function funprint () {
         window.print();
     }
-<<<<<<< HEAD
+
 })
->>>>>>> dceca510a3b57e368dd8d9a246b7e37005224a0c
-=======
+
 async function renderPage() {
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
@@ -6472,8 +6461,7 @@ document.querySelector('#sort-select').addEventListener('change', function () {
 });
 
 
-=======
->>>>>>> 8d808b37221ec5e582b7a1c39535f8d0c9c82467
+
 function sortCatalog(sortOption) {
     if (sortOption === 'price-asc') {
         // Sort by price in ascending order
@@ -6907,13 +6895,7 @@ closeFi.addEventListener('click', function(){
     let filterPanel = document.querySelector('.rightSide');
     filterPanel.style.display = 'none';
 })
-<<<<<<< HEAD
->>>>>>> b0eedb2c0f79fd767d9b3427ebe1b34f8cd9a638
-=======
 
->>>>>>> 8d808b37221ec5e582b7a1c39535f8d0c9c82467
-=======
->>>>>>> 66b11ebf80795ca77165f7e43e666e375903026b
 
 
 
@@ -7859,4 +7841,4 @@ closeFi.addEventListener('click', function(){
 
 
 /* Page À Propos */
->>>>>>> 17f628aab90189e7018028638bafd2df6df25784
+
