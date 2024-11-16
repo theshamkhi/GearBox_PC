@@ -3033,10 +3033,9 @@ function DisplayProducts() {
             const newProduct = document.createElement('div');
             newProduct.classList.add('border-b', 'rounded-lg', 'bg-white', 'shadow-lg', 'mb-6', 'grid', 'grid-cols-1', 'md:grid-cols-3', 'gap-2', 'items-center');
 
-            // Main Products Div
             newProduct.innerHTML = `
                 <div class="col-span-1">
-                    <img src="${item.image || '../assets/media/Product1.png'}" alt="${item.productName}" class="w-full h-full object-cover rounded-l-lg max-h-56 md:max-h-64">
+                    <img src="${item.image || 'https://via.placeholder.com/200'}" class="w-full h-full object-cover rounded-l-lg max-h-56 md:max-h-64"> 
                 </div>
                 <div class="col-span-1 md:col-span-2 flex flex-col space-y-4 p-4">
                     <div class="flex justify-between items-center mb-4">
@@ -3074,7 +3073,7 @@ function DisplayProducts() {
             sidebarProduct.classList.add('flex', 'items-center', 'space-x-4', 'border-b', 'pb-4');
 
             sidebarProduct.innerHTML = `
-                <img src="${item.image || '../assets/media/Product1.png'}" alt="${item.productName}" class="w-16 h-16 object-cover rounded">
+                <img src="${item.image || 'https://via.placeholder.com/80'}" alt="${item.productName}" class="w-16 h-16 object-cover rounded">
                 <div class="flex-1">
                     <h4 class="font-bold text-gray-800">${item.productName}</h4>
                     <div class="flex justify-between items-center">
@@ -3111,10 +3110,8 @@ function Quantity() {
                 parseFloat(cartItems[index].promotionalPrice) * cartItems[index].quantity
             ).toFixed(2);
 
-            // Update localStorage
             localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-            // Update the DOM
             document.querySelector(`#quantity-${index}`).textContent = cartItems[index].quantity;
             document.querySelector(`#Price-${index}`).textContent = `${cartItems[index].totalPrice} MAD`;
 
@@ -3124,11 +3121,11 @@ function Quantity() {
     });
 }
 
-// Function to Update Summary Section
-const DELIVERY_FEE = 20; // Example: 20 MAD, modify as needed
+// Function for Summary Section
+const DELIVERY_FEE = 20;
 
 function Summary() {
-    // Define the constant delivery fee
+
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     let subtotal = 0;
 
@@ -3140,31 +3137,28 @@ function Summary() {
     // Calculate Total
     const total = subtotal + DELIVERY_FEE;
 
-    // Update DOM
     document.getElementById("SubTotal").textContent = `${subtotal.toFixed(2)} MAD`;
     document.getElementById("Total").textContent = `${total.toFixed(2)} MAD`;
 }
 
-// Function to handle product deletion
+// Function for product deletion
 function DeleteProduct() {
     document.addEventListener("click", (event) => {
         // Check if the clicked element is a delete button
         if (event.target.matches('button[title="Remove"]')) {
             const index = event.target.getAttribute("data-index");
 
-            // Retrieve cart items from localStorage
             let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-            // Remove the product at the specified index
             if (index >= 0 && index < cartItems.length) {
                 cartItems.splice(index, 1);
 
-                // Update localStorage with the modified cart
+                // Save updated cart to localStorage for Devis
                 localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-                // Update UI dynamically
-                DisplayProducts(); // Re-display products
-                Summary(); // Update the summary section
+                // The display is updated immediately
+                DisplayProducts();
+                Summary();
             }
         }
     });
