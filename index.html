@@ -281,8 +281,8 @@
             // Save updated cart to localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
     
-            // Redirect to Detail.html page to view cart
-            window.location.href = 'Detail.html'; // Change the URL to your actual Detail page
+            // Inform the user
+            alert(`${name} a été ajouté au panier!`);
         }
     
         // Event listeners for pagination buttons
@@ -300,9 +300,9 @@
             currentPage = 3;
             displayProducts(currentPage);
         });
-        localStorage.Clear()
     
     </script>
+    
     
     
     
