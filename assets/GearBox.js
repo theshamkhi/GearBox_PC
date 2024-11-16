@@ -100,12 +100,12 @@ function addToCart(id, name, image, price, shortDescription) {
     });
 
     document.getElementById('page2').addEventListener('click', () => {
-        currentPage = 2;
+        AcurrentPage = 2;
         displayProducts(AcurrentPage);
     });
 
     document.getElementById('page3').addEventListener('click', () => {
-        currentPage = 3;
+        AcurrentPage = 3;
         displayProducts(AcurrentPage);
     });
 
