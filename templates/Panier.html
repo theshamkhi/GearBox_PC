@@ -18,9 +18,7 @@
             <button class="text-2xl text-white">&#9776;</button>
             <span class="text-xl font-bold text-white">GearBox Pc</span>
         </div>
-        <div class="hidden lg:block lg:w-1/3 mx-4">
-            <input type="text" placeholder="Rechercher des produits" class="w-full p-2 border bg-gray-100 rounded-full px-6">
-        </div>
+       
         <div class="flex items-center space-x-6">
             <button class="text-2xl text-white" title="Panier">&#128722;</button>
             <button class="text-2xl text-white" title="Login">&#128100;</button>
@@ -48,19 +46,20 @@
                 <aside class="bg-white rounded-lg shadow-lg p-6 h-64 overflow-y-auto">
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-gray-700">Sous-total</span>
-                        <span class="text-gray-700">79.26 MAD</span>
+                        <span id="subtotal" class="text-gray-700">0.00 MAD</span>
                     </div>
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-gray-700">Frais de livraison</span>
-                        <span class="text-gray-700">21.30 MAD</span>
+                        <span id="shippingCost" class="text-gray-700">21.30 MAD</span>
                     </div>
                     <div class="flex justify-between items-center font-semibold text-lg mb-8">
                         <span>Total estimé</span>
-                        <span>100.56 MAD</span>
+                        <span id="totalEstimated">0.00 MAD</span>
                     </div>
                     <button class="w-full bg-black text-white py-3 rounded-md hover:bg-gray-800 transition duration-200">Payer</button>
                 </aside>
             </div>
+            
         </div>
     </main>
 
@@ -132,7 +131,7 @@
         // Fonction pour charger les produits du panier depuis le localStorage et afficher
         function displayCartItems() {
             let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-    
+            
             // Récupérer l'élément container où afficher les produits
             const cartItemsContainer = document.getElementById("cartItemsContainer");
     
@@ -150,8 +149,6 @@
                 getProductData(item.productName).then(availableQuantity => {
                     // Calcul de la quantité disponible dans le stock en fonction de la quantité déjà achetée
                     const quantityAvailableAfterPurchase = availableQuantity - item.quantity; // Quantité restante après achat
-    
-                    console.log(`Quantité disponible après achat : ${quantityAvailableAfterPurchase}`);
     
                     // Créer le HTML pour afficher cet item
                     const itemHTML = `
@@ -179,6 +176,27 @@
                     cartItemsContainer.innerHTML += itemHTML; // Ajouter l'élément dans le container
                 });
             });
+    
+            // Appeler la fonction pour mettre à jour le résumé du panier
+            updateSummary();
+        }
+    
+        // Fonction pour calculer le sous-total et afficher le résumé dans la div
+        function updateSummary() {
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    
+            let subTotal = 0;
+            cartItems.forEach(item => {
+                subTotal += parseFloat(item.priceTotal); // Somme des prix totaux des produits
+            });
+    
+            const shippingCost = 21.30; // Frais de livraison fixes
+            const totalEstimated = subTotal + shippingCost; // Total estimé = sous-total + frais de livraison
+    
+            // Mettre à jour l'affichage dans le résumé
+            document.getElementById("subtotal").textContent = `${subTotal.toFixed(2)} MAD`;
+            document.getElementById("shippingCost").textContent = `${shippingCost.toFixed(2)} MAD`;
+            document.getElementById("totalEstimated").textContent = `${totalEstimated.toFixed(2)} MAD`;
         }
     
         // Fonction pour diminuer la quantité d'un produit dans le panier
