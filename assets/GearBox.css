@@ -1094,7 +1094,38 @@ body{
     width: 100%;
 }
 
+.page-btn:active{ 
+    background-color: #1a202c; 
+    color: #ffffff;          
+    font-weight: bold;        
+    border: 2px solid #2d3748; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); 
+    transition: background-color 0.3s, color 0.3s; 
+}
 
+.page-btn:hover {
+    background-color: #1a202c; 
+    color: #ffffff;           
+    cursor: pointer;         
+}
+
+
+#affhi .items-per-page {
+    cursor: pointer; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+    user-select: none; 
+    transition: background-color 0.3s; 
+}
+
+#affhi .items-per-page:hover {
+    background-color: #f0f0f0; 
+}
+
+#affhi .items-per-page.font-bold {
+    font-weight: bold;
+    background-color: #ddd; 
+}
 
 
 
