@@ -35,30 +35,13 @@
             <!-- Order Section -->
             <section class="mb-10 lg:w-2/3">
                 <h2 class="text-lg font-semibold mb-6">Votre commande</h2>
-
-             
-
-                <!-- Another Product Item -->
-                <div class="border-b rounded-lg bg-white shadow-lg p-4 grid grid-cols-3 gap-4 items-start">
-                    <div class="col-span-1">
-                        <img src="../assets/media/Product1.png" alt="Image of High-Performance RGB Gaming PC Tower" class="w-full h-full object-cover rounded-md">
-                    </div>
-                    <div class="col-span-2 flex flex-col space-y-3 p-4">
-                        <h3 class="text-base font-medium mb-3">High-Performance RGB Gaming PC Tower</h3>
-                        <p class="text-gray-600 text-sm">Sleek RGB Gaming PC Tower with powerful cooling, customizable lighting, and tempered glass panel.</p>
-                        <p class="text-lg font-semibold">15,000 MAD</p>
-                        <div class="flex justify-between items-center mt-4">
-                            <div class="flex items-center space-x-2">
-                                <button aria-label="Decrease quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100">-</button>
-                                <input type="text" value="1" class="w-12 text-center border rounded-md" aria-label="Quantity">
-                                <button aria-label="Increase quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100">+</button>
-                            </div>
-                            <button class="text-red-500 text-xl hover:text-red-600 transition duration-150" title="Retirer">&#128465;</button>
-                        </div>
-                    </div>
+            
+                <!-- Section pour afficher les produits -->
+                <div id="cartItemsContainer">
+                    <!-- Les produits seront ajoutés ici dynamiquement -->
                 </div>
             </section>
-
+            
             <!-- Summary Section -->
             <div class="lg:w-1/3">
                 <h2 class="text-lg font-semibold mb-4 text-center lg:text-left">Résumé</h2>
@@ -144,6 +127,92 @@
         <hr class="h-px my-8 bg-gray-600 border-0">
         <div class="text-center text-gray-300 mt-8">&copy; 2024 - Designed by <strong>CHAMKHI</strong></div>
     </footer>
+
+    <script>
+        // Fonction pour charger les produits du panier depuis le localStorage
+function displayCartItems() {
+    // Récupérer les produits du panier à partir du localStorage
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    // Récupérer l'élément container où afficher les produits
+    const cartItemsContainer = document.getElementById("cartItemsContainer");
+
+    // S'assurer que la section est vide avant d'ajouter les produits
+    cartItemsContainer.innerHTML = "";
+
+    // Vérifier si le panier est vide
+    if (cartItems.length === 0) {
+        cartItemsContainer.innerHTML = "<p>Votre panier est vide.</p>";
+        return;
+    }
+
+    // Parcourir les produits dans le panier et afficher chaque produit
+    cartItems.forEach(item => {
+        const itemHTML = `
+            <div class="border-b rounded-lg bg-white shadow-lg p-4 grid grid-cols-3 gap-4 items-start">
+                <div class="col-span-1">
+                    <img src="${item.productImage}" alt="${item.productName}" class="w-full h-full object-cover rounded-md">
+                </div>
+                <div class="col-span-2 flex flex-col space-y-3 p-4">
+                    <h3 class="text-base font-medium mb-3">${item.productName}</h3>
+                    <p class="text-gray-600 text-sm">${item.shortDescription}</p>
+                    <p class="text-lg font-semibold">${item.priceTotal} MAD</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <div class="flex items-center space-x-2">
+                            <button aria-label="Decrease quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100" onclick="decreaseQuantity(${item.id})">-</button>
+                            <input type="text" value="${item.quantity}" class="w-12 text-center border rounded-md" aria-label="Quantity" disabled>
+                            <button aria-label="Increase quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100" onclick="increaseQuantity(${item.id})">+</button>
+                        </div>
+                        <button class="text-red-500 text-xl hover:text-red-600 transition duration-150" title="Retirer" onclick="removeItem(${item.id})">&#128465;</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Ajouter l'élément HTML pour ce produit dans le container
+        cartItemsContainer.innerHTML += itemHTML;
+    });
+}
+
+// Fonction pour diminuer la quantité d'un produit dans le panier
+function decreaseQuantity(itemId) {
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const itemIndex = cartItems.findIndex(item => item.id === itemId);
+    
+    if (itemIndex >= 0 && cartItems[itemIndex].quantity > 1) {
+        cartItems[itemIndex].quantity--;
+        cartItems[itemIndex].priceTotal = (cartItems[itemIndex].quantity * parseFloat(cartItems[itemIndex].unitPrice)).toFixed(2);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        displayCartItems(); // Rafraîchir l'affichage
+    }
+}
+
+// Fonction pour augmenter la quantité d'un produit dans le panier
+function increaseQuantity(itemId) {
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const itemIndex = cartItems.findIndex(item => item.id === itemId);
+
+    if (itemIndex >= 0 && cartItems[itemIndex].quantity < maxQuantity) {
+        cartItems[itemIndex].quantity++;
+        cartItems[itemIndex].priceTotal = (cartItems[itemIndex].quantity * parseFloat(cartItems[itemIndex].unitPrice)).toFixed(2);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        displayCartItems(); // Rafraîchir l'affichage
+    }
+}
+
+// Fonction pour supprimer un produit du panier
+function removeItem(itemId) {
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const updatedCartItems = cartItems.filter(item => item.id !== itemId);
+    
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+    displayCartItems(); // Rafraîchir l'affichage
+}
+
+// Appeler la fonction pour afficher les produits du panier au chargement de la page
+displayCartItems();
+
+    </script>
 
 </body>
 </html>
