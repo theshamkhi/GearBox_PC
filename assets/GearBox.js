@@ -1009,7 +1009,7 @@ let totalPages = 1;
 
 async function theData() {
     try{
-    const response = await fetch('../data/data.json');  
+    const response = await fetch('https://oussamabenoujja.github.io/dataBase/data.json');  
     const data = await response.json();
     catalogData = data;
     return catalogData;  
@@ -1022,7 +1022,7 @@ console.log(theData());
 
 async function loadCatalogData() {
     try {
-        const response = await fetch('../data/data.json');  
+        const response = await fetch('https://oussamabenoujja.github.io/dataBase/data.json');  
         const data = await response.json();
         catalogData = data;
         filteredData = catalogData;  
@@ -1275,7 +1275,7 @@ function getItemHTML(item, viewType) {
     } else {
         return `
             <div class="item_cards w-1000px bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 item-card flex flex-row items-center p-4" style="height: 200px;">
-                <a href="#" class="listImage flex-shrink-0">
+                <a href="#" class="listImage">
                     <img class="rounded-lg" src="${item.image_urls[0]}" alt="product image" style="width: 100px; height: auto;" />
                 </a>
                 <div class="thisinnerOut ml-4">
@@ -1458,6 +1458,7 @@ window.addEventListener('load',function(){
     let fitBtn = document.querySelector('#filterBtn');
     let cat = document.querySelector('.catalogItems');
     let aff = document.querySelector('#affhi');
+    let margin = document.querySelector('#mainflex');
     if(window.innerWidth<=800){
         console.log(window.innerWidth);
         filterPanel.style.display = 'none';
@@ -1465,6 +1466,8 @@ window.addEventListener('load',function(){
         cat.style.gridTemplateColumns = 'repeat(1, 1fr)';
         cat.style.justifyContent = "center";
         aff.style.display = 'none';
+        margin.style.marginLeft= '-30px';
+        margin.style.marginRight= '-30px';
     }else{
         aff.style.display = 'block';
         closeFi.style.display = 'none';
@@ -1473,6 +1476,8 @@ window.addEventListener('load',function(){
         cat.style.gridTemplateColumns = 'repeat(3, 1fr)';
         filterPanel.style.position = 'relative';
         filterPanel.style.width = '30%';
+        margin.style.marginLeft= '50px';
+        margin.style.marginRight= '50px';
         
     }
 })
@@ -1492,6 +1497,7 @@ window.addEventListener('resize', function(){
     let fitBtn = document.querySelector('#filterBtn');
     let cat = document.querySelector('.catalogItems');
     let aff = document.querySelector('#affhi');
+    let margin = document.querySelector('#mainflex');
     if(window.innerWidth<=800){
         console.log(window.innerWidth);
         filterPanel.style.display = 'none';
@@ -1499,6 +1505,8 @@ window.addEventListener('resize', function(){
         cat.style.gridTemplateColumns = 'repeat(1, 1fr)';
         cat.style.justifyContent = "center";
         aff.style.display = 'none';
+        margin.style.marginLeft= '-30px';
+        margin.style.marginRight= '-30px';
     }else{
         aff.style.display = 'block';
         closeFi.style.display = 'none';
@@ -1507,6 +1515,8 @@ window.addEventListener('resize', function(){
         cat.style.gridTemplateColumns = 'repeat(3, 1fr)';
         filterPanel.style.position = 'relative';
         filterPanel.style.width = '30%';
+        margin.style.marginLeft= '50px';
+        margin.style.marginRight= '50px';
         
     }
 })
