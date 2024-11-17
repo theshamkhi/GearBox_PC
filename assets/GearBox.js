@@ -4999,31 +4999,33 @@ document.addEventListener("DOMContentLoaded", loadCartItems);
 
 
 /* Page À Propos */
+document.addEventListener('DOMContentLoaded', () => {
+    const carouselWrapper = document.getElementById('carousel-wrapper');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
 
-const carouselWrapper = document.getElementById('carousel-wrapper');
-const prevButton = document.getElementById('prev');
-const nextButton = document.getElementById('next');
 
-let currentIndex = 0;
-const itemsPerSlide = 2; 
-const totalItems = document.querySelectorAll('#carousel-wrapper .group').length;
-const totalSlides = Math.ceil(totalItems / itemsPerSlide);
+    const items = document.querySelectorAll('#carousel-wrapper .group');
+    const visibleItems = 3;
+    const itemWidth = items[0].offsetWidth + 24; 
+    let currentIndex = 0;
 
-function updateCarousel() {
-    const translateX = -(currentIndex * 100) / itemsPerSlide;
-    carouselWrapper.style.transform = `translateX(${translateX}%)`;  
-}
+    const updateCarousel = () => {
+        const offset = -currentIndex * itemWidth;
+        carouselWrapper.style.transform = `translateX(${offset}px)`;
+    };
 
-nextButton.addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-        updateCarousel();
-    }
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    });
+
+    nextButton.addEventListener('click', () => {
+        if (currentIndex < items.length - visibleItems) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });
 });
-
-prevButton.addEventListener('click', () => {
-    if (currentIndex < totalSlides - 1) {
-        currentIndex++;
-        updateCarousel();
-    }
-}); 
