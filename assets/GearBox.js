@@ -1,99 +1,100 @@
 const slides = document.getElementById('carousel-images');
-    slides.addEventListener("wheel",(evnt)=>{
-    slides.scrollLeft += evnt.deltaX
-    })
+slides.addEventListener("wheel",(evnt)=>{
+slides.scrollLeft += evnt.deltaX
+})
 
-    function toggleMenu() {
-    const menuSidebar = document.getElementById('MenuSidebar');
-    menuSidebar.classList.toggle('-translate-x-full');
-    }
-        let AcurrentPage = 1;
-        const AitemsPerPage = 4;
-        let productsData = [];
+function toggleMenu() {
+const menuSidebar = document.getElementById('MenuSidebar');
+menuSidebar.classList.toggle('-translate-x-full');
+}
 
-        // Fetch the product data from JSON file
-        fetch('../data/data.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Error loading data.json file");
-                }
-                return response.json();
-            })
-            .then(data => {
-                productsData = data; // Store the product data
-                displayProducts(AcurrentPage); // Display initial page
-            })
-            .catch(error => console.error('Error:', error));
+    let AcurrentPage = 1;
+    const AitemsPerPage = 4;
+    let productsData = [];
 
-        // Function to display products based on the current page
-        function displayProducts(page) {
-            const startIndex = (page - 1) * AitemsPerPage;
-            const endIndex = page * AitemsPerPage;
-            const currentProducts = productsData.slice(startIndex, endIndex);
-            const productList = document.getElementById('product-list');
+    // Fetch the product data from JSON file
+    fetch('../data/data.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Error loading data.json file");
+            }
+            return response.json();
+        })
+        .then(data => {
+            productsData = data; // Store the product data
+            displayProducts(AcurrentPage); // Display initial page
+        })
+        .catch(error => console.error('Error:', error));
 
-            // Clear previous products
-            productList.innerHTML = '';
+    // Function to display products based on the current page
+    function displayProducts(page) {
+        const startIndex = (page - 1) * AitemsPerPage;
+        const endIndex = page * AitemsPerPage;
+        const currentProducts = productsData.slice(startIndex, endIndex);
+        const productList = document.getElementById('product-list');
 
-            // Loop through the current page products and create cards
-            currentProducts.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.classList.add('max-w-sm', 'bg-white', 'border', 'border-gray-200', 'rounded-lg', 'shadow-md');
-                productCard.innerHTML = `
-                 <a href="#">
+        // Clear previous products
+        productList.innerHTML = '';
+
+        // Loop through the current page products and create cards
+        currentProducts.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.classList.add('max-w-sm', 'bg-white', 'border', 'border-gray-200', 'rounded-lg', 'shadow-md');
+            productCard.innerHTML = `
+                <a href="templates/Details.html?id=${product.id}"">
                     <img class="rounded-t-lg" src="${product.image_urls[0]}" alt="${product.name}">
                 </a>
                 <div class="p-5">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">${product.name}</h5>
                     <p class="text-gray-700">${product.short_description}</p>
                     <p class="text-lg font-semibold text-gray-900">${product.price} dh</p>
-                       
-                          <a href="#" id="bouton4" class="inline-flex items-center px-10 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-7 mt-5"  onclick="addToCart('${product.id}', '${product.name}', '${product.image_urls[0]}', '${product.price}', '${product.short_description}')">
-                Ajouter au panier
-            </a>
-                    </div>
-                  
-                `;
-                productList.appendChild(productCard);
-            });
-        }
+                    <a href="templates/Details.html?id=${product.id}" id="bouton4" class="inline-flex items-center px-10 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-7 mt-5">
+                       Voir Detail
+                    </a>
+                </div>
+            `;
 
-function addToCart(id, name, image, price, shortDescription) {
-       
+
+            productList.appendChild(productCard);
+        });
+    }
+
+    // Add product to cart and save to localStorage
+    function addToCart(id, name, image, price, shortDescription) {
         const productPrice = parseFloat(price);
 
-        const productId = `product-${Math.random().toString(36).substring(7)}`;
-
-      
+        // Get existing cart from localStorage, or create a new array if none exists
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-       
-        const existingProductIndex = cart.findIndex(item => item.id === id);
+        // Check if product already exists in cart based on product name
+        const existingProductIndex = cart.findIndex(item => item.name === name);
 
         if (existingProductIndex > -1) {
-            // Update quantity and price if product already exists in cart
+            // Update quantity and add price to totalPrice if product already exists in cart
             cart[existingProductIndex].quantity += 1;
-            cart[existingProductIndex].totalPrice = (productPrice * cart[existingProductIndex].quantity).toFixed(2);
+            cart[existingProductIndex].totalPrice = (parseFloat(cart[existingProductIndex].totalPrice) + productPrice).toFixed(2);
         } else {
-            // Add new product to cart
+            // Add new product to cart with a numeric ID (not random)
             const newProduct = {
-                id: productId,
+                id: cart.length + 1, // Assign numeric ID starting from 1
                 name: name,
                 image: image,
                 price: productPrice,
                 shortDescription: shortDescription,
                 quantity: 1,
-                totalPrice: productPrice.toFixed(2) 
+                totalPrice: productPrice.toFixed(2)
             };
             cart.push(newProduct);
         }
 
+        // Save updated cart to localStorage
         localStorage.setItem('cart', JSON.stringify(cart));
 
+        // Inform the user
         alert(`${name} a été ajouté au panier!`);
     }
 
-   
+    // Event listeners for pagination buttons
     document.getElementById('page1').addEventListener('click', () => {
         AcurrentPage = 1;
         displayProducts(AcurrentPage);
@@ -108,6 +109,39 @@ function addToCart(id, name, image, price, shortDescription) {
         AcurrentPage = 3;
         displayProducts(AcurrentPage);
     });
+
+
+    function exportCartToJson() {
+// Get the cart data from localStorage
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Convert cart data to JSON
+const jsonData = JSON.stringify(cart, null, 2);
+
+// Create a Blob object with the JSON data
+const blob = new Blob([jsonData], { type: 'application.json' });
+
+// Create a download link for the Blob
+const link = document.createElement('a');
+link.href = URL.createObjectURL(blob);
+link.download = 'cartData.json';  // Name of the file to be downloaded
+
+// Trigger the download
+link.click();
+}
+
+// Example button to trigger export
+const exportButton = document.createElement('button');
+exportButton.innerText = 'Download Cart Data';
+exportButton.onclick = exportCartToJson;
+document.body.appendChild(exportButton); 
+
+    // 
+
+    
+
+    
+  
 
 
 
