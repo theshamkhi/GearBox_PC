@@ -2256,6 +2256,9 @@
 
     // Appeler la fonction pour charger les images depuis l'API
     loadImagesFromAPI();
+
+    // 
+    
    
 
 
