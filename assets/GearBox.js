@@ -2998,7 +2998,7 @@ closeFi.addEventListener('click', function(){
 
 
 
-// Page Panier
+/* Page Panier */
 // Wait for the DOM to fully load before running the functions
 document.addEventListener('DOMContentLoaded', () => {
     DisplayProducts();
