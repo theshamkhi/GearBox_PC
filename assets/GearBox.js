@@ -1,123 +1,138 @@
+/* Page Accueil */
 const slides = document.getElementById('carousel-images');
     slides.addEventListener("wheel",(evnt)=>{
     slides.scrollLeft += evnt.deltaX
+})
+
+let AcurrentPage = 1;
+const AitemsPerPage = 4;
+let productsData = [];
+
+// Fetch the product data from JSON file
+fetch('../data/data.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Error loading data.json file");
+        }
+        return response.json();
     })
+    .then(data => {
+        productsData = data; // Store the product data
+        displayProducts(AcurrentPage); // Display initial page
+    })
+    .catch(error => console.error('Error:', error));
 
-    function toggleMenu() {
-    const menuSidebar = document.getElementById('MenuSidebar');
-    menuSidebar.classList.toggle('-translate-x-full');
-    }
-        let AcurrentPage = 1;
-        const AitemsPerPage = 4;
-        let productsData = [];
+// Function to display products based on the current page
+function displayProducts(page) {
+    const startIndex = (page - 1) * AitemsPerPage;
+    const endIndex = page * AitemsPerPage;
+    const currentProducts = productsData.slice(startIndex, endIndex);
+    const productList = document.getElementById('product-list');
 
-        // Fetch the product data from JSON file
-        fetch('../data/data.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Error loading data.json file");
-                }
-                return response.json();
-            })
-            .then(data => {
-                productsData = data; // Store the product data
-                displayProducts(AcurrentPage); // Display initial page
-            })
-            .catch(error => console.error('Error:', error));
+    // Clear previous products
+    productList.innerHTML = '';
 
-        // Function to display products based on the current page
-        function displayProducts(page) {
-            const startIndex = (page - 1) * AitemsPerPage;
-            const endIndex = page * AitemsPerPage;
-            const currentProducts = productsData.slice(startIndex, endIndex);
-            const productList = document.getElementById('product-list');
-
-            // Clear previous products
-            productList.innerHTML = '';
-
-            // Loop through the current page products and create cards
-            currentProducts.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.classList.add('max-w-sm', 'bg-white', 'border', 'border-gray-200', 'rounded-lg', 'shadow-md');
-                productCard.innerHTML = `
-                 <a href="#">
-                    <img class="rounded-t-lg" src="${product.image_urls[0]}" alt="${product.name}">
-                </a>
-                <div class="p-5">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">${product.name}</h5>
-                    <p class="text-gray-700">${product.short_description}</p>
-                    <p class="text-lg font-semibold text-gray-900">${product.price} dh</p>
-                       
-                          <a href="#" id="bouton4" class="inline-flex items-center px-10 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-7 mt-5"  onclick="addToCart('${product.id}', '${product.name}', '${product.image_urls[0]}', '${product.price}', '${product.short_description}')">
-                Ajouter au panier
+    // Loop through the current page products and create cards
+    currentProducts.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.classList.add('max-w-sm', 'bg-white', 'border', 'border-gray-200', 'rounded-lg', 'shadow-md');
+        productCard.innerHTML = `
+            <a href="templates/Details.html?id=${product.id}"">
+                <img class="rounded-t-lg" src="${product.image_urls[0]}" alt="${product.name}">
             </a>
-                    </div>
-                  
-                `;
-                productList.appendChild(productCard);
-            });
-        }
+            <div class="p-5">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">${product.name}</h5>
+                <p class="text-gray-700">${product.short_description}</p>
+                <p class="text-lg font-semibold text-gray-900">${product.price} dh</p>
+                <a href="templates/Details.html?id=${product.id}" id="bouton4" class="inline-flex items-center px-10 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-7 mt-5">
+                   Voir Detail
+                </a>
+            </div>
+        `;
 
+
+        productList.appendChild(productCard);
+    });
+}
+
+// Add product to cart and save to localStorage
 function addToCart(id, name, image, price, shortDescription) {
-       
-        const productPrice = parseFloat(price);
+    const productPrice = parseFloat(price);
 
-        const productId = `product-${Math.random().toString(36).substring(7)}`;
+    // Get existing cart from localStorage, or create a new array if none exists
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-      
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // Check if product already exists in cart based on product name
+    const existingProductIndex = cart.findIndex(item => item.name === name);
 
-       
-        const existingProductIndex = cart.findIndex(item => item.id === id);
-
-        if (existingProductIndex > -1) {
-            // Update quantity and price if product already exists in cart
-            cart[existingProductIndex].quantity += 1;
-            cart[existingProductIndex].totalPrice = (productPrice * cart[existingProductIndex].quantity).toFixed(2);
-        } else {
-            // Add new product to cart
-            const newProduct = {
-                id: productId,
-                name: name,
-                image: image,
-                price: productPrice,
-                shortDescription: shortDescription,
-                quantity: 1,
-                totalPrice: productPrice.toFixed(2) 
-            };
-            cart.push(newProduct);
-        }
-
-        localStorage.setItem('cart', JSON.stringify(cart));
-
-        alert(`${name} a été ajouté au panier!`);
+    if (existingProductIndex > -1) {
+        // Update quantity and add price to totalPrice if product already exists in cart
+        cart[existingProductIndex].quantity += 1;
+        cart[existingProductIndex].totalPrice = (parseFloat(cart[existingProductIndex].totalPrice) + productPrice).toFixed(2);
+    } else {
+        // Add new product to cart with a numeric ID (not random)
+        const newProduct = {
+            id: cart.length + 1, // Assign numeric ID starting from 1
+            name: name,
+            image: image,
+            price: productPrice,
+            shortDescription: shortDescription,
+            quantity: 1,
+            totalPrice: productPrice.toFixed(2)
+        };
+        cart.push(newProduct);
     }
 
-   
-    document.getElementById('page1').addEventListener('click', () => {
-        AcurrentPage = 1;
-        displayProducts(AcurrentPage);
-    });
+    // Save updated cart to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
 
-    document.getElementById('page2').addEventListener('click', () => {
-        AcurrentPage = 2;
-        displayProducts(AcurrentPage);
-    });
+    // Inform the user
+    alert(`${name} a été ajouté au panier!`);
+}
 
-    document.getElementById('page3').addEventListener('click', () => {
-        AcurrentPage = 3;
-        displayProducts(AcurrentPage);
-    });
+// Event listeners for pagination buttons
+document.getElementById('page1').addEventListener('click', () => {
+    AcurrentPage = 1;
+    displayProducts(AcurrentPage);
+});
 
+document.getElementById('page2').addEventListener('click', () => {
+    AcurrentPage = 2;
+    displayProducts(AcurrentPage);
+});
 
+document.getElementById('page3').addEventListener('click', () => {
+    AcurrentPage = 3;
+    displayProducts(AcurrentPage);
+});
 
 
+function exportCartToJson() {
+// Get the cart data from localStorage
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+// Convert cart data to JSON
+const jsonData = JSON.stringify(cart, null, 2);
 
+// Create a Blob object with the JSON data
+const blob = new Blob([jsonData], { type: 'application.json' });
 
+// Create a download link for the Blob
+const link = document.createElement('a');
+link.href = URL.createObjectURL(blob);
+link.download = 'cartData.json';  // Name of the file to be downloaded
 
+// Trigger the download
+link.click();
+}
 
+// Example button to trigger export
+const exportButton = document.createElement('button');
+exportButton.innerText = 'Download Cart Data';
+exportButton.onclick = exportCartToJson;
+document.body.appendChild(exportButton); 
 
+// 
 
 
 
@@ -983,63 +998,7 @@ function addToCart(id, name, image, price, shortDescription) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*Page Catalogue */
 const itemsPerPage = 9;
 let currentPage = 1;
 let catalogData = [];
@@ -1554,3 +1513,3517 @@ closeFi.addEventListener('click', function(){
     let filterPanel = document.querySelector('.rightSide');
     filterPanel.style.display = 'none';
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Page Détails du Produit */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Page Panier */
+// Wait for the DOM to fully load before running the functions
+document.addEventListener('DOMContentLoaded', () => {
+    DisplayProducts();
+    Quantity();
+    Summary();
+    DeleteProduct();
+});
+
+function toggleCart() {
+    const cartDropdown = document.getElementById('CartBar');
+    cartDropdown.classList.toggle('translate-x-0');
+    cartDropdown.classList.toggle('translate-x-full');
+}
+
+function toggleMenu() {
+    const menuSidebar = document.getElementById('MenuSidebar');
+    menuSidebar.classList.toggle('-translate-x-full');
+}
+
+function DisplayProducts() {
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    if (cartItems.length) {
+        const ProductsDiv = document.querySelector('.ProductsDiv');
+        const CartSidebarDiv = document.querySelector('.CartSidebarDiv');
+
+        ProductsDiv.innerHTML = '';
+        CartSidebarDiv.innerHTML = '';
+
+        cartItems.forEach((item, index) => {
+            const newProduct = document.createElement('div');
+            newProduct.classList.add('border-b', 'rounded-lg', 'bg-white', 'shadow-lg', 'mb-6', 'grid', 'grid-cols-1', 'md:grid-cols-3', 'gap-2', 'items-center');
+
+            newProduct.innerHTML = `
+                <div class="col-span-1">
+                    <img src="${item.image || 'https://via.placeholder.com/200'}" class="w-full h-full object-cover rounded-l-lg max-h-56 md:max-h-64"> 
+                </div>
+                <div class="col-span-1 md:col-span-2 flex flex-col space-y-4 p-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-800">${item.productName}</h3>
+                        <button class="text-red-500 text-xl hover:text-red-600 transition duration-150" title="Remove" data-index="${index}">&#128465;</button>
+                    </div>
+                    <p class="text-gray-600 text-sm md:text-base leading-relaxed">${item.shortDescription || 'No description available'}</p>
+                    <div class="flex justify-between items-center">
+                        <p class="text-lg md:text-xl font-bold text-gray-900" id="Price-${index}">${item.totalPrice} MAD</p>
+                        <div class="flex items-center space-x-2">
+                            <button 
+                                class="quantityBtn decrease px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" 
+                                data-index="${index}">
+                                -
+                            </button>
+                            <span 
+                                class="quantity-display w-12 text-center border rounded-md text-base md:text-lg" 
+                                id="quantity-${index}">
+                                ${item.quantity}
+                            </span>
+                            <button 
+                                class="quantityBtn increase px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100 text-base md:text-lg" 
+                                data-index="${index}">
+                                +
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            ProductsDiv.appendChild(newProduct);
+
+            // Cart Sidebar Div
+            const sidebarProduct = document.createElement('div');
+            sidebarProduct.classList.add('flex', 'items-center', 'space-x-4', 'border-b', 'pb-4');
+
+            sidebarProduct.innerHTML = `
+                <img src="${item.image || 'https://via.placeholder.com/80'}" alt="${item.productName}" class="w-16 h-16 object-cover rounded">
+                <div class="flex-1">
+                    <h4 class="font-bold text-gray-800">${item.productName}</h4>
+                    <div class="flex justify-between items-center">
+                        <p class="text-gray-600 text-sm">${item.totalPrice} MAD</p>
+                        <button class="text-md" title="Remove" data-index="${index}">&#128465;</button>
+                    </div>
+                </div>
+            `;
+
+            CartSidebarDiv.appendChild(sidebarProduct);
+        }); // Closing forEach
+    } else {
+        console.log('No products found in local storage.');
+    }
+}
+
+function Quantity() {
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    document.addEventListener("click", (event) => {
+        if (event.target.classList.contains("quantityBtn")) {
+            const index = event.target.getAttribute("data-index");
+            const action = event.target.classList.contains("increase") ? "increase" : "decrease";
+
+            // Update quantity based on action
+            if (action === "increase") {
+                cartItems[index].quantity++;
+            } else if (action === "decrease" && cartItems[index].quantity > 1) {
+                cartItems[index].quantity--;
+            }
+
+            // Update total price
+            cartItems[index].totalPrice = (
+                parseFloat(cartItems[index].promotionalPrice) * cartItems[index].quantity
+            ).toFixed(2);
+
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+            document.querySelector(`#quantity-${index}`).textContent = cartItems[index].quantity;
+            document.querySelector(`#Price-${index}`).textContent = `${cartItems[index].totalPrice} MAD`;
+
+            // Refresh summary
+            Summary();
+        }
+    });
+}
+
+// Function for Summary Section
+const DELIVERY_FEE = 20;
+
+function Summary() {
+
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    let subtotal = 0;
+
+    // Calculate Subtotal
+    cartItems.forEach(item => {
+        subtotal += parseFloat(item.promotionalPrice) * item.quantity;
+    });
+
+    // Calculate Total
+    const total = subtotal + DELIVERY_FEE;
+
+    document.getElementById("SubTotal").textContent = `${subtotal.toFixed(2)} MAD`;
+    document.getElementById("Total").textContent = `${total.toFixed(2)} MAD`;
+}
+
+// Function for product deletion
+function DeleteProduct() {
+    document.addEventListener("click", (event) => {
+        // Check if the clicked element is a delete button
+        if (event.target.matches('button[title="Remove"]')) {
+            const index = event.target.getAttribute("data-index");
+
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+            if (index >= 0 && index < cartItems.length) {
+                cartItems.splice(index, 1);
+
+                // Save updated cart to localStorage for Devis
+                localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+                // The display is updated immediately
+                DisplayProducts();
+                Summary();
+            }
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Page Devis */
+// Fonction pour charger les données du panier depuis localStorage et les afficher dans le tableau
+ function loadCartItems() {
+    // Récupérer les articles du panier depuis localStorage
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const cartTotal = localStorage.getItem("cartTotal") || 0;
+
+    // Sélectionner le corps du tableau
+    const tableBody = document.getElementById("tbd");
+
+    // Vider le tableau avant de le remplir
+    tableBody.innerHTML = "";
+
+    // Parcourir les articles du panier
+    cartItems.forEach((item) => {
+        // Créer une nouvelle ligne pour chaque produit
+        const row = document.createElement("tr");
+        row.classList.add("border-b"); // Ajouter une bordure entre les lignes
+
+        // Ajouter les colonnes
+        row.innerHTML = `
+            <td class="px-6 py-4">${item.productName}</td>
+            <td class="px-6 py-4">${item.unitPrice} MAD</td>
+            <td class="px-6 py-4">${item.quantity}</td>
+            <td class="px-6 py-4">${item.priceTotal} MAD</td>
+        `;
+
+        // Ajouter la ligne au tableau
+        tableBody.appendChild(row);
+    });
+
+    // Ajouter le total global dans le pied du tableau
+    const totalRow = document.createElement("tr");
+    totalRow.classList.add("font-bold", "text-lg");
+    totalRow.innerHTML = `
+        <td colspan="4" class="px-6 py-4 text-right">Total :</td>
+        <td class="px-6 py-4">${parseFloat(cartTotal).toFixed(2)} MAD</td>
+    `;
+    tableBody.appendChild(totalRow);
+    const a=document.getElementById('download');
+a.addEventListener('click',funprint);
+function funprint () {
+window.print();
+}
+}
+
+// Charger les données au chargement de la page
+document.addEventListener("DOMContentLoaded", loadCartItems);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Page À Propos */
+
+const carouselWrapper = document.getElementById('carousel-wrapper');
+const prevButton = document.getElementById('prev');
+const nextButton = document.getElementById('next');
+
+let currentIndex = 0;
+const itemsPerSlide = 2; 
+const totalItems = document.querySelectorAll('#carousel-wrapper .group').length;
+const totalSlides = Math.ceil(totalItems / itemsPerSlide);
+
+function updateCarousel() {
+    const translateX = -(currentIndex * 100) / itemsPerSlide;
+    carouselWrapper.style.transform = `translateX(${translateX}%)`;  
+}
+
+nextButton.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+    }
+});
+
+prevButton.addEventListener('click', () => {
+    if (currentIndex < totalSlides - 1) {
+        currentIndex++;
+        updateCarousel();
+    }
+}); 
