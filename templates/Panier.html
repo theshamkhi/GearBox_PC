@@ -129,9 +129,9 @@
     </footer>
 
     <script>
-        // Fonction pour charger les produits du panier depuis le localStorage
+       // Fonction pour charger les produits du panier depuis le localStorage
+// Fonction pour charger les produits du panier depuis le localStorage et afficher
 function displayCartItems() {
-    // Récupérer les produits du panier à partir du localStorage
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
     // Récupérer l'élément container où afficher les produits
@@ -140,7 +140,6 @@ function displayCartItems() {
     // S'assurer que la section est vide avant d'ajouter les produits
     cartItemsContainer.innerHTML = "";
 
-    // Vérifier si le panier est vide
     if (cartItems.length === 0) {
         cartItemsContainer.innerHTML = "<p>Votre panier est vide.</p>";
         return;
@@ -148,38 +147,46 @@ function displayCartItems() {
 
     // Parcourir les produits dans le panier et afficher chaque produit
     cartItems.forEach(item => {
-        const itemHTML = `
-            <div class="border-b rounded-lg bg-white shadow-lg p-4 grid grid-cols-3 gap-4 items-start">
-                <div class="col-span-1">
-                    <img src="${item.productImage}" alt="${item.productName}" class="w-full h-full object-cover rounded-md">
-                </div>
-                <div class="col-span-2 flex flex-col space-y-3 p-4">
-                    <h3 class="text-base font-medium mb-3">${item.productName}</h3>
-                    <p class="text-gray-600 text-sm">${item.shortDescription}</p>
-                    <p class="text-lg font-semibold">${item.priceTotal} MAD</p>
-                    <div class="flex justify-between items-center mt-4">
-                        <div class="flex items-center space-x-2">
-                            <button aria-label="Decrease quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100" onclick="decreaseQuantity(${item.id})">-</button>
-                            <input type="text" value="${item.quantity}" class="w-12 text-center border rounded-md" aria-label="Quantity" disabled>
-                            <button aria-label="Increase quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100" onclick="increaseQuantity(${item.id})">+</button>
+        // Appeler la fonction pour récupérer la quantité disponible dans data.json
+        getProductData(item.id).then(data => {
+            // Calcul de la quantité disponible dans le stock en fonction de la quantité déjà achetée
+            const availableQuantity = data.qt - item.quantity; // Quantité restante dans le stock
+
+            // Créer le HTML pour afficher cet item
+            const itemHTML = `
+                <div class="border-b rounded-lg bg-white shadow-lg p-4 grid grid-cols-3 gap-4 items-start">
+                    <div class="col-span-1">
+                        <img src="${item.productImage}" alt="${item.productName}" class="w-full h-full object-cover rounded-md">
+                    </div>
+                    <div class="col-span-2 flex flex-col space-y-3 p-4">
+                        <h3 class="text-base font-medium mb-3">${item.productName}</h3>
+                        <p class="text-gray-600 text-sm">${item.shortDescription}</p>
+                        <p class="text-lg font-semibold">${item.priceTotal} MAD</p>
+                        <div class="flex justify-between items-center mt-4">
+                            <div class="flex items-center space-x-2">
+                                <button aria-label="Decrease quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100" onclick="decreaseQuantity(${item.id}, ${availableQuantity})">-</button>
+                                <input type="text" value="${item.quantity}" class="w-12 text-center border rounded-md" aria-label="Quantity" disabled>
+                                <button aria-label="Increase quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100" onclick="increaseQuantity(${item.id}, ${availableQuantity})">+</button>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">Quantité disponible : ${availableQuantity}</p>
+                            <button class="text-red-500 text-xl hover:text-red-600 transition duration-150" title="Retirer" onclick="removeItem(${item.id})">&#128465;</button>
                         </div>
-                        <button class="text-red-500 text-xl hover:text-red-600 transition duration-150" title="Retirer" onclick="removeItem(${item.id})">&#128465;</button>
                     </div>
                 </div>
-            </div>
-        `;
+            `;
 
-        // Ajouter l'élément HTML pour ce produit dans le container
-        cartItemsContainer.innerHTML += itemHTML;
+            cartItemsContainer.innerHTML += itemHTML; // Ajouter l'élément dans le container
+        });
     });
 }
 
 // Fonction pour diminuer la quantité d'un produit dans le panier
-function decreaseQuantity(itemId) {
+function decreaseQuantity(itemId, availableQuantity) {
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     const itemIndex = cartItems.findIndex(item => item.id === itemId);
-    
+
     if (itemIndex >= 0 && cartItems[itemIndex].quantity > 1) {
+        // Diminuer la quantité
         cartItems[itemIndex].quantity--;
         cartItems[itemIndex].priceTotal = (cartItems[itemIndex].quantity * parseFloat(cartItems[itemIndex].unitPrice)).toFixed(2);
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -188,15 +195,22 @@ function decreaseQuantity(itemId) {
 }
 
 // Fonction pour augmenter la quantité d'un produit dans le panier
-function increaseQuantity(itemId) {
+function increaseQuantity(itemId, availableQuantity) {
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     const itemIndex = cartItems.findIndex(item => item.id === itemId);
 
-    if (itemIndex >= 0 && cartItems[itemIndex].quantity < maxQuantity) {
-        cartItems[itemIndex].quantity++;
-        cartItems[itemIndex].priceTotal = (cartItems[itemIndex].quantity * parseFloat(cartItems[itemIndex].unitPrice)).toFixed(2);
-        localStorage.setItem("cartItems", JSON.stringify(cartItems));
-        displayCartItems(); // Rafraîchir l'affichage
+    if (itemIndex >= 0) {
+        const currentQuantity = cartItems[itemIndex].quantity;
+
+        // Vérifier si la quantité actuelle est inférieure à la quantité disponible
+        if (currentQuantity < availableQuantity) {
+            cartItems[itemIndex].quantity++;
+            cartItems[itemIndex].priceTotal = (cartItems[itemIndex].quantity * parseFloat(cartItems[itemIndex].unitPrice)).toFixed(2);
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            displayCartItems(); // Rafraîchir l'affichage
+        } else {
+            alert("Quantité maximale atteinte !");
+        }
     }
 }
 
@@ -204,13 +218,26 @@ function increaseQuantity(itemId) {
 function removeItem(itemId) {
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     const updatedCartItems = cartItems.filter(item => item.id !== itemId);
-    
+
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
     displayCartItems(); // Rafraîchir l'affichage
 }
 
-// Appeler la fonction pour afficher les produits du panier au chargement de la page
+// Fonction pour récupérer les données du produit depuis data.json
+function getProductData(productId) {
+    return fetch('../data/data.json')
+        .then(response => response.json())
+        .then(data => {
+            const product = data.find(item => item.id == productId);
+            return product || {}; // Retourne le produit ou un objet vide si non trouvé
+        })
+        .catch(error => console.error("Erreur lors de la récupération des données du produit:", error));
+}
+
+// Fonction pour charger les produits du panier au chargement de la page
 displayCartItems();
+
+
 
     </script>
 
