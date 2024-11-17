@@ -234,18 +234,19 @@
                 const productCard = document.createElement('div');
                 productCard.classList.add('max-w-sm', 'bg-white', 'border', 'border-gray-200', 'rounded-lg', 'shadow-md');
                 productCard.innerHTML = `
-    <a href="templates/Details.html?id=${product.id}">
-        <img class="rounded-t-lg" src="${product.image_urls[0]}" alt="${product.name}">
-    </a>
-    <div class="p-5">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">${product.name}</h5>
-        <p class="text-gray-700">${product.short_description}</p>
-        <p class="text-lg font-semibold text-gray-900">${product.price} dh</p>
-        <a href="templates/Details.html?id=${product.id}" class="inline-flex items-center px-10 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-7 mt-5">
-           Voir Detail
-        </a>
-    </div>
-`;
+                    <a href="templates/Details.html?id=${product.id}"">
+                        <img class="rounded-t-lg" src="${product.image_urls[0]}" alt="${product.name}">
+                    </a>
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">${product.name}</h5>
+                        <p class="text-gray-700">${product.short_description}</p>
+                        <p class="text-lg font-semibold text-gray-900">${product.price} dh</p>
+                        <a href="templates/Details.html?id=${product.id}" id="bouton4" class="inline-flex items-center px-10 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-7 mt-5">
+                           Voir Detail
+                        </a>
+                    </div>
+                `;
+
 
                 productList.appendChild(productCard);
             });
@@ -303,7 +304,32 @@
         });
 
 
-     
+        function exportCartToJson() {
+    // Get the cart data from localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Convert cart data to JSON
+    const jsonData = JSON.stringify(cart, null, 2);
+
+    // Create a Blob object with the JSON data
+    const blob = new Blob([jsonData], { type: 'application.json' });
+
+    // Create a download link for the Blob
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'cartData.json';  // Name of the file to be downloaded
+
+    // Trigger the download
+    link.click();
+}
+
+// Example button to trigger export
+const exportButton = document.createElement('button');
+exportButton.innerText = 'Download Cart Data';
+exportButton.onclick = exportCartToJson;
+document.body.appendChild(exportButton); 
+
+        // 
 
         
 
