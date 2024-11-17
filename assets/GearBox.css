@@ -1,0 +1,19 @@
+#boutton,#download{
+    width:15em;
+    background-color:#8976B5;
+    border-radius:2em;
+    color: white;
+}
+#boutton:hover{
+   background-color:#BFADE7;
+   color:black;
+}
+#download:hover{
+   background-color:#BFADE7;
+   color:black;
+}
+@media print {
+   #download{
+       display:none;
+   }
+}
