@@ -1,4 +1,9 @@
 /* Page Accueil */
+const slides = document.getElementById('carousel-images');
+    slides.addEventListener("wheel",(evnt)=>{
+    slides.scrollLeft += evnt.deltaX
+})
+
 let AcurrentPage = 1;
 const AitemsPerPage = 4;
 let productsData = [];
@@ -128,11 +133,6 @@ exportButton.onclick = exportCartToJson;
 document.body.appendChild(exportButton); 
 
 // 
-
-
-
-
-
 
 
 
