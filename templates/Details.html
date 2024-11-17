@@ -11,7 +11,6 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/GearBox.css">
 </head>
-
 <body class="bg-gray-100">
 
     <!-- Navbar -->
@@ -40,7 +39,7 @@
             </div>
         </div>
     </nav>
-
+  
     <!-- Sidebar (left) -->
     <div id="MenuSidebar" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg p-4 z-50 transform -translate-x-full transition-transform duration-300">
         <div class="flex justify-between items-center">
@@ -76,10 +75,59 @@
     </div>
     <!-- EndOfNavbar -->
 
-    <!-- Main -->
-    <main class="max-w-7xl mx-auto p-4 md:p-8">
+    <!-- Right Side: Purchase Details -->
+    <div class="p-6 space-y-4 bg-white border border-gray-200 rounded-lg shadow-md lg:col-span-3">
+        <!-- Seller Info -->
+        <div class="mb-4 cursor-pointer" id="seller-info-toggle" onmouseenter="openModal()" onmouseleave="closeModal()">
+            <p class="text-sm font-semibold">Sold by <span class="text-gray-600">Patriot</span> <span class="text-sm font-light">(Trader)</span></p>
+        </div>
+        <!-- Shipping Info -->
+        <div class="mb-4">
+            <p class="text-sm font-semibold">Ship to</p>
+            <p class="flex items-center text-gray-600">
+                <!-- Icône de localisation SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13401 2 5 5.13401 5 9c0 4.692 5.633 11.29 6.211 11.96a1 1 0 0 0 1.578 0C13.367 20.29 19 13.692 19 9c0-3.866-3.134-7-7-7zm0 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8z" />
+                </svg>
+                Morocco
+            </p>
+        </div>
+        <!-- Commitment Section -->
+        <div class="py-4 mb-4 border-t border-b border-gray-200">
+            <p class="text-sm font-semibold">QuantaPixels commitment</p>
+            <p class="mt-2 text-sm font-semibold">Shipping:  <span >MAD 1.13 </span></p>
+            <p class="text-gray-600">Delivery: Nov. 07 - Jan. 20</p>
+        </div>
 
-    </main>
+        <!-- Security and Privacy -->
+        <div class="pb-4 mb-4 border-b border-gray-200">
+            <p class="text-sm font-semibold">Security & Privacy</p>
+            <p class="mt-2 text-xs text-gray-600">
+                Safe payments: We do not share your personal details with any third parties without your consent.
+            </p>
+            <p class="mt-2 text-xs text-gray-600">
+                Secure personal details: We protect your privacy and keep your personal details safe and secure.
+            </p>
+        </div>
+
+        <!-- Quantity Section -->
+        <div class="mb-4">
+            <p class="text-sm font-semibold">Quantity</p>
+            <span id="quantite"></span>
+
+            <div class="flex items-center mt-2">
+                <button onclick="decreaseQuantity()" class="px-3 py-1 border border-gray-300 rounded-l">-</button>
+                <input id="quantityInput" type="text" value="1" class="w-12 text-center border-t border-b border-gray-300" readonly>
+                <button onclick="increaseQuantity()" class="px-3 py-1 border border-gray-300 rounded-r">+</button>
+                <p class="ml-4 text-sm text-gray-600"><span id="availableQuantity"></span> available</p>
+            </div>
+        </div>
+        <!-- Buttons -->
+        <div class="flex flex-col space-y-2">
+            <button onclick="addToCart()" class="py-2 font-semibold text-white bg-red-500 rounded">Add to cart</button>
+        </div>
+
+    <div >
     
     <!-- Footer -->
     <footer class="bg-white py-8 pt-16 border-t">
@@ -118,6 +166,37 @@
                 <a href="#" class="block text-gray-700">Termes de service</a>
                 <a href="#" class="block text-gray-700">Politique de confidentialité</a>
             </div>
+                    </div>
+
+
+                  </div>
+              </div>
+          </div>
+
+          <div id="full"></div>
+          <div id="product_description">
+
+          </div>
+
+          <!--  -->
+          <div id="descriptionModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-gray-800 bg-opacity-80">
+              <div class="relative w-full max-w-lg p-6 text-black bg-blue-600 rounded-lg shadow-lg">
+                  <!-- Bouton de fermeture -->
+                  <button onclick="toggleModal()" class="absolute text-black top-4 right-4 hover:text-gray-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /> 
+                      </svg>
+                  </button>
+                  <!--  -->
+
+                  <h2 class="mb-4 text-xl font-semibold text-black">Static Modal</h2>
+                  <div id="descriptionContent" class="space-y-2">
+                      <!-- Le contenu sera ajouté ici dynamiquement -->
+                  </div>
+              </div>
+          </div>
+
+          <br> <br>
 
             <!-- Contact Section -->
             <div class="w-full">
@@ -159,8 +238,6 @@
             cartList.appendChild(message);
             
         }
-
-
     
     </script>
     
@@ -168,6 +245,3 @@
     
 </body>
 </html>
-
-
-  

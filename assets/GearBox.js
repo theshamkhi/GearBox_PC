@@ -2998,8 +2998,7 @@ closeFi.addEventListener('click', function(){
 
 
 
-/* Page Panier */
-
+// Page Panier
 // Wait for the DOM to fully load before running the functions
 document.addEventListener('DOMContentLoaded', () => {
     DisplayProducts();
@@ -3998,54 +3997,55 @@ function DeleteProduct() {
 
 
 
+
 /* Page Devis */
+// Fonction pour charger les données du panier depuis localStorage et les afficher dans le tableau
+ function loadCartItems() {
+    // Récupérer les articles du panier depuis localStorage
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const cartTotal = localStorage.getItem("cartTotal") || 0;
 
+    // Sélectionner le corps du tableau
+    const tableBody = document.getElementById("tbd");
 
+    // Vider le tableau avant de le remplir
+    tableBody.innerHTML = "";
 
+    // Parcourir les articles du panier
+    cartItems.forEach((item) => {
+        // Créer une nouvelle ligne pour chaque produit
+        const row = document.createElement("tr");
+        row.classList.add("border-b"); // Ajouter une bordure entre les lignes
 
+        // Ajouter les colonnes
+        row.innerHTML = `
+            <td class="px-6 py-4">${item.productName}</td>
+            <td class="px-6 py-4">${item.unitPrice} MAD</td>
+            <td class="px-6 py-4">${item.quantity}</td>
+            <td class="px-6 py-4">${item.priceTotal} MAD</td>
+        `;
 
+        // Ajouter la ligne au tableau
+        tableBody.appendChild(row);
+    });
 
+    // Ajouter le total global dans le pied du tableau
+    const totalRow = document.createElement("tr");
+    totalRow.classList.add("font-bold", "text-lg");
+    totalRow.innerHTML = `
+        <td colspan="4" class="px-6 py-4 text-right">Total :</td>
+        <td class="px-6 py-4">${parseFloat(cartTotal).toFixed(2)} MAD</td>
+    `;
+    tableBody.appendChild(totalRow);
+    const a=document.getElementById('download');
+a.addEventListener('click',funprint);
+function funprint () {
+window.print();
+}
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Charger les données au chargement de la page
+document.addEventListener("DOMContentLoaded", loadCartItems);
 
 
 
