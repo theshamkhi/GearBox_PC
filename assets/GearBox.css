@@ -1162,3 +1162,37 @@ body{
     height: 150px !important;
 
 }
+
+
+.page-btn:active{ 
+    background-color: #1a202c; 
+    color: #ffffff;          
+    font-weight: bold;        
+    border: 2px solid #2d3748; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); 
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+.page-btn:hover {
+    background-color: #1a202c; 
+    color: #ffffff;           
+    cursor: pointer;         
+}
+
+
+#affhi .items-per-page {
+    cursor: pointer; /* Make it look clickable */
+    padding: 5px 10px; /* Add some padding to make it look like a button */
+    border-radius: 5px; /* Optional, for rounded corners */
+    user-select: none; /* Prevent text selection */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+#affhi .items-per-page:hover {
+    background-color: #f0f0f0; /* Add a hover effect */
+}
+
+#affhi .items-per-page.font-bold {
+    font-weight: bold;
+    background-color: #ddd; /* Add background for the active (bold) item */
+}
