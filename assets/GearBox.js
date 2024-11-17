@@ -1,8 +1,12 @@
 /* Page Accueil */
-//const slides = document.getElementById('carousel-images');
- //   slides.addEventListener("wheel",(evnt)=>{
- //   slides.scrollLeft += evnt.deltaX
-//})
+
+if (!window.location.pathname.endsWith("Catalogue.html")) {
+    console.log("You are on catalogue.html");
+
+const slides = document.getElementById('carousel-images');
+    slides.addEventListener("wheel",(evnt)=>{
+    slides.scrollLeft += evnt.deltaX
+})
 
 let AcurrentPage = 1;
 const AitemsPerPage = 4;
@@ -133,6 +137,7 @@ exportButton.onclick = exportCartToJson;
 document.body.appendChild(exportButton); 
 
 // 
+}
 
 
 
@@ -1109,8 +1114,8 @@ document.body.appendChild(exportButton);
 
 
 
-
-
+if (window.location.pathname.endsWith("catalogue.html")) {
+    console.log("You are on catalogue.html");
 
 
 
@@ -1707,8 +1712,7 @@ closeFi.addEventListener('click', function(){
     filterPanel.style.display = 'none';
 })
 
-
-
+}
 
 
 
