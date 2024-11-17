@@ -237,3 +237,39 @@ const checkInterval = setInterval(() => {
         console.log("Vérification de l'ID toutes les secondes...");
     }
 }, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function toggleCart() {
+    const cartDropdown = document.getElementById('CartBar');
+    cartDropdown.classList.toggle('translate-x-0');
+    cartDropdown.classList.toggle('translate-x-full');
+}
+
+function toggleMenu() {
+    const menuSidebar = document.getElementById('MenuSidebar');
+    menuSidebar.classList.toggle('-translate-x-full');
+}
