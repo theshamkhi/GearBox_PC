@@ -1001,11 +1001,23 @@
 
 
 
-const itemsPerPage = 9;
+let itemsPerPage = 9;
 let currentPage = 1;
 let catalogData = [];
 let filteredData = [];  
 let totalPages = 1;
+
+
+
+document.querySelectorAll("#affhi .items-per-page").forEach(span => {
+    span.addEventListener('click', function() {
+        const selectedItemsPerPage = parseInt(span.getAttribute("data-items"));
+        itemsPerPage = selectedItemsPerPage;
+        document.querySelectorAll("#affhi .items-per-page").forEach(item => item.classList.remove('font-bold'));
+        span.classList.add('font-bold');
+        renderItems('grid'); 
+    });
+});
 
 async function theData() {
     try{
@@ -1035,6 +1047,34 @@ async function loadCatalogData() {
 }
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category'); 
+    
+    if (category) {
+        filteredData = catalogData.filter(item => item.part_type === category); 
+        currentPage = 1; 
+        updatePagination();
+        renderPage();
+    } else {
+        loadCatalogData(); 
+    }
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const pageButtons = document.querySelectorAll('.pagination .page-btn');
+
+    pageButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            pageButtons.forEach(btn => btn.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    });
+});
+
+
+
 async function renderPage() {
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
@@ -1051,24 +1091,35 @@ async function renderPage() {
                     <img class="p-8 rounded-t-lg" src="${imageUrl}" alt="product image" />
                 </a>
                 <div class="atSec px-5 ">
-                    <a href="#">
+                    <a id="itemTitle${item.id}" href="#">
                         <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white" id="item${item.id}">${item.name}</h5>
                     </a>
                     <div class="flex items-center justify-between">
                     <span class="text-3xl font-bold text-gray-900 dark:text-white">${(item.price*9).toFixed(2)} MAD</span>
-                    <a href="#" class="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <a id="cartButton${item.id}" href="#" class="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                         </svg>
                     </a>
                     </div>
                 </div>
-
             </div>`;
 
         catalogItemsContainer.insertAdjacentHTML('beforeend', itemHTML);
         document.getElementById(`item${item.id}`).addEventListener('click', function() {
             const data = { id: item.id};
+            const queryString = new URLSearchParams(data).toString();
+            window.location.href = `Details.html?${queryString}`;
+        });
+
+        document.getElementById(`item${item.id}`).addEventListener('click', function() {
+            const data = { id: item.id };
+            const queryString = new URLSearchParams(data).toString();
+            window.location.href = `Details.html?${queryString}`;
+        });
+
+        document.getElementById(`cartButton${item.id}`).addEventListener('click', function() {
+            const data = { id: item.id };
             const queryString = new URLSearchParams(data).toString();
             window.location.href = `Details.html?${queryString}`;
         });
@@ -1119,13 +1170,13 @@ function renderPagination() {
 function filterCatalog() {
     const partType = document.querySelector('#part-type').value;
 
-    // Filter catalogData based on selected partType
+    
     filteredData = partType === "" ? catalogData : catalogData.filter(item => item.part_type === partType);
 
-    // Reset to the first page after filtering
+    
     currentPage = 1;
 
-    // Re-render items and pagination with the current view type (list or grid)
+    
     updatePagination();
     renderItems(whichState);
 }
@@ -1212,9 +1263,9 @@ document.addEventListener('DOMContentLoaded', function() {
     ramSelects.forEach(select => select.style.display = 'none');
     coolerSelects.forEach(select => select.style.display = 'none');
 
-    // Event listener for when part type is changed
+    
     partTypeSelect.addEventListener('change', function() {
-        // Hide all selects first
+        
         storageSelects.forEach(select => select.style.display = 'none');
         cpuSelects.forEach(select => select.style.display = 'none');
         gpuSelects.forEach(select => select.style.display = 'none');
@@ -1224,7 +1275,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ramSelects.forEach(select => select.style.display = 'none');
         coolerSelects.forEach(select => select.style.display = 'none');
 
-        // Show the related selects based on part type
+        
         if (partTypeSelect.value === 'storage') {
             storageSelects.forEach(select => select.style.display = 'block');
         } else if (partTypeSelect.value === 'cpu') {
@@ -1251,7 +1302,7 @@ let whichState = 'grid';
 
 function getItemHTML(item, viewType) {
     if (viewType === 'grid') {
-        // Grid view template (square card)
+       
         return `
             <div class="item_cards w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 item-card">
                 <a href="#">
@@ -1259,11 +1310,11 @@ function getItemHTML(item, viewType) {
                 </a>
                 <div class="px-5 pb-5 text-center">
                     <a href="#">
-                        <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">${item.name}</h5>
+                        <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white" id="item${item.id}">${item.name}</h5>
                     </a>
                     <div class="flex items-center justify-between">
                     <span class="text-3xl font-bold text-gray-900 dark:text-white">${(item.price*9).toFixed(2)} MAD</span>
-                    <a href="#" class="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <a id="cartButton${item.id}" href="#" class="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                         </svg>
@@ -1280,11 +1331,11 @@ function getItemHTML(item, viewType) {
                 </a>
                 <div class="thisinnerOut ml-4">
                     <a href="#">
-                        <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">${item.name}</h5>
+                        <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white" id="item${item.id}">${item.name}</h5>
                     </a>
                     <div class="thisinnerItem flex items-center justify-between">
                     <span class="text-xl font-bold text-gray-900 dark:text-white">${(item.price*9).toFixed(2)} MAD</span>
-                    <a href="#" class="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <a id="cartButton${item.id}" href="#" class="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                         </svg>
@@ -1300,26 +1351,42 @@ function renderItems(viewType) {
     const catalogItemsContainer = document.querySelector('.catalogItems');
     catalogItemsContainer.innerHTML = '';
 
-    // Determine the start and end indices for the current page
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
     const itemsToDisplay = filteredData.slice(start, end);
 
-    // Adjust parent container layout based on view type
     if (viewType === 'list') {
         catalogItemsContainer.style.display = 'flex';
         catalogItemsContainer.style.flexDirection = 'column';
-        catalogItemsContainer.style.gap = '10px';  // Add spacing between items for list view
+        catalogItemsContainer.style.gap = '10px';  
     } else {
         catalogItemsContainer.style.display = 'grid';
-        catalogItemsContainer.style.gridTemplateColumns = 'repeat(3, 1fr)';  // Three columns for grid view
-        catalogItemsContainer.style.gap = '20px';  // Space between items for grid view
+        catalogItemsContainer.style.gridTemplateColumns = 'repeat(3, 1fr)';  
+        catalogItemsContainer.style.gap = '20px';  
     }
 
-    // Generate HTML for each item based on the view type
     itemsToDisplay.forEach(item => {
+        console.log(item);  
         catalogItemsContainer.insertAdjacentHTML('beforeend', getItemHTML(item, viewType));
+    
+        const itemElement = document.getElementById(`item${item.id}`);
+        if (itemElement) {
+            itemElement.addEventListener('click', function() {
+                const data = { id: item.id };
+                const queryString = new URLSearchParams(data).toString();
+                window.location.href = `Details.html?${queryString}`;
+            });
+        }
+    
+        const cartButton = document.getElementById(`cartButton${item.id}`);
+        if (cartButton) {
+            cartButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                console.log(`Item ${item.id} added to cart`);
+            });
+        }
     });
+    
     let cat = document.querySelector('.catalogItems');
     if(window.innerWidth<=800){cat.style.gridTemplateColumns = 'repeat(1, 1fr)';}
 }
@@ -1386,7 +1453,7 @@ function updatePagination() {
 
 
 function applyFilters() {
-    // Get selected values for each filter
+    
     const cpuBrand = document.querySelector('#cpu-brand').value;
     const cpuCoreCount = parseInt(document.querySelector('#cpu-core-count').value);
     const cpuCoreClock = parseFloat(document.querySelector('#cpu-core-clock').value);
