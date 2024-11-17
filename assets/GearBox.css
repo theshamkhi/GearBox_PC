@@ -12,6 +12,11 @@
    background-color:#BFADE7;
    color:black;
 }
+th{
+    background-color:#8976B5;
+    color: white;
+    border-radius:5em;
+}
 @media print {
    #download{
        display:none;
