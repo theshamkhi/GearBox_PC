@@ -16,16 +16,16 @@
 </head>
 <body class="bg-gray-100">
 
-        <center>
-            <div class="flex flex-col">
+    <main>
+        <div class="text-center">
+            <div class="flex justify-center">
                 <!-- Ajout d'un conteneur responsive pour le tableau -->
-                <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                <div class="overflow-x-auto w-full">
+                    <div class="inline-block min-w-full py-2 px-4">
                         <div class="overflow-hidden">
                             <table class="min-w-full text-sm font-light text-left text-black">
                                 <thead class="font-medium border-b border-neutral-200">
                                     <tr>
-                                        
                                         <th scope="col" class="px-6 py-4">Nom produit</th>
                                         <th scope="col" class="px-6 py-4">Prix/unites</th>
                                         <th scope="col" class="px-6 py-4">Quantite</th>
@@ -40,13 +40,18 @@
                     </div>
                 </div>
             </div>
-        </center>
-        <center>
-            <button id="download">Reçu PDF</button>
-        </center>
+        </div>
+    
+        <!-- Bouton de téléchargement -->
+        <div class="text-center mt-4">
+            <button id="download" class="px-6 py-3.5 text-base font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Reçu PDF
+            </button>
+        </div>
     </main>
+    
 
-    <script src="/assets/GearBox.js"></script>
+    <script src="../assets/GearBox.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     
 </body>

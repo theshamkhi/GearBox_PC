@@ -86,39 +86,38 @@
 
     <!-- Main -->
     <main>
-        <center><h1 class="my-4 text-2xl font-semibold">Devis</h1></center>
-        <center>
-            <div class="flex flex-col">
-                <!-- Ajout d'un conteneur responsive pour le tableau -->
-                <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                        <div class="overflow-hidden">
-                            <table class="min-w-full text-sm font-light text-left text-black">
-                                <thead class="font-medium border-b border-neutral-200">
-                                    <tr>
-                                        <th scope="col" class="px-6 py-4">Nom produit</th>
-                                        <th scope="col" class="px-6 py-4">Prix/unites</th>
-                                        <th scope="col" class="px-6 py-4">Quantite</th>
-                                        <th scope="col" class="px-6 py-4">Prix Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tbd">
-                                    <!-- Remplir dynamiquement le tableau si nécessaire -->
-                                </tbody>
-                            </table>
-                        </div>
+        <h1 class="my-4 text-2xl font-semibold text-center">Devis</h1>
+        <div class="flex justify-center">
+            <!-- Ajout d'un conteneur responsive pour le tableau -->
+            <div class="overflow-x-auto w-full">
+                <div class="inline-block min-w-full py-2 px-4">
+                    <div class="overflow-hidden">
+                        <table class="min-w-full text-sm font-light text-left text-black">
+                            <thead class="font-medium border-b border-neutral-200">
+                                <tr>
+                                    <th scope="col" class="px-6 py-4">Nom produit</th>
+                                    <th scope="col" class="px-6 py-4">Prix/unites</th>
+                                    <th scope="col" class="px-6 py-4">Quantite</th>
+                                    <th scope="col" class="px-6 py-4">Prix Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbd">
+                                <!-- Remplir dynamiquement le tableau si nécessaire -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-        </center>
+        </div>
+    
         <!-- Bouton de facturation -->
-        <center>
-            <a href="facture.html" target="_blank">
-                <button type="button" class="px-6 py-3.5 text-base font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="boutton">Facture</button>
+        <div class="text-center">
+            <a href="Facture.html" target="_blank">
+                <button type="button" class="px-6 py-3.5 text-base font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="boutton">Facture</button>
             </a>
-        </center>
-
-      </main>
+        </div>
+    </main>
+    
   
     <!-- Footer -->
     <footer class="bg-white py-8 pt-16 border-t">

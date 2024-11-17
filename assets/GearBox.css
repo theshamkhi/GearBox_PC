@@ -975,7 +975,6 @@
 .rightSide {
     width: 20%;
     height: max-content; /*CHAMKHI did this*/
-    max-height: 80vh; /*CHAMKHI did this*/
     padding: 1rem;
     background-color: #ffffff;
     border-radius: 8px;
@@ -3986,8 +3985,7 @@ th{
    #download{
        display:none;
    }
-
-
+}
 
 
 
@@ -4965,86 +4963,86 @@ th{
 /* Page À Propos */
 
 .title{
-    background-color:  #477590;
-    width: 100vw;
-    height: 500px;
+background-color: #477590;
+width: 100vw;
+height: 500px;
 }
 .title_propos {
- position: relative;
- top: 150px;
- left: 50%;
- transform: translateX(-50%);
- font-size: 3em; 
- text-align: center;
- 
+position: relative;
+top: 150px;
+left: 50%;
+transform: translateX(-50%);
+font-size: 3em; 
+text-align: center;
+
 }
 .container {
- display: flex;
- align-items: center;
- justify-content: space-between;
- padding: 20px;
- padding-left: 10%;
- padding-right: 10%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 20px;
+padding-left: 10%;
+padding-right: 10%;
 }
 
 .text-section {
- flex: 1px;
- padding-right: 20px;
+flex: 1px;
+padding-right: 20px;
 }
 
 .text-section h2 {
- font-size: 2em;
- font-weight: bold;
+font-size: 2em;
+font-weight: bold;
 }
 
 .image-section {
-  flex: 2;
- display: flex;
- justify-content: flex-end; 
+flex: 2;
+display: flex;
+justify-content: flex-end; 
 }
 
 .image-section img {
- width: 100%; 
- max-width: 500px; 
- height: auto;
- border-radius:  50px 0 50px 0; 
+width: 100%; 
+max-width: 500px; 
+height: auto;
+border-radius:  50px 0 50px 0; 
 }
 article {
- display: flex;
- justify-content: space-between;
- gap: 20px;
+display: flex;
+justify-content: space-between;
+gap: 20px;
 }
 
 .container_main {
- text-align: center;
- margin: 20px;
+text-align: center;
+margin: 20px;
 }
 
 .title_propos {
- font-size: 2em;
- font-weight: bold;
- margin-bottom: 20px;
+font-size: 2em;
+font-weight: bold;
+margin-bottom: 20px;
 }
 .image_container {
- display: flex;
- justify-content: center;
- gap: 20px;
- margin-bottom: 20px;
+display: flex;
+justify-content: center;
+gap: 20px;
+margin-bottom: 20px;
 }
 .image_container img {
- width: 100%;
- max-width: 200px;
- height: auto;
- border-radius: 8px;
+width: 100%;
+max-width: 200px;
+height: auto;
+border-radius: 8px;
 }
 .container_div {
- display: flex;
- justify-content: center;
- gap: 30px;
+display: flex;
+justify-content: center;
+gap: 30px;
 }
 .container_div p {
- font-size: 1.2em;
- font-weight: bold;
- text-align: center;
- margin: 0;
+font-size: 1.2em;
+font-weight: bold;
+text-align: center;
+margin: 0;
 }
