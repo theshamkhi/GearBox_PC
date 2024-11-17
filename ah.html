@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gearbox</title>
+    <link rel="icon" href="../assets/media/Logo.png"/>
+    <meta name="description" content="GearBox PC est un magasin en ligne spécialisé dans les composants PC de haute qualité, fournissant tout ce dont vous avez besoin pour construire, mettre à niveau et optimiser votre ordinateur.">
+    <meta name="keywords" content="Pc Parts, Monitor, Gaming Pc">
+    <meta name="author" content="CloudBlast">
+    <link rel="stylesheet" href="assets/GearBox.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="lg:px-32 shadow p-4 flex justify-between items-center p-8">
+        <div class="space-x-4">
+            <!-- Menu Button to toggle Sidebar -->
+            <button class="text-2xl text-black" onclick="toggleMenu()">&#9776;</button>
+            <span class="text-xl font-bold text-black">GearBox Pc</span>
+        </div>
+        <div class="flex items-center space-x-6">
+            <a href="templates/Panier.html"></a><button class="text-2xl hover:opacity-50" title="Panier">&#128722;<span id="cart-count">0</span></button></a>
+            <button class="text-2xl hover:opacity-50" title="Login">&#128100;</button>
+        </div>
+    </nav>
+
+    <!-- Sidebar (left) -->
+    <div id="MenuSidebar" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg p-4 z-50 transform -translate-x-full transition-transform duration-300">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-semibold">Menu</h3>
+            <!-- Close Button -->
+            <button onclick="toggleMenu()" class="text-base font-normal" title="Close">&#10005;</button>
+        </div>
+        <ul class="space-y-4">
+            <li><a href="templates/Catalogue.html" class="block text-gray-800 hover:text-black">Catalogue</a></li>
+            <li><a href="#" class="block text-gray-800 hover:text-black">Carte mère</a></li>
+            <li><a href="#" class="block text-gray-800 hover:text-black">Processeur</a></li>
+            <li><a href="#" class="block text-gray-800 hover:text-black">Carte graphique</a></li>
+            <li><a href="#" class="block text-gray-800 hover:text-black">RAM</a></li>
+            <li><a href="#" class="block text-gray-800 hover:text-black">Refroidissement</a></li>
+            <li><a href="#" class="block text-gray-800 hover:text-black">Boîtier</a></li>
+            <li><a href="templates/APropos.html" class="block text-gray-800 hover:text-black">A propos</a></li>
+        </ul>
+    </div>
+    
+    <main>
+        <section id="bandeau">
+            <div id="promotion"><svg id="exclamation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M569.5 440C588 472 564.8 512 527.9 512H48.1c-36.9 0-60-40.1-41.6-72L246.4 24c18.5-32 64.7-32 83.2 0l239.9 416zM288 354c-25.4 0-46 20.6-46 46s20.6 46 46 46 46-20.6 46-46-20.6-46-46-46zm-43.7-165.3l7.4 136c.3 6.4 5.6 11.3 12 11.3h48.5c6.4 0 11.6-5 12-11.3l7.4-136c.4-6.9-5.1-12.7-12-12.7h-63.4c-6.9 0-12.4 5.8-12 12.7z"/></svg>
+                <h1 id="promo">Promotion Setup complet pour seulement 9.000 dhs</h1>
+            </div>
+        </section>
+
+        <h2 class="titre">Composants</h2>
+        <section class="vente">
+            <!-- Example Product 1 -->
+            <div id="gamer1" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <a href="#" id="carte1">
+                    <img id="imgapi1" class="rounded-t-lg" src="assets/media/PC1.jpg" alt="PC Gamer" />
+                </a>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 id="txtapi1" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">PC Gamer intel i5 RTX 3060</h5>
+                    </a>
+                    <a href="#" id="bouton1" class="inline-flex items-center px-10 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-7 mt-5" onclick="ajouterAuPanier('PC Gamer intel i5 RTX 3060', 'assets/media/PC1.jpg', 9000)">
+                        Ajouter au panier
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-600 py-8 border-t">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 text-center lg:text-left">
+            <div class="w-full">
+                <h3 class="font-semibold text-lg">GearBox Pc</h3>
+                <p class="mt-2 text-sm">GearBox PC est une boutique en ligne spécialisée dans les composants PC de qualité.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fonction pour ajouter un produit au panier
+        function ajouterAuPanier(nom, image, prix) {
+            // Vérifier si le panier existe déjà dans le localStorage
+            let panier = JSON.parse(localStorage.getItem('panier')) || [];
+
+            // Ajouter le produit au panier
+            panier.push({ nom, image, prix });
+
+            // Sauvegarder le panier dans localStorage
+            localStorage.setItem('panier', JSON.stringify(panier));
+
+            // Mettre à jour l'affichage du panier (nombre d'articles)
+            updateCartCount();
+        }
+
+        // Fonction pour mettre à jour le nombre d'articles dans le panier
+        function updateCartCount() {
+            let panier = JSON.parse(localStorage.getItem('panier')) || [];
+            let count = panier.length;
+            document.getElementById('cart-count').textContent = count;
+        }
+
+        // Mettre à jour le nombre d'articles dès que la page est chargée
+        window.onload = function() {
+            updateCartCount();
+        }
+    </script>
+
+    <script src="assets/GearBox.js"></script>
+</body>
+</html>
