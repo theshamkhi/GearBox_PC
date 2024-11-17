@@ -967,7 +967,7 @@
 #mainflex {
     display: flex;
     justify-content: center;
-    margin: 8rem 50px;/*CHAMKHI did this*/
+    margin: 4rem 8rem;/*CHAMKHI did this*/
     gap: 4vw;
 }
 
