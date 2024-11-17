@@ -10,290 +10,333 @@
     <meta name="author" content="CloudBlast">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/src/output.css">
 </head>
+
 <body class="bg-gray-100">
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <nav class="bg-black lg:px-32 shadow p-4 flex justify-between items-center sticky top-0 left-0 w-full z-50">
+        <button class="text-2xl text-white" onclick="toggleMenu()">&#9776;</button>
+        <img src="../assets/media/Logo.png" alt="Logo" class="w-56 sm:w-48 md:w-64 lg:w-72 h-auto">
+        <div class="relative flex items-center space-x-6">
+            <!-- Cart Icon == Trigger -->
+            <button id="cart-button" class="text-2xl text-white" title="Panier" onclick="toggleCart()">
+                <span id="cartTotal">0</span>&#128722;
+            </button>
+            <button class="text-2xl text-white" title="Login">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.68-10 5v3h20v-3c0-3.32-6.67-5-10-5z"/>
+                </svg>
+            </button>
+            <!-- Cart Sidebar (right) -->
+            <div id="CartBar" class="fixed top-24 right-0 w-96 h-screen overflow-y-auto bg-black shadow-lg p-4 z-50 transform translate-x-full transition-transform duration-300">
+                <a href="Panier.html" class="text-lg font-semibold text-white hover:text-blue-400 cursor-pointer">Votre Panier</a>                                    
+                <!-- Product List -->
+                <div class="CartSidebarDiv space-y-4 mt-8"></div>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Navbar -->
-  <nav class="bg-white lg:px-32 shadow p-4 flex justify-between items-center sticky top-0 left-0 w-full z-50">
-      <div class="space-x-4">
-          <!-- Menu Button to toggle Sidebar -->
-          <button class="text-2xl" onclick="toggleMenu()">&#9776;</button>
-          <span class="text-xl font-bold">GearBox Pc</span>
-      </div>
-      <div class="hidden lg:block lg:w-1/3 mx-4">
-          <input type="text" placeholder="Rechercher des produits" class="w-full p-2 border bg-gray-100 rounded-full px-6">
-      </div>
-      <div class="relative flex items-center space-x-6">
-          <!-- Cart Icon == Trigger -->
-          <button id="cart-button" class="text-2xl text-white" title="Panier" onclick="toggleCart()">&#128722;</button>
-          <button class="text-2xl text-white" title="Login">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 24 24" width="24" height="24">
-                  <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.68-10 5v3h20v-3c0-3.32-6.67-5-10-5z"/>
-              </svg>
-          </button>
-          <!-- Cart Sidebar (right) -->
-          <div id="CartBar" style="top:74px;" class="fixed right-0 w-96 h-screen overflow-y-auto bg-white shadow-lg p-4 z-50 transform translate-x-full transition-transform duration-300">
-              <a href="Panier.html" class="text-lg font-semibold mb-4 border-b pb-2 hover:text-blue-800 cursor-pointer">Votre Panier</a>                                    
-              <!-- Product List -->
-              <div class="CartSidebarDiv space-y-4"></div>
-          </div>
-      </div>
-  </nav>
-
-  <!-- Sidebar (left) -->
-  <div id="MenuSidebar" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg p-4 z-50 transform -translate-x-full transition-transform duration-300">
-    <div class="flex justify-between items-center">
-        <h3 class="text-lg font-semibold">Menu</h3>
-        <!-- Close Button -->
-        <button onclick="toggleMenu()" class="text-base font-normal" title="Close">&#10005;</button>
+    <!-- Sidebar (left) -->
+    <div id="MenuSidebar" class="fixed top-0 left-0 w-64 h-full bg-black shadow-lg p-4 z-50 transform -translate-x-full transition-transform duration-300">
+        <div class="flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-white">Menu</h3>
+            <!-- Close Button -->
+            <button class="text-white" onclick="toggleMenu()" title="Close">&#10005;</button>
+        </div>
+        <ul class="space-y-4 mt-8">
+            <li><a href="../index.html" class="block text-white font-semibold hover:text-blue-400">Accueil</a></li>
+            <hr>
+            <li><a href="Catalogue.html" class="block text-white font-semibold hover:text-blue-400">Catalogue</a></li>
+            <hr>
+            <li class="group relative">
+                <a href="#" class="block text-white hover:text-blue-400">Carte mère</a>
+            </li>           
+            <li class="group relative">
+                <a href="#" class="block text-white hover:text-blue-400">Processeur</a>
+            </li>
+            <li class="group relative">
+                <a href="#" class="block text-white hover:text-blue-400">Carte graphique</a>
+            </li>
+            <li><a href="#" class="block text-white hover:text-blue-400">RAM</a></li>
+            <li><a href="#" class="block text-white hover:text-blue-400">Refroidissement</a></li>
+            <li><a href="#" class="block text-white hover:text-blue-400">Boîtier</a></li>
+            <hr>
+            <li><a href="APropos.html" class="block text-white font-semibold hover:text-blue-400">A propos</a></li>
+        </ul>
     </div>
-    <ul class="space-y-4 mt-8">
-        <li><a href="../index.html" class="block text-gray-800 font-semibold hover:text-blue-800">Accueil</a></li>
-        <hr>
-        <li><a href="Catalogue.html" class="block text-gray-800 font-semibold hover:text-blue-800">Catalogue</a></li>
-        <hr>
-        <li class="group relative">
-            <a href="#" class="block text-gray-800 hover:text-blue-800">Carte mère</a>
-        </li>
-        <hr>            
-        <li class="group relative">
-            <a href="#" class="block text-gray-800 hover:text-blue-800">Processeur</a>
-        </li>
-        <hr>
-        <li class="group relative">
-            <a href="#" class="block text-gray-800 hover:text-blue-800">Carte graphique</a>
-        </li>
-        <hr>
-        <li><a href="#" class="block text-gray-800 hover:text-blue-800">RAM</a></li>
-        <hr>
-        <li><a href="#" class="block text-gray-800 hover:text-blue-800">Refroidissement</a></li>
-        <hr>
-        <li><a href="#" class="block text-gray-800 hover:text-blue-800">Boîtier</a></li>
-        <hr>
-        <li><a href="APropos.html" class="block text-gray-800 font-semibold hover:text-blue-800">A propos</a></li>
-    </ul>
-</div>
-  <!-- EndOfNavbar -->
+    <!-- EndOfNavbar -->
 
-<!-- Main Content -->
- <!-- sections -->
+  <!-- Main Content -->
+  <!-- sections -->
   <section class="relative text-center py-20 bg-cover bg-center" style="background-image: url('../assets/media/pexels-nikhil-soni-159587696-16230157.jpg');">
-      <div class="bg-[#477590] bg-opacity-70 p-20 md:p-30">
-          <h1 class="text-4xl font-bold text-white mb-4">À propos de Schneider Electric</h1>
-          <p class="text-white text-lg mb-8">
-              Notre raison d'être est de créer un impact en permettant à chacun de tirer le meilleur de son énergie et de ses ressources, afin de concilier progrès et développement durable pour tous. Chez Schneider Electric, nous nommons cette ambition : Life Is On.
+    <div class="bg-[#477590] bg-opacity-70 p-20 md:p-30">
+        <h1 class="text-4xl font-bold text-white mb-4">À propos de Schneider Electric</h1>
+        <p class="text-white text-lg mb-8">
+            Notre raison d'être est de créer un impact en permettant à chacun de tirer le meilleur de son énergie et de ses ressources, afin de concilier progrès et développement durable pour tous. Chez Schneider Electric, nous nommons cette ambition : Life Is On.
+        </p>
+        <button class="bg-[#477590] text-white font-semibold py-2 px-6 rounded hover:bg-[#1200C4] transition duration-300">
+            Regarder maintenant
+        </button>
+    </div>
+  </section>
+
+
+  <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-8 md:px-10 md:py-12 ">^
+  <div data-aos="fade-down-right"></div>
+  <div class="text-section flex-1 mb-6 md:mb-0 md:pr-8">
+      <h2 class="text-3xl font-semibold mb-4 text-gray-800 mx-40">Notre Historique</h2>
+      <p class="text-lg text-gray-600 leading-relaxed mx-40">Le Lorem Ipsum est simplement du faux texte employé <br> dans la composition et la mise en page avant impression. C'est un texte standard de l'imprimerie depuis les années 1500...</p>
+  </div>
+  <div class="image-section flex-1 flex justify-center md:justify-end">
+      <img src="../assets/media/PIC.jpg" alt="Historique Image" class="max-w-full md:max-w-[500px] rounded-[30px] shadow-xl transform hover:scale-105 transition-transform duration-300 mx-40 ">
+  </div>
+  </div>
+
+
+  <div class="text-center my-12 px-6"> 
+  <h2 class="text-3xl font-semibold mb-10 text-gray-800">Notre Historique</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      
+      <!-- Item 1: PC Mouse -->
+      <div class="flex flex-col items-center bg-[#f4f4f4] p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow to-black">
+          <img src="../assets/media/mouse.webp" alt="PC Mouse" class="w-36 h-36 object-cover rounded-full mb-4">
+          <p class="text-xl font-semibold text-black">PC Mouse</p>
+      </div>
+      
+      <!-- Item 2: Gaming Chair -->
+      <div class="flex flex-col items-center bg-[#f4f4f4] p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow [#477590]">
+          <img src="../assets/media/chair.webp" alt="Gaming Chair" class="w-36 h-36 object-cover rounded-full mb-4">
+          <p class="text-xl font-semibold text-black">Gaming Chair</p>
+      </div>
+      
+      <!-- Item 3: Gaming Monitor -->
+      <div class="flex flex-col items-center bg-[#f4f4f4] p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow [#477590]">
+          <img src="../assets/media/television.webp" alt="Gaming Monitor" class="w-36 h-36 object-cover rounded-full mb-4">
+          <p class="text-xl font-semibold text-black">Gaming Monitor</p>
+      </div>
+
+  </div>
+  </div>
+
+
+  <!-- Header Section -->
+  <section class="title bg-[#477590] w-full h-[500px] p-20">
+  <div class="max-w-6xl mx-auto px-6 md:flex md:items-center md:justify-between">
+      <div class="md:w-1/2 space-y-4">
+          <h1 class="text-2xl md:text-4xl font-bold">est-ce que tu veux faire partie de l'équipe</h1>
+          <p class="text-sm md:text-base">
+              Le Lorem Ipsum est simplement du faux texte employé dans <br> la composition et la mise en page avant
+              impression,<br>
+              aux texte standard de l'imprimerie depuis les années.
           </p>
-          <button class="bg-[#477590] text-white font-semibold py-2 px-6 rounded hover:bg-[#1200C4] transition duration-300">
-              Regarder maintenant
-          </button>
       </div>
+      <div class="md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
+          <img src="../assets/media/Group_41-removebg-preview.png" alt="Promotion"
+              class="w-100 h-50">
+      </div>
+  </div>
   </section>
 
+  <section class="bg-white py-12">
+  <!-- Navigation Buttons -->
+  <div class="flex justify-center mt-6">
+      <button id="prev" class="px-4 py-2 bg-[#477590] text-white rounded-full font-extrabold">‹</button>
+      <button id="next" class="px-4 py-2 bg-[#477590] text-white rounded-full font-extrabold ml-4">›</button>
+  </div>
 
-<div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-8 md:px-10 md:py-12 ">^
-    <div data-aos="fade-down-right"></div>
-    <div class="text-section flex-1 mb-6 md:mb-0 md:pr-8">
-        <h2 class="text-3xl font-semibold mb-4 text-gray-800 mx-40">Notre Historique</h2>
-        <p class="text-lg text-gray-600 leading-relaxed mx-40">Le Lorem Ipsum est simplement du faux texte employé <br> dans la composition et la mise en page avant impression. C'est un texte standard de l'imprimerie depuis les années 1500...</p>
-    </div>
-    <div class="image-section flex-1 flex justify-center md:justify-end">
-        <img src="../assets/media/PIC.jpg" alt="Historique Image" class="max-w-full md:max-w-[500px] rounded-[30px] shadow-xl transform hover:scale-105 transition-transform duration-300 mx-40 ">
-    </div>
-</div>
-
-
-<div class="text-center my-12 px-6"> 
-    <h2 class="text-3xl font-semibold mb-10 text-gray-800">Notre Historique</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-        
-        <!-- Item 1: PC Mouse -->
-        <div class="flex flex-col items-center bg-[#f4f4f4] p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow to-black">
-            <img src="../assets/media/mouse.webp" alt="PC Mouse" class="w-36 h-36 object-cover rounded-full mb-4">
-            <p class="text-xl font-semibold text-black">PC Mouse</p>
-        </div>
-        
-        <!-- Item 2: Gaming Chair -->
-        <div class="flex flex-col items-center bg-[#f4f4f4] p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow [#477590]">
-            <img src="../assets/media/chair.webp" alt="Gaming Chair" class="w-36 h-36 object-cover rounded-full mb-4">
-            <p class="text-xl font-semibold text-black">Gaming Chair</p>
-        </div>
-        
-        <!-- Item 3: Gaming Monitor -->
-        <div class="flex flex-col items-center bg-[#f4f4f4] p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow [#477590]">
-            <img src="../assets/media/television.webp" alt="Gaming Monitor" class="w-36 h-36 object-cover rounded-full mb-4">
-            <p class="text-xl font-semibold text-black">Gaming Monitor</p>
-        </div>
-
-    </div>
-</div>
-
-
-   <!-- Header Section -->
-   <section class="title bg-[#477590] w-full h-[500px] p-20">
-    <div class="max-w-6xl mx-auto px-6 md:flex md:items-center md:justify-between">
-        <div class="md:w-1/2 space-y-4">
-            <h1 class="text-2xl md:text-4xl font-bold">est-ce que tu veux faire partie de l'équipe</h1>
-            <p class="text-sm md:text-base">
-                Le Lorem Ipsum est simplement du faux texte employé dans <br> la composition et la mise en page avant
-                impression,<br>
-                aux texte standard de l'imprimerie depuis les années.
-            </p>
-        </div>
-        <div class="md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
-            <img src="../assets/media/Group_41-removebg-preview.png" alt="Promotion"
-                class="w-100 h-50">
-        </div>
-    </div>
-</section>
-
-<section class="bg-white py-12">
-    <!-- Navigation Buttons -->
-    <div class="flex justify-center mt-6">
-        <button id="prev" class="px-4 py-2 bg-[#477590] text-white rounded-full font-extrabold">‹</button>
-        <button id="next" class="px-4 py-2 bg-[#477590] text-white rounded-full font-extrabold ml-4">›</button>
-    </div>
-
-    <!-- Carousel Wrapper -->
-    <div class="max-w-6xl mx-auto px-6 overflow-hidden">
-        <div id="carousel-wrapper" class="flex gap-6 transition-transform duration-300">
-            <!-- Carousel Items -->
-            <div class="group flex-none w-1/4">
-                <div class="w-20 h-20 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition-transform group-hover:scale-105 group-hover:bg-[#375a6d]">
-                    <img class="w-12 h-12" src="../assets/media/Carte-mere 1.png" alt="Carte-mère">
-                </div>
-                <p class="mt-2 text-gray-700 text-center">Carte-mère</p>
-            </div>
-            <div class="group flex-none w-1/4">
-                <div class="w-20 h-20 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition-transform group-hover:scale-105 group-hover:bg-[#375a6d]">
-                    <img class="w-12 h-12" src="../assets/media/Processeur 1.png" alt="Processeur">
-                </div>
-                <p class="mt-2 text-gray-700 text-center">Processeur</p>
-            </div>
-            <div class="group flex-none w-1/4">
-                <div class="w-20 h-20 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition-transform group-hover:scale-105 group-hover:bg-[#375a6d]">
-                    <img class="w-12 h-12" src="../assets/media/Carte-graphique 1.png" alt="Carte graphique">
-                </div>
-                <p class="mt-2 text-gray-700 text-center">Carte graphique</p>
-            </div>
-            <div class="group flex-none w-1/4">
-                <div class="w-20 h-20 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition-transform group-hover:scale-105 group-hover:bg-[#375a6d]">
-                    <img class="w-12 h-12" src="../assets/media/RAM 1.png" alt="RAM">
-                </div>
-                <p class="mt-2 text-gray-700 text-center">RAM</p>
-            </div>
-            <div class="group flex-none w-1/4">
-                <div class="w-20 h-20 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition-transform group-hover:scale-105 group-hover:bg-[#375a6d]">
-                    <img class="w-12 h-12" src="../assets/media/Refroidissement 1.png" alt="Refroidissement">
-                </div>
-                <p class="mt-2 text-gray-700 text-center">Refroidissement</p>
-            </div>
-        </div>
-        
-    </div>
-</section>
-
-
-            <!-- Articles Section -->
-            <div class="flex justify-center items-center">
-                <div class="w-full sm:w-1/3 space-y-6"> 
-                    <div class="bg-[#f4f4f4] p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Nos Produits</h3>
-                        <p class="text-gray-600 mb-4">
-                            Découvrez nos produits phare comme les cartes mères, processeurs, et cartes graphiques. Chaque produit est conçu pour offrir des performances de haut niveau et une fiabilité exceptionnelle.
-                        </p>
-                    </div>
-                    <div class="bg-[#f4f4f4] p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Réfrigération de Haute Qualité</h3>
-                        <p class="text-gray-600 mb-4">
-                            Nos solutions de refroidissement sont optimisées pour offrir une performance constante, même sous pression. Ne laissez pas la chaleur ralentir votre travail.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            
-        </div>
-    </div>
-</section>
-
-
-<section class="btitle bg-gradient-to-r from-[#477590] to-[#6fa2d0] w-full py-16 sm:py-20">*
-    <div data-aos="zoom-in-down"></div>
-    <div class="max-w-7xl mx-auto px-6 text-center text-black">
-      <h2 class="text-4xl sm:text-5xl font-semibold mb-8 tracking-wide">Nos Clients</h2>
-      <p class="text-lg sm:text-xl max-w-4xl mx-auto mb-12 leading-relaxed text-black">
-        Nous collaborons avec des marques renommées telles qu'Apple, Oraimo, Samsung et LG..., reconnues pour leur excellence et leur innovation. Leur confiance reflète notre engagement envers la qualité et l'excellence.
-      </p>
-      <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-10">
-        <img src="../assets/media/apple.png" alt="Apple" class="h-16 sm:h-24 transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
-        <img src="../assets/media/Oraimo.png" alt="Oraimo" class="h-16 sm:h-24 transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
-        <img src="../assets/media/samsung.png" alt="Samsung" class="h-16 sm:h-24 transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
-        <img src="../assets/media/olg.png" alt="LG" class="h-16 sm:h-24 transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
-        <img src="../assets/media/dell.png" alt="Dell" class="h-16 sm:h-24 transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
-        <img src="../assets/media/Hp.png" alt="HP" class="h-16 sm:h-24 transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
-        <img src="../assets/media/rca.png" alt="RCA" class="h-16 sm:h-24 transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
-        <img src="../assets/media/sony.png" alt="Sony" class="h-16 sm:h-24 transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-white py-8 pt-16 border-t">
-      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 text-center lg:text-left text-white">
-          <!-- About Section -->
-          <div class="w-full">
-              <h3 class="font-semibold text-lg text-black">GearBox Pc</h3>
-              <p class="text-gray-700 mt-2 text-sm px-8 lg:px-0">
-                  GearBox PC est une boutique en ligne spécialisée dans les composants PC de qualité, offrant tout le nécessaire pour assembler, upgrader et optimiser votre ordinateur, avec des produits fiables et performants à prix compétitifs.
-              </p>
-              <div class="flex justify-center lg:justify-start space-x-4 mt-4 text-xl">
-                  <a href="#">
-                      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50">
-                          <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-                      </svg>
-                  </a>
-                  <a href="#">
-                      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50">
-                          <path d="M25,3C12.85,3,3,12.85,3,25c0,11.03,8.125,20.137,18.712,21.728V30.831h-5.443v-5.783h5.443v-3.848 c0-6.371,3.104-9.168,8.399-9.168c2.536,0,3.877,0.188,4.512,0.274v5.048h-3.612c-2.248,0-3.033,2.131-3.033,4.533v3.161h6.588 l-0.894,5.783h-5.694v15.944C38.716,45.318,47,36.137,47,25C47,12.85,37.15,3,25,3z"></path>
-                      </svg>
-                  </a>
-                  <a href="#">
-                      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50">
-                          <path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"></path>
-                      </svg>
-                  </a>
+  <!-- Carousel Wrapper -->
+  <div class="max-w-6xl mx-auto px-6 overflow-hidden">
+      <div id="carousel-wrapper" class="flex gap-6 transition-transform duration-300">
+          <!-- Carousel Items -->
+          <div class="group flex-none w-1/4">
+              <div class="w-20 h-20 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition-transform group-hover:scale-105 group-hover:bg-[#375a6d]">
+                  <img class="w-12 h-12" src="../assets/media/Carte-mere 1.png" alt="Carte-mère">
               </div>
+              <p class="mt-2 text-gray-700 text-center">Carte-mère</p>
           </div>
-
-          <!-- Support Section -->
-          <div class="space-y-3 text-sm w-full lg:pl-16">
-              <h3 class="font-semibold text-lg text-black">Support client</h3>
-              <a href="#" class="block text-gray-700">Retours et garantie</a>
-              <a href="#" class="block text-gray-700">Paiements</a>
-              <a href="#" class="block text-gray-700">Livraison</a>
-              <a href="#" class="block text-gray-700">Termes de service</a>
-              <a href="#" class="block text-gray-700">Politique de confidentialité</a>
+          <div class="group flex-none w-1/4">
+              <div class="w-20 h-20 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition-transform group-hover:scale-105 group-hover:bg-[#375a6d]">
+                  <img class="w-12 h-12" src="../assets/media/Processeur 1.png" alt="Processeur">
+              </div>
+              <p class="mt-2 text-gray-700 text-center">Processeur</p>
           </div>
-
-          <!-- Contact Section -->
-          <div class="w-full">
-              <h3 class="font-semibold text-lg text-black">Besoin d'aide ?</h3>
-              <p class="text-gray-700 mt-2 text-sm px-8 lg:px-0">
-                  Notre équipe est là pour vous aider avec toutes vos questions concernant nos produits, services, et commandes. N'hésitez pas à nous contacter pour un support rapide et personnalisé.
-              </p>                      
-              <button class="bg-black text-white py-2 px-6 rounded-md mt-4">Contactez-nous</button>
+          <div class="group flex-none w-1/4">
+              <div class="w-20 h-20 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition-transform group-hover:scale-105 group-hover:bg-[#375a6d]">
+                  <img class="w-12 h-12" src="../assets/media/Carte-graphique 1.png" alt="Carte graphique">
+              </div>
+              <p class="mt-2 text-gray-700 text-center">Carte graphique</p>
+          </div>
+          <div class="group flex-none w-1/4">
+              <div class="w-20 h-20 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition-transform group-hover:scale-105 group-hover:bg-[#375a6d]">
+                  <img class="w-12 h-12" src="../assets/media/RAM 1.png" alt="RAM">
+              </div>
+              <p class="mt-2 text-gray-700 text-center">RAM</p>
+          </div>
+          <div class="group flex-none w-1/4">
+              <div class="w-20 h-20 mx-auto bg-[#477590] rounded-full flex items-center justify-center transition-transform group-hover:scale-105 group-hover:bg-[#375a6d]">
+                  <img class="w-12 h-12" src="../assets/media/Refroidissement 1.png" alt="Refroidissement">
+              </div>
+              <p class="mt-2 text-gray-700 text-center">Refroidissement</p>
           </div>
       </div>
-      <br>
-      <hr class="h-px my-8 bg-gray-300 border-0">
-      <div class="text-center text-gray-700 mt-8">&copy; 2024 - Designed by <strong>CloudBlast</strong></div>
-  </footer>
-  <!-- EndOfFooter -->
+      
+  </div>
+  </section>
 
-  <script src="../assets/GearBox.js"></script>
-  <script>
-    AOS.init();
-  </script>
+
+        <!-- Articles Section -->
+        <div class="flex justify-center items-center">
+            <div class="w-full sm:w-1/3 space-y-6"> 
+                <div class="bg-[#f4f4f4] p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Nos Produits</h3>
+                    <p class="text-gray-600 mb-4">
+                        Découvrez nos produits phare comme les cartes mères, processeurs, et cartes graphiques. Chaque produit est conçu pour offrir des performances de haut niveau et une fiabilité exceptionnelle.
+                    </p>
+                </div>
+                <div class="bg-[#f4f4f4] p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Réfrigération de Haute Qualité</h3>
+                    <p class="text-gray-600 mb-4">
+                        Nos solutions de refroidissement sont optimisées pour offrir une performance constante, même sous pression. Ne laissez pas la chaleur ralentir votre travail.
+                    </p>
+                </div>
+            </div>
+        </div>
+          
+          
+    </div>
+  </div>
+  </section>
+
+
+  <section class="btitle bg-gradient-to-r from-[#477590] to-[#6fa2d0] w-full py-16 sm:py-20">*
+  <div data-aos="zoom-in-down"></div>
+  <div class="max-w-7xl mx-auto px-6 text-center text-black">
+    <h2 class="text-4xl sm:text-5xl font-semibold mb-8 tracking-wide">Nos Clients</h2>
+    <p class="text-lg sm:text-xl max-w-4xl mx-auto mb-12 leading-relaxed text-black">
+      Nous collaborons avec des marques renommées telles qu'Apple, Oraimo, Samsung et LG..., reconnues pour leur excellence et leur innovation. Leur confiance reflète notre engagement envers la qualité et l'excellence.
+    </p>
+    <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-10">
+      <img src="../assets/media/apple.png" alt="Apple" class="h-16 sm:h-24 transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
+      <img src="../assets/media/Oraimo.png" alt="Oraimo" class="h-16 sm:h-24 transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
+      <img src="../assets/media/samsung.png" alt="Samsung" class="h-16 sm:h-24 transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
+      <img src="../assets/media/olg.png" alt="LG" class="h-16 sm:h-24 transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
+      <img src="../assets/media/dell.png" alt="Dell" class="h-16 sm:h-24 transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
+      <img src="../assets/media/Hp.png" alt="HP" class="h-16 sm:h-24 transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
+      <img src="../assets/media/rca.png" alt="RCA" class="h-16 sm:h-24 transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
+      <img src="../assets/media/sony.png" alt="Sony" class="h-16 sm:h-24 transform transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg">
+    </div>
+  </div>
+  </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8 pt-16 border-t">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 text-center lg:text-left text-white">
+            <!-- About Section -->
+            <div class="w-full">
+                <img src="../assets/media/Logo.png" alt="Logo" class="w-56 h-auto mx-auto sm:mx-0">
+                <p class="text-white mt-2 text-sm px-8 lg:px-0">
+                    GearBox PC est une boutique en ligne spécialisée dans les composants PC de qualité, offrant tout le nécessaire pour assembler, upgrader et optimiser votre ordinateur, avec des produits fiables et performants à prix compétitifs.
+                </p>
+                <div class="flex justify-center lg:justify-start space-x-4 mt-4 text-xl">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="28" height="28" viewBox="0 0 256 256" xml:space="preserve">
+
+                            <defs>
+                            </defs>
+                            <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
+                                <path d="M 0 6.447 C 0 2.887 2.978 0 6.651 0 h 76.698 C 87.022 0 90 2.887 90 6.447 v 77.106 C 90 87.114 87.022 90 83.349 90 H 6.651 C 2.978 90 0 87.114 0 83.553 V 6.447 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,102,153); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                <path d="M 20.485 29.151 c 4.74 0 7.691 -3.121 7.691 -7.021 c -0.088 -3.988 -2.95 -7.022 -7.601 -7.022 c -4.65 0 -7.69 3.034 -7.69 7.022 c 0 3.9 2.95 7.021 7.512 7.021 H 20.485 L 20.485 29.151 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                <path d="M 27.282 75.339 v -40.64 H 13.688 v 40.64 H 27.282 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                <path d="M 34.804 75.339 h 13.594 V 52.644 c 0 -1.215 0.088 -2.428 0.447 -3.296 c 0.983 -2.427 3.219 -4.94 6.975 -4.94 c 4.919 0 6.887 3.727 6.887 9.19 v 21.741 h 13.592 V 52.037 c 0 -12.483 -6.706 -18.291 -15.65 -18.291 c -7.333 0 -10.553 4.073 -12.342 6.847 h 0.091 v -5.894 H 34.804 C 34.982 38.513 34.804 75.339 34.804 75.339 L 34.804 75.339 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                            </g>
+                        </svg>
+                    </a>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="28" height="28" viewBox="0 0 256 256" xml:space="preserve">
+
+                        <defs>
+                        </defs>
+                        <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
+                            <path d="M 88.119 23.338 c -1.035 -3.872 -4.085 -6.922 -7.957 -7.957 C 73.144 13.5 45 13.5 45 13.5 s -28.144 0 -35.162 1.881 c -3.872 1.035 -6.922 4.085 -7.957 7.957 C 0 30.356 0 45 0 45 s 0 14.644 1.881 21.662 c 1.035 3.872 4.085 6.922 7.957 7.957 C 16.856 76.5 45 76.5 45 76.5 s 28.144 0 35.162 -1.881 c 3.872 -1.035 6.922 -4.085 7.957 -7.957 C 90 59.644 90 45 90 45 S 90 30.356 88.119 23.338 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                            <polygon points="36,58.5 59.38,45 36,31.5 " style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" transform="  matrix(1 0 0 1 0 0) "/>
+                        </g>
+                    </svg>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="28" height="28" viewBox="0 0 256 256" xml:space="preserve">
+
+                            <defs>
+                            </defs>
+                            <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
+                                <path d="M 2.113 44.609 c -0.003 7.587 1.98 14.994 5.749 21.524 l -6.11 22.31 l 22.83 -5.986 c 6.29 3.428 13.372 5.237 20.58 5.24 h 0.019 c 23.736 0 43.056 -19.315 43.066 -43.053 c 0.005 -11.504 -4.471 -22.32 -12.603 -30.459 C 67.514 6.047 56.702 1.563 45.18 1.558 c -23.737 0 -43.057 19.312 -43.067 43.052" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(42,181,64); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                <path d="M 0.576 44.596 C 0.573 52.456 2.626 60.129 6.53 66.892 L 0.201 90 l 23.65 -6.201 c 6.516 3.553 13.852 5.426 21.318 5.429 h 0.019 c 24.586 0 44.601 -20.009 44.612 -44.597 c 0.004 -11.917 -4.633 -23.122 -13.055 -31.552 C 68.321 4.65 57.121 0.005 45.188 0 C 20.597 0 0.585 20.005 0.575 44.595 M 14.658 65.727 l -0.883 -1.402 c -3.712 -5.902 -5.671 -12.723 -5.669 -19.726 C 8.115 24.161 24.748 7.532 45.201 7.532 c 9.905 0.004 19.213 3.865 26.215 10.871 c 7.001 7.006 10.854 16.32 10.851 26.224 c -0.009 20.439 -16.643 37.068 -37.08 37.068 h -0.015 c -6.655 -0.004 -13.181 -1.79 -18.872 -5.168 l -1.355 -0.803 l -14.035 3.68 L 14.658 65.727 z M 45.188 89.228 L 45.188 89.228 L 45.188 89.228 C 45.187 89.228 45.187 89.228 45.188 89.228" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(251,251,251); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                <path d="M 34.038 25.95 c -0.835 -1.856 -1.714 -1.894 -2.508 -1.926 c -0.65 -0.028 -1.394 -0.026 -2.136 -0.026 c -0.744 0 -1.951 0.279 -2.972 1.394 c -1.022 1.116 -3.902 3.812 -3.902 9.296 c 0 5.485 3.995 10.784 4.551 11.529 c 0.558 0.743 7.712 12.357 19.041 16.825 c 9.416 3.713 11.333 2.975 13.376 2.789 c 2.044 -0.186 6.595 -2.696 7.524 -5.299 c 0.929 -2.603 0.929 -4.834 0.651 -5.299 c -0.279 -0.465 -1.022 -0.744 -2.137 -1.301 c -1.115 -0.558 -6.595 -3.254 -7.617 -3.626 c -1.022 -0.372 -1.765 -0.557 -2.509 0.559 c -0.743 1.115 -2.878 3.625 -3.528 4.368 c -0.65 0.745 -1.301 0.838 -2.415 0.28 c -1.115 -0.559 -4.705 -1.735 -8.964 -5.532 c -3.314 -2.955 -5.551 -6.603 -6.201 -7.719 c -0.65 -1.115 -0.069 -1.718 0.489 -2.274 c 0.501 -0.499 1.115 -1.301 1.673 -1.952 c 0.556 -0.651 0.742 -1.116 1.113 -1.859 c 0.372 -0.744 0.186 -1.395 -0.093 -1.953 C 37.195 33.666 35.029 28.154 34.038 25.95" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(251,251,251); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                            </g>
+                        </svg>                                 
+                    </a>    
+                </div>
+            </div>            
+
+            <!-- Support Section -->
+            <div class="space-y-3 text-sm w-full lg:pl-16">
+                <h3 class="font-semibold text-lg text-white">Support client</h3>
+                <a href="#" class="block text-white">Retours et garantie</a>
+                <a href="#" class="block text-white">Paiements</a>
+                <a href="#" class="block text-white">Livraison</a>
+                <a href="#" class="block text-white">Termes de service</a>
+                <a href="#" class="block text-white">Politique de confidentialité</a>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="w-full">
+                <h3 class="font-semibold text-lg text-white">Besoin d'aide ?</h3>
+                <p class="text-white mt-2 text-sm px-8 lg:px-0">
+                    Notre équipe est là pour vous aider avec toutes vos questions concernant nos produits, services, et commandes. N'hésitez pas à nous contacter pour un support rapide et personnalisé.
+                </p>                       
+                <button class="bg-white text-black py-2 px-6 rounded-md mt-4">Contactez-nous</button>
+            </div>
+        </div>
+        <br>
+        <hr class="h-px my-8 bg-gray-300 border-0">
+        <div class="text-center text-white mt-8">&copy; 2024 - Designed by <strong>CloudBlast</strong></div>
+    </footer>
+    <!-- EndOfFooter -->
+
+    <script src="../assets/Panier.js"></script>
+    <script>
+        /* Page À Propos */
+        document.addEventListener('DOMContentLoaded', () => {
+            const carouselWrapper = document.getElementById('carousel-wrapper');
+            const prevButton = document.getElementById('prev');
+            const nextButton = document.getElementById('next');
+
+            const items = document.querySelectorAll('#carousel-wrapper .group');
+            const visibleItems = 3;
+            const itemWidth = items[0].offsetWidth + 24; 
+            let currentIndex = 0;
+
+            const updateCarousel = () => {
+                const offset = -currentIndex * itemWidth;
+                carouselWrapper.style.transform = `translateX(${offset}px)`; // Fixed the template literal
+            };
+
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentIndex < items.length - visibleItems) {
+                    currentIndex++;
+                    updateCarousel();
+                }
+            });
+        });
+    </script>
+    <script src="../assets/Panier.js"></script>
+    <script src="../assets/Details.js"></script>
 
 </body>
 </html>

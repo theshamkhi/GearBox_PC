@@ -1,0 +1,57 @@
+#imagePreview {
+    overflow-y: auto; /* Active le défilement vertical */
+    overflow-x: hidden; /* Pas de défilement horizontal */
+}
+
+#imagePreview .relative {
+    max-width: 90%; /* Limiter la largeur */
+    max-height: 90%; /* Limiter la hauteur */
+    overflow-y: auto; /* Assure un défilement vertical */
+    scrollbar-width: thin; /* Personnalise la largeur de la barre */
+    scrollbar-color: gray lightgray; /* Couleurs de la barre */
+}
+
+#imagePreview img {
+    max-width: 100%; /* Image responsive */
+    max-height: 100%; /* S'adapte à l'espace */
+    object-fit: contain; /* Respecte le ratio d'aspect */
+}
+/* style nombre count local storage */
+#somme_panier {
+    transform: translate(50%, -50%);
+    font-size: 0.75rem; /* Taille du texte dans le badge */
+    min-width: 1.25rem; /* Largeur minimale */
+    height: 1.25rem; /* Hauteur */
+    line-height: 1.25rem; /* Centrer le texte verticalement */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cart-button {
+    position: relative; /* Nécessaire pour positionner le badge par rapport au bouton */
+  }
+  
+  #cartTotal {
+    position: absolute; /* Pour placer le badge au-dessus de l'icône */
+    top: -5px; /* Décalage vers le haut */
+    right: -5px; /* Décalage vers la droite */
+    background-color: red; /* Couleur de fond du badge */
+    color: white; /* Couleur du texte */
+    width: 20px; /* Taille du badge */
+    height: 20px; /* Taille du badge */
+    border-radius: 50%; /* Pour rendre le badge circulaire */
+    display: flex; /* Flexbox pour centrer le texte */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    font-size: 12px; /* Taille du texte */
+    font-weight: bold; /* Police en gras */
+    text-align: center; /* Centrer le texte */
+    line-height: 18px; /* Ajuster pour centrer le texte verticalement */
+  }
+  
+  #cart-button:hover #cartTotal {
+    background-color: #ff4747; /* Changer la couleur au survol */
+  }
+  
+  
