@@ -999,137 +999,137 @@
 
 
 /*Page Catalogue */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Main Layout */
+#mainflex {
+    display: flex;
+    justify-content: center;
+    margin: 8rem 50px;/*CHAMKHI did this*/
+    gap: 4vw;
+}
+
+/* Sidebar Filters */
+.rightSide {
+    width: 20%;
+    height: max-content; /*CHAMKHI did this*/
+    max-height: 80vh; /*CHAMKHI did this*/
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+.rightSide select,
+.rightSide input[type="range"] {
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+}
+
+/* Catalog Items Layout */
+.catalogItems {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    padding: 10px;
+    justify-content: center;
+}
+
+/* Pagination */
+.pagination {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.pagination button {
+    background-color: #d1d5db;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+}
+
+.pagination button.active {
+    background-color: #1d4ed8;
+    color: #ffffff;
+}
+
+/*CHAMKHI did this
+
+footer{
+}
+*/
+
+.atSec{
+    height: auto;
+}
+.item_cards img{
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+    background-color: white;
+}
+.atSec{
+    padding: 10%;
+}
+
+.item_cards{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/*CHAMKHI did this
+
+body{
+    margin: 50px;
+}
+*/
+
+.sortOptions svg{
+    height: 30px;
+    width: 30px;
+}
+.sortOptions select{
+    height: 30px;
+
+}
+.sortOptions{
+    float: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    font-size: larger;
+}
+.rightSide{
+    width: 30%;
+}
+.leftSide{
+    width: 70%;
+}
+.atSec{
+    align-items: flex-end;
+    height: 50%;
+    justify-content: space-around;
+}
+
+.thisinnerItem{
+    display: flex;
+    justify-content: space-between;
+}
+
+.thisinnerOut{
+    width: 100%;
+}
+.listImage{
+    width: 40%;
+}
+.listImage img{
+    width: 100%;
+}
 
 
 
@@ -4984,20 +4984,20 @@ th{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 /* Page À Propos */
 
 .title{

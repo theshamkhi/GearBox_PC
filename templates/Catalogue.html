@@ -78,8 +78,206 @@
     <!-- EndOfNavbar -->
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto p-4 md:p-8">
+    <main id="mainflex">
+      <section class="rightSide">
+          <div class="setPrice">
+              <div>
+                  <label for="priceSlider">Prix :</label>
+                  <button id="closeFi" style="float: right; background-color: grey; border-radius: 50%;">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>                          
+                  </button>
+              </div>
+              <input id="priceSlider" name="priceSlider" type="range">
+              <p><span>0</span> MAD ~ <span id="maxprice"> 5000</span> MAD</p>
+          </div>
+          <select id="part-type" name="part-type">
+              <option value="">Type</option>
+              <option value="storage">Stockage</option>
+              <option value="cpu">Processeur</option>
+              <option value="gpu">Carte Graphique</option>
+              <option value="case">Case</option>
+              <option value="ram">RAM</option>
+              <option value="motherboard">Carte Mére</option>
+              <option value="psu">Alimentation</option>
+              <option value="cooler">Refroidissement</option>
+          </select>
 
+          <!-- CPU Filter -->
+          <select id="cpu-brand" name="cpu-brand">
+              <option value="">CPU Brand</option>
+              <option value="AMD">AMD</option>
+              <option value="Intel">Intel</option>
+          </select>
+
+          <select id="cpu-core-count" name="cpu-core-count">
+              <option value="">CPU Core Count</option>
+              <option value="2">2</option>
+              <option value="4">4</option>
+              <option value="6">6</option>
+              <option value="8">8</option>
+              <option value="12">12</option>
+              <option value="16">16</option>
+          </select>
+
+          <select id="cpu-core-clock" name="cpu-core-clock">
+              <option value="">CPU Core Clock (GHz)</option>
+              <option value="2.5">2.5</option>
+              <option value="3.0">3.0</option>
+              <option value="3.5">3.5</option>
+              <option value="4.0">4.0</option>
+          </select>
+
+          <!-- GPU Filter -->
+          <select id="gpu-brand" name="gpu-brand">
+              <option value="">GPU Brand</option>
+              <option value="Nvidia">Nvidia</option>
+              <option value="AMD">AMD</option>
+              <option value="Intel ARC">Intel ARC</option>
+          </select>
+
+          <select id="gpu-memory" name="gpu-memory">
+              <option value="">GPU Memory (GB)</option>
+              <option value="4">4</option>
+              <option value="6">6</option>
+              <option value="8">8</option>
+              <option value="10">10</option>
+              <option value="12">12</option>
+          </select>
+
+          <select id="gpu-core-clock" name="gpu-core-clock">
+              <option value="">GPU Core Clock (MHz)</option>
+              <option value="1200">1200</option>
+              <option value="1500">1500</option>
+              <option value="1800">1800</option>
+              <option value="2100">2100</option>
+          </select>
+
+          <!-- PSU Filter -->
+          <select id="psu-efficiency" name="psu-efficiency">
+              <option value="">PSU Efficiency</option>
+              <option value="80+ Gold">80+ Gold</option>
+              <option value="80+ Platinum">80+ Platinum</option>
+              <option value="80+ Bronze">80+ Bronze</option>
+              <option value="80+ White">80+ White</option>
+          </select>
+
+          <select id="psu-wattage" name="psu-wattage">
+              <option value="">PSU Wattage (W)</option>
+              <option value="400">400</option>
+              <option value="500">500</option>
+              <option value="600">600</option>
+              <option value="750">750</option>
+              <option value="1000">1000</option>
+          </select>
+
+          <!-- Motherboard Filter -->
+          <select id="motherboard-socket" name="motherboard-socket">
+              <option value="">Motherboard Socket</option>
+              <option value="LGA1200">LGA1200</option>
+              <option value="AM4">AM4</option>
+              <option value="LGA1700">LGA1700</option>
+              <option value="sTRX4">sTRX4</option>
+          </select>
+
+          <select id="motherboard-form-factor" name="motherboard-form-factor">
+              <option value="">Motherboard Form Factor</option>
+              <option value="ATX">ATX</option>
+              <option value="MicroATX">MicroATX</option>
+              <option value="MiniITX">MiniITX</option>
+          </select>
+
+          <!-- Case Filter -->
+          <select id="case-type" name="case-type">
+              <option value="">Case Type</option>
+              <option value="ATX">ATX</option>
+              <option value="MicroATX">MicroATX</option>
+              <option value="MiniITX">MiniITX</option>
+          </select>
+
+          <select id="case-color" name="case-color">
+              <option value="">Case Color</option>
+              <option value="Black">Black</option>
+              <option value="White">White</option>
+              <option value="Gray">Gray</option>
+          </select>
+
+          <!-- RAM Filter -->
+          <select id="ram-speed" name="ram-speed">
+              <option value="">RAM Speed (MHz)</option>
+              <option value="2400">2400</option>
+              <option value="3200">3200</option>
+              <option value="3600">3600</option>
+              <option value="4000">4000</option>
+          </select>
+
+          <select id="ram-modules" name="ram-modules">
+              <option value="">RAM Modules</option>
+              <option value="2x8">2x8 GB</option>
+              <option value="2x16">2x16 GB</option>
+              <option value="4x8">4x8 GB</option>
+          </select>
+
+          <!-- Cooling Filter -->
+          <select id="cooling-rpm" name="cooling-rpm">
+              <option value="">Cooling Fan RPM</option>
+              <option value="1000">1000rpm</option>
+              <option value="1500">1500rpm</option>
+              <option value="2000">2000rpm</option>
+          </select>
+
+          <select id="cooling-noise-level" name="cooling-noise-level">
+              <option value="">Cooling Noise Level (dB)</option>
+              <option value="20">20db</option>
+              <option value="25">25db</option>
+              <option value="30">30db</option>
+          </select>
+
+          <!-- Storage Filter -->
+          <select id="storage-capacity" name="storage-capacity">
+              <option value="">Storage Capacity (GB)</option>
+              <option value="200">256GB</option>
+              <option value="500">512GB</option>
+              <option value="1000">1024GB</option>
+              <option value="2000">2048GB</option>
+          </select>
+
+          <select id="storage-type" name="storage-type">
+              <option value="">Storage Type</option>
+              <option value="SSD">SSD</option>
+              <option value="HDD">HDD</option>
+          </select>
+          </section>
+      <section class="leftSide">
+          <button id="filterBtn" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+              Filter
+            </button>
+          <div class="sortOptions">
+              <p id="affhi">Afficher: <span>9</span>/<span>12</span>/<span>16</span>/<span>24</span></p>
+
+              <svg id="listIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                  <path fill-rule="evenodd" d="M6 4.75A.75.75 0 0 1 6.75 4h10.5a.75.75 0 0 1 0 1.5H6.75A.75.75 0 0 1 6 4.75ZM6 10a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H6.75A.75.75 0 0 1 6 10Zm0 5.25a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H6.75a.75.75 0 0 1-.75-.75ZM1.99 4.75a1 1 0 0 1 1-1H3a1 1 0 0 1 1 1v.01a1 1 0 0 1-1 1h-.01a1 1 0 0 1-1-1v-.01ZM1.99 15.25a1 1 0 0 1 1-1H3a1 1 0 0 1 1 1v.01a1 1 0 0 1-1 1h-.01a1 1 0 0 1-1-1v-.01ZM1.99 10a1 1 0 0 1 1-1H3a1 1 0 0 1 1 1v.01a1 1 0 0 1-1 1h-.01a1 1 0 0 1-1-1V10Z" clip-rule="evenodd" />
+                </svg>
+
+              <svg id="gridIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                  <path fill-rule="evenodd" d="M4.25 2A2.25 2.25 0 0 0 2 4.25v2.5A2.25 2.25 0 0 0 4.25 9h2.5A2.25 2.25 0 0 0 9 6.75v-2.5A2.25 2.25 0 0 0 6.75 2h-2.5Zm0 9A2.25 2.25 0 0 0 2 13.25v2.5A2.25 2.25 0 0 0 4.25 18h2.5A2.25 2.25 0 0 0 9 15.75v-2.5A2.25 2.25 0 0 0 6.75 11h-2.5Zm9-9A2.25 2.25 0 0 0 11 4.25v2.5A2.25 2.25 0 0 0 13.25 9h2.5A2.25 2.25 0 0 0 18 6.75v-2.5A2.25 2.25 0 0 0 15.75 2h-2.5Zm0 9A2.25 2.25 0 0 0 11 13.25v2.5A2.25 2.25 0 0 0 13.25 18h2.5A2.25 2.25 0 0 0 18 15.75v-2.5A2.25 2.25 0 0 0 15.75 11h-2.5Z" clip-rule="evenodd" />
+                </svg>
+              <select id="sort-select">
+                  <option value="">Tri .....................</option>
+                  <option value="price-desc">Tri par tarif décroissant</option>
+                  <option value="price-asc">Tri par tarif croissant</option>
+          </select>                         
+          </div>
+          <div class="catalogItems">
+
+
+          </div>
+          <div class="pagination text-center mt-5">
+              <!-- Page number buttons will be dynamically inserted here -->
+          </div>
+
+      </section>
     </main>
 
     <!-- Footer -->
