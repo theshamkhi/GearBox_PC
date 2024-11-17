@@ -32,28 +32,30 @@
             <!-- Close Button -->
             <button onclick="toggleMenu()" class="text-base font-normal" title="Close">&#10005;</button>
         </div>
-        <ul class="space-y-4">
-            <li><a href="templates/Catalogue.html" class="block text-gray-800 hover:text-black">Catalogue</a></li>
+        <ul class="space-y-4 mt-8">
+            <li><a href="index.html" class="block text-gray-800 font-semibold hover:text-blue-800">Accueil</a></li>
+            <hr>
+            <li><a href="templates/Catalogue.html" class="block text-gray-800 font-semibold hover:text-blue-800">Catalogue</a></li>
             <hr>
             <li class="group relative">
-                <a href="#" class="block text-gray-800 hover:text-black">Carte mère</a>
-            </li>
-            <hr>            
-            <li class="group relative">
-                <a href="#" class="block text-gray-800 hover:text-black">Processeur</a>
+                <a href="templates/Catalogue.html?category=motherboard" class="block text-gray-800 hover:text-blue-800">Carte mère</a>
             </li>
             <hr>
             <li class="group relative">
-                <a href="#" class="block text-gray-800 hover:text-black">Carte graphique</a>
+                <a href="templates/Catalogue.html?category=cpu" class="block text-gray-800 hover:text-blue-800">Processeur</a>
             </li>
             <hr>
-            <li><a href="#" class="block text-gray-800 hover:text-black">RAM</a></li>
+            <li class="group relative">
+                <a href="templates/Catalogue.html?category=gpu" class="block text-gray-800 hover:text-blue-800">Carte graphique</a>
+            </li>
             <hr>
-            <li><a href="#" class="block text-gray-800 hover:text-black">Refroidissement</a></li>
+            <li><a href="templates/Catalogue.html?category=ram" class="block text-gray-800 hover:text-blue-800">RAM</a></li>
             <hr>
-            <li><a href="#" class="block text-gray-800 hover:text-black">Boîtier</a></li>
+            <li><a href="templates/Catalogue.html?category=cooler" class="block text-gray-800 hover:text-blue-800">Refroidissement</a></li>
             <hr>
-            <li><a href="templates/APropos.html" class="block text-gray-800 hover:text-black">A propos</a></li>
+            <li><a href="templates/Catalogue.html?category=case" class="block text-gray-800 hover:text-blue-800">Boîtier</a></li>
+            <hr>
+            <li><a href="templates/APropos.html" class="block text-gray-800 font-semibold hover:text-blue-800">A propos</a></li>
         </ul>
     </div>
     
@@ -92,44 +94,44 @@
             </div>        
         </header>
         <h2 class="titre">Catégories</h2>
-        <section id="composants">
-            <div class="produit1">
-                <a href="#">
-                    <img class="Carte-mere" src="assets/media/Carte-mere.png" alt="Carte-mère">
-                    <p class="comp1">Carte mère</p>
-                </a>
-            </div>
-            <div class="produit2">
-                <a href="#">
-                    <img class="Processeur" src="assets/media/Processeur.png" alt="Processeur">
-                </a>
-                <p class="comp2">Processeur</p>
-            </div>
-            <div class="produit3">
-                <a href="#">
-                    <img class="Carte-graphique" src="assets/media/Carte-graphique.png" alt="Carte-graphique">
-                </a>
-                <p class="comp3">Carte Graphique</p>
-            </div>
-            <div class="produit4">
-                <a href="#">
-                    <img class="RAM" src="assets/media/RAM.png" alt="RAM">
-                </a>
-                <p class="comp4">RAM</p>
-            </div>
-            <div class="produit5">
-                <a href="#">
-                    <img class="Refroidissement" src="assets/media/Refroidissement.png" alt="Refroidissement">
-                </a>
-                <p class="comp5">Refroidissement</p>
-            </div>
-            <div class="produit6">
-                <a href="#">
-                    <img class="Boîtier" src="assets/media/Boîtier.png" alt="Boîtier">
-                </a>
-                <p class="comp6">Boîtier</p>
-            </div>
-        </section>
+<section id="composants">
+    <div class="produit1">
+        <a href="templates/Catalogue.html?category=motherboard">
+            <img class="Carte-mere" src="assets/media/Carte-mere.png" alt="Carte-mère">
+            <p class="comp1">Carte mère</p>
+        </a>
+    </div>
+    <div class="produit2">
+        <a href="templates/Catalogue.html?category=cpu">
+            <img class="Processeur" src="assets/media/Processeur.png" alt="Processeur">
+            <p class="comp2">Processeur</p>
+        </a>
+    </div>
+    <div class="produit3">
+        <a href="templates/Catalogue.html?category=gpu">
+            <img class="Carte-graphique" src="assets/media/Carte-graphique.png" alt="Carte-graphique">
+            <p class="comp3">Carte Graphique</p>
+        </a>
+    </div>
+    <div class="produit4">
+        <a href="templates/Catalogue.html?category=ram">
+            <img class="RAM" src="assets/media/RAM.png" alt="RAM">
+            <p class="comp4">RAM</p>
+        </a>
+    </div>
+    <div class="produit5">
+        <a href="templates/Catalogue.html?category=cooler">
+            <img class="Refroidissement" src="assets/media/Refroidissement.png" alt="Refroidissement">
+            <p class="comp5">Refroidissement</p>
+        </a>
+    </div>
+    <div class="produit6">
+        <a href="templates/Catalogue.html?category=case">
+            <img class="Boîtier" src="assets/media/Boîtier.png" alt="Boîtier">
+            <p class="comp6">Boîtier</p>
+        </a>
+    </div>
+</section>
         <h2 class="titre">Composants</h2>
       
     </main>
