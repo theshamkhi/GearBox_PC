@@ -7842,121 +7842,18 @@ closeFi.addEventListener('click', function(){
 
 /* Page À Propos */
 
-let currentPage = 1;
-const itemsPerPage = 4;
-let productsData = [];
-
-// Fetch the product data from JSON file
-fetch('../data/data.json')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("Error loading data.json file");
-        }
-        return response.json();
-    })
-    .then(data => {
-        productsData = data; // Store the product data
-        displayProducts(currentPage); // Display initial page
-    })
-    .catch(error => console.error('Error:', error));
-
-// Function to display products based on the current page
-function displayProducts(page) {
-    const startIndex = (page - 1) * itemsPerPage;
-    const endIndex = page * itemsPerPage;
-    const currentProducts = productsData.slice(startIndex, endIndex);
-    const productList = document.getElementById('product-list');
-
-    // Clear previous products
-    productList.innerHTML = '';
-
-    // Loop through the current page products and create cards
-    currentProducts.forEach(product => {
-        const productCard = document.createElement('div');
-        productCard.classList.add('max-w-sm', 'bg-white', 'border', 'border-gray-200', 'rounded-lg', 'shadow-md');
-        productCard.innerHTML = `
-            <a href="#">
-                <img class="rounded-t-lg" src="${product.image_urls[0]}" alt="${product.name}">
-            </a>
-            <div class="p-5">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">${product.name}</h5>
-                <p class="text-gray-700">${product.short_description}</p>
-                <p class="text-lg font-semibold text-gray-900">${product.price} dh</p>
-                <a href="#" id="bouton4" class="inline-flex items-center px-10 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-7 mt-5" onclick="addToCart('${product.id}', '${product.name}', '${product.image_urls[0]}', '${product.price}', '${product.short_description}')">
-                    Ajouter au panier
-                </a>
-            </div>
-        `;
-        productList.appendChild(productCard);
-    });
-}
-
-// Add product to cart and save to localStorage
-function addToCart(id, name, image, price, shortDescription) {
-    const productPrice = parseFloat(price);
-
-    // Get existing cart from localStorage, or create a new array if none exists
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    // Start the ID from 1000 for the first product and increment after
-    let nextProductId = cart.length ? cart[cart.length - 1].id + 1 : 1000;
-
-    // Check if product already exists in cart based on product name
-    const existingProductIndex = cart.findIndex(item => item.name === name);
-
-    if (existingProductIndex > -1) {
-        // Update quantity and add price to totalPrice if product already exists in cart
-        cart[existingProductIndex].quantity += 1;
-        cart[existingProductIndex].totalPrice = (parseFloat(cart[existingProductIndex].totalPrice) + productPrice).toFixed(2);
-    } else {
-        // Add new product to cart with a unique numeric ID starting at 1000
-        const newProduct = {
-            id: nextProductId, // Numeric ID starting from 1000
-            name: name,
-            image: image,
-            price: productPrice,
-            shortDescription: shortDescription,
-            quantity: 1,
-            totalPrice: productPrice.toFixed(2)
-        };
-        cart.push(newProduct);
-    }
-
-    // Save updated cart to localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-    // Inform the user
-    alert(`${name} a été ajouté au panier!`);
-}
-
-// Event listeners for pagination buttons
-document.getElementById('page1').addEventListener('click', () => {
-    currentPage = 1;
-    displayProducts(currentPage);
-});
-
-document.getElementById('page2').addEventListener('click', () => {
-    currentPage = 2;
-    displayProducts(currentPage);
-});
-
-document.getElementById('page3').addEventListener('click', () => {
-    currentPage = 3;
-    displayProducts(currentPage);
-});
-
-//Lignes : oumayma 
-function getURLParameter(name) {
+  // Fonction pour récupérer un paramètre URL
+  function getURLParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
 
-let maxQuantity = 1; // Default value before loading data
-let itemPrice = 0; // Original item price
-let cartTotal = 0; // Total price in the cart
-let calul_prix_promotion = 0; // Promotional price for the item
+let maxQuantity = 1; // Valeur par défaut avant le chargement des données
+let itemPrice = 0; // Prix de l'article
+let cartTotal = 0; // Prix total dans le panier
+let calul_prix_promotion = 0; // Prix promotionnel de l'article
 
-// Function to load cart data from localStorage on page load
+// Fonction pour charger les données du panier depuis le localStorage au chargement de la page
 function loadCartData() {
     const savedCartTotal = localStorage.getItem("cartTotal");
     if (savedCartTotal) {
@@ -7965,55 +7862,55 @@ function loadCartData() {
     }
 }
 
-// Main function to load data and set up the interface
+// Fonction principale pour charger les données et configurer l'interface
 function fetchDataAndDisplay() {
     const urlId = getURLParameter('id');
     console.log(urlId);
 
     if (!urlId) {
-        console.log("No ID in URL, checking again in a second.");
+        console.log("Pas d'ID dans l'URL, vérification dans une seconde.");
         return;
     }
 
     fetch('../data/data.json')
         .then(response => {
             if (!response.ok) {
-                throw new Error("Error loading data.json file");
+                throw new Error("Erreur lors du chargement du fichier data.json");
             }
             return response.json();
         })
         .then(data => {
             data.forEach((item) => {
                 if (item.id == urlId) {
-                    // Update product images and information
+                    // Mise à jour des images et des informations produit
                     img_prod_first.src = item.image_urls[2];
                     Full_image.src = item.image_urls[0];
                     quantite.innerHTML = `${item.qt}`;
                     Prix.innerHTML = ` MAD ${item.price} `;
 
-                    // Set itemPrice to the loaded item price
+                    // Définir le prix de l'article
                     itemPrice = item.price;
 
-                    // Calculate promotional price
+                    // Calculer le prix promotionnel
                     calul_prix_promotion = ((item.price) - item.price * 0.39).toFixed(2);
                     prix_promotion.innerHTML = ` MAD ${calul_prix_promotion}`;
                     name_product.innerHTML = item.name;
                     description_product.innerHTML = item.short_description;
 
-                    // Save product details to localStorage
+                    // Sauvegarder les détails du produit dans le localStorage
                     localStorage.setItem("productName", item.name);
                     localStorage.setItem("productDescription", item.short_description);
                     localStorage.setItem("productImage", item.image_urls[0]);
 
-                    // Save short_description and images array to localStorage
+                    // Sauvegarder la description courte et le tableau d'images dans le localStorage
                     localStorage.setItem("short_description", item.short_description);
-                    localStorage.setItem("images", JSON.stringify(item.image_urls));  // Store image URLs as a JSON array
+                    localStorage.setItem("images", JSON.stringify(item.image_urls));
 
-                    // Set maxQuantity based on item quantity
+                    // Définir la quantité maximale basée sur la quantité de l'article
                     maxQuantity = item.qt;
                     document.getElementById("availableQuantity").textContent = maxQuantity;
 
-                    // Update other images and descriptions
+                    // Mise à jour des autres images et descriptions
                     prod_zome_1.src = item.image_urls[0];
                     prod_zome_2.src = item.image_urls[2];
                     prod_zome_3.src = item.image_urls[0];
@@ -8022,7 +7919,7 @@ function fetchDataAndDisplay() {
                     img_prod_third.src = item.image_urls[2];
                     img_prod_for.src = item.image_urls[0];
 
-                    // Display specific descriptions in the modal
+                    // Afficher des descriptions spécifiques dans le modal
                     addDescriptionElement("part_type", "Type de pièce");
                     addDescriptionElement("Socket", "Socket");
                     addDescriptionElement("GPU Model", "Modèle GPU");
@@ -8033,20 +7930,20 @@ function fetchDataAndDisplay() {
                     addDescriptionElement("Voltage", "Voltage");
                     addDescriptionElement("Latency", "Latence");
 
-                    // Log current quantity in the console
+                    // Journaliser la quantité actuelle dans la console
                     logCurrentQuantity();
                 }
             });
         })
-        .catch(error => console.log("Error:", error));
+        .catch(error => console.log("Erreur:", error));
 
-    // Quantity control with + and - buttons
+    // Contrôle de la quantité avec les boutons + et -
     document.getElementById("decreaseQuantityBtn").onclick = decreaseQuantity;
     document.getElementById("increaseQuantityBtn").onclick = increaseQuantity;
     document.getElementById("addToCartBtn").onclick = addToCart;
 }
 
-// Function to display a temporary promotion message
+// Fonction pour afficher un message de promotion temporaire
 function showPromotionMessage() {
     const modal = document.createElement("div");
     modal.id = "promotionModal";
@@ -8063,46 +7960,50 @@ function showPromotionMessage() {
     modal.appendChild(modalContent);
     document.body.appendChild(modal);
 
-    // Remove the modal after 3 seconds
+    // Supprimer le modal après 3 secondes
     setTimeout(() => {
         document.body.removeChild(modal);
     }, 3000);
 }
 
-// Function to add the item to the cart and calculate the total
+// Fonction pour ajouter l'article au panier et calculer le total
 function addToCart() {
     const quantityInput = document.getElementById("quantityInput");
     const quantity = parseInt(quantityInput.value);
 
-    // Calculate base total item price
+    // Calculer le prix total de l'article de base
     let totalItemPrice = quantity * parseFloat(calul_prix_promotion);
 
-    // Apply additional 1% discount if quantity is 3 or more
+    // Appliquer une remise supplémentaire de 1% si la quantité est de 3 ou plus
     if (quantity == 3) {
-        totalItemPrice *= 0.99; // Apply 1% discount
-        totalItemPrice = parseFloat(totalItemPrice.toFixed(2)); // Round to 2 decimal places
+        totalItemPrice *= 0.99; // Appliquer une remise de 1%
+        totalItemPrice = parseFloat(totalItemPrice.toFixed(2)); // Arrondir à 2 décimales
 
-        // Show promotion message
+        // Afficher le message de promotion
         showPromotionMessage();
     }
 
-    // Update cart total
+    // Mettre à jour le total du panier
     cartTotal += totalItemPrice;
     localStorage.setItem("cartTotal", cartTotal);
 
-    // Retrieve the current cart items or initialize an empty array
+    // Récupérer les éléments du panier existant ou initialiser un tableau vide
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-    // Check if the product already exists in the cart
+    // L'ID commence à 1000 et s'incrémente pour chaque nouvel article
+    let nextProductId = cartItems.length ? cartItems[cartItems.length - 1].id + 1 : 1000;
+
+    // Vérifier si le produit existe déjà dans le panier
     const existingItemIndex = cartItems.findIndex(item => item.productName === name_product.innerHTML);
 
     if (existingItemIndex >= 0) {
-        // Update quantity and total price if the product exists in the cart
+        // Mettre à jour la quantité et le prix total si le produit existe déjà dans le panier
         cartItems[existingItemIndex].quantity += quantity;
         cartItems[existingItemIndex].totalPrice = (cartItems[existingItemIndex].quantity * parseFloat(calul_prix_promotion)).toFixed(2);
     } else {
-        // Add new product to the cart
+        // Ajouter un nouveau produit au panier avec un ID unique
         const itemDetails = {
+            id: nextProductId, // ID commence à 1000 et s'incrémente
             productName: name_product.innerHTML,
             promotionalPrice: calul_prix_promotion,
             quantity: quantity,
@@ -8111,23 +8012,23 @@ function addToCart() {
         cartItems.push(itemDetails);
     }
 
-    // Save the updated cart array to localStorage
+    // Sauvegarder le tableau mis à jour dans localStorage
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-    // Display updated cart total
+    // Afficher le total mis à jour du panier
     document.getElementById("cartTotal").textContent = `${cartTotal.toFixed(2)} MAD`;
 
-    // Log to verify calculation
-    console.log("Added Quantity:", quantity, "Unit Price (Promotion):", calul_prix_promotion, "Total Item Price:", totalItemPrice, "Cart Total:", cartTotal);
+    // Log pour vérifier le calcul
+    console.log("Quantité ajoutée:", quantity, "Prix unitaire (promotion):", calul_prix_promotion, "Prix total de l'article:", totalItemPrice, "Total du panier:", cartTotal);
 }
 
-// Toggle modal visibility
+// Fonction pour basculer la visibilité du modal
 function toggleModal() {
     const modal = document.getElementById("descriptionModal");
     modal.classList.toggle("hidden");
 }
 
-// Function to add description elements to the modal
+// Fonction pour ajouter des éléments de description au modal
 function addDescriptionElement(key, value) {
     const contentDiv = document.getElementById("descriptionContent");
     const descriptionElement = document.createElement("p");
@@ -8136,13 +8037,13 @@ function addDescriptionElement(key, value) {
     contentDiv.appendChild(descriptionElement);
 }
 
-// Log the current quantity
+// Journaliser la quantité actuelle
 function logCurrentQuantity() {
     const quantityInput = document.getElementById("quantityInput");
-    console.log("Current Quantity:", quantityInput.value);
+    console.log("Quantité actuelle:", quantityInput.value);
 }
 
-// Quantity control functions with + and - buttons
+// Fonctions de contrôle de la quantité avec les boutons + et -
 function decreaseQuantity() {
     const quantityInput = document.getElementById("quantityInput");
     let currentQuantity = parseInt(quantityInput.value);
@@ -8150,7 +8051,7 @@ function decreaseQuantity() {
     if (currentQuantity > 1) {
         currentQuantity--;
         quantityInput.value = currentQuantity;
-        logCurrentQuantity(); // Log new quantity in the console
+        logCurrentQuantity(); // Journaliser la nouvelle quantité dans la console
     }
 }
 
@@ -8161,14 +8062,14 @@ function increaseQuantity() {
     if (currentQuantity < maxQuantity) {
         currentQuantity++;
         quantityInput.value = currentQuantity;
-        logCurrentQuantity(); // Log new quantity in the console
+        logCurrentQuantity(); // Journaliser la nouvelle quantité dans la console
     }
 }
 
-// Load cart data on page load
+// Charger les données du panier au chargement de la page
 loadCartData();
 
-// Start loading data once the ID is retrieved
+// Commencer à charger les données une fois l'ID récupéré
 const checkInterval = setInterval(() => {
     const urlId = getURLParameter('id');
 
@@ -8176,11 +8077,11 @@ const checkInterval = setInterval(() => {
         clearInterval(checkInterval);
         fetchDataAndDisplay();
     } else {
-        console.log("Checking for ID every second...");
+        console.log("Vérification de l'ID toutes les secondes...");
     }
 }, 1000);
 
-// Sélectionnez toutes les images avec la classe "zoomable"
+// Sélectionner toutes les images avec la classe "zoomable"
 const zoomableImages = document.querySelectorAll('.zoomable');
 
 // Zone modale et image zoomée
@@ -8190,17 +8091,16 @@ const zoomedImage = document.getElementById('zoomedImage');
 // Fonction pour afficher l'image en zoom
 zoomableImages.forEach(image => {
     image.addEventListener('click', () => {
-        zoomedImage.src = image.src; // Définit la source de l'image zoomée sur celle cliquée
-        zoomModal.classList.remove('hidden'); // Affiche le modal
+        zoomedImage.src = image.src; // Définir la source de l'image zoomée sur celle cliquée
+        zoomModal.classList.remove('hidden'); // Afficher le modal
     });
 });
 
 // Fonction pour fermer le zoom
 function closeZoom() {
-    document.getElementById('zoomModal').classList.add('hidden'); // Cache le modal
+    document.getElementById('zoomModal').classList.add('hidden'); // Cacher le modal
 }
 
-// Appel de la fonction pour charger les images depuis l'API
+// Appeler la fonction pour charger les images depuis l'API
 loadImagesFromAPI();
 
-localStorage.clear()
