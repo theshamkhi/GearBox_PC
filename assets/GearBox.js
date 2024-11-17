@@ -1,6 +1,6 @@
 /* Page Accueil */
 
-if (!window.location.pathname.endsWith("Catalogue.html")) {
+if (window.location.pathname.endsWith("index.html")) {
     console.log("You are on catalogue.html");
 
 const slides = document.getElementById('carousel-images');
@@ -3193,7 +3193,7 @@ closeFi.addEventListener('click', function(){
 
 
 
-
+if (window.location.pathname.endsWith("Panier.html")) {
 
 /* Page Panier */
 // Wait for the DOM to fully load before running the functions
@@ -3360,6 +3360,7 @@ function DeleteProduct() {
     });
 }
 
+}
 
 
 
@@ -4192,9 +4193,7 @@ function DeleteProduct() {
 
 
 
-
-
-
+if (window.location.pathname.endsWith("Devis.html")) {
 /* Page Devis */
 // Fonction pour charger les données du panier depuis localStorage et les afficher dans le tableau
  function loadCartItems() {
@@ -4247,6 +4246,7 @@ document.addEventListener("DOMContentLoaded", loadCartItems);
 
 
 
+}
 
 
 
@@ -5193,8 +5193,7 @@ document.addEventListener("DOMContentLoaded", loadCartItems);
 
 
 
-
-
+if (window.location.pathname.endsWith("APropos.html")) {
 /* Page À Propos */
 document.addEventListener('DOMContentLoaded', () => {
     const carouselWrapper = document.getElementById('carousel-wrapper');
@@ -5225,4 +5224,4 @@ document.addEventListener('DOMContentLoaded', () => {
             updateCarousel();
         }
     });
-});
+});}
