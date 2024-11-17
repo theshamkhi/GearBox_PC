@@ -1,6 +1,6 @@
 /* Page Accueil */
 
-if (window.location.pathname.endsWith("index.html")) {
+if (!window.location.pathname.endsWith("Catalogue.html")) {
     console.log("You are on catalogue.html");
 
 const slides = document.getElementById('carousel-images');
