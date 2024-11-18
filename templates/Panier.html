@@ -20,15 +20,9 @@
 <body class="bg-gray-100">
 
     <!-- Navbar -->
-    <nav class="bg-white lg:px-32 shadow p-4 flex justify-between items-center fixed top-0 left-0 w-full z-50">
-        <div class="space-x-4">
-            <!-- Menu Button to toggle Sidebar -->
-            <button class="text-2xl" onclick="toggleMenu()">&#9776;</button>
-            <span class="text-xl font-bold">GearBox Pc</span>
-        </div>
-        <div class="hidden lg:block lg:w-1/3 mx-4">
-            <input type="text" placeholder="Rechercher des produits" class="w-full p-2 border bg-gray-100 rounded-full px-6">
-        </div>
+    <nav class="bg-white lg:px-32 shadow p-4 flex justify-between items-center sticky top-0 left-0 w-full z-50">
+        <button class="text-2xl" onclick="toggleMenu()">&#9776;</button>
+        <img src="../assets/media/Logo.png" alt="Logo" class="w-56 sm:w-48 md:w-64 lg:w-72 h-auto">
         <div class="relative flex items-center space-x-6">
             <!-- Cart Icon == Trigger -->
             <button id="cart-button" class="text-2xl text-white" title="Panier" onclick="toggleCart()">&#128722;</button>
@@ -41,7 +35,7 @@
             <div id="CartBar" style="top:74px;" class="fixed right-0 w-96 h-screen overflow-y-auto bg-white shadow-lg p-4 z-50 transform translate-x-full transition-transform duration-300">
                 <a href="Panier.html" class="text-lg font-semibold mb-4 border-b pb-2 hover:text-blue-800 cursor-pointer">Votre Panier</a>                                    
                 <!-- Product List -->
-                <div class="CartSidebarDiv space-y-4"></div>
+                <div class="CartSidebarDiv space-y-4 mt-4"></div>
             </div>
         </div>
     </nav>
@@ -54,7 +48,9 @@
             <button onclick="toggleMenu()" class="text-base font-normal" title="Close">&#10005;</button>
         </div>
         <ul class="space-y-4 mt-8">
-            <li><a href="Catalogue.html" class="block text-gray-800 hover:text-blue-800">Catalogue</a></li>
+            <li><a href="../index.html" class="block text-gray-800 font-semibold hover:text-blue-800">Accueil</a></li>
+            <hr>
+            <li><a href="Catalogue.html" class="block text-gray-800 font-semibold hover:text-blue-800">Catalogue</a></li>
             <hr>
             <li class="group relative">
                 <a href="#" class="block text-gray-800 hover:text-blue-800">Carte mère</a>
@@ -74,47 +70,46 @@
             <hr>
             <li><a href="#" class="block text-gray-800 hover:text-blue-800">Boîtier</a></li>
             <hr>
-            <li><a href="APropos.html" class="block text-gray-800 hover:text-blue-800">A propos</a></li>
+            <li><a href="APropos.html" class="block text-gray-800 font-semibold hover:text-blue-800">A propos</a></li>
         </ul>
     </div>
     <!-- EndOfNavbar -->
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto mt-24 p-4 md:p-8">
+    <main class="max-w-7xl mx-auto p-4 md:p-8">
         <h1 class="text-3xl font-semibold text-center mb-10">Revue de Panier</h1>
 
         <div class="flex flex-col lg:flex-row lg:space-x-8">
             <!-- Order Section -->
             <section class="mb-10 lg:w-2/3">
-                <h2 class="text-lg font-semibold mb-4">Votre commande</h2>
-
-                <!-- Products Here -->
-                <div class="ProductsDiv">
-                
+                <h2 class="text-lg font-semibold mb-6">Votre commande</h2>
+            
+                <!-- Section pour afficher les produits -->
+                <div id="cartItemsContainer">
+                    <!-- Les produits seront ajoutés ici dynamiquement -->
                 </div>
-                
             </section>
-
+            
             <!-- Summary Section -->
-            <div class="lg:w-1/3 mb-8">
+            <div class="lg:w-1/3">
                 <h2 class="text-lg font-semibold mb-4 text-center lg:text-left">Résumé</h2>
                 <aside class="bg-white rounded-lg shadow-lg p-6 h-64 overflow-y-auto">
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-gray-700">Sous-total</span>
-                        <span class="text-gray-700" id="SubTotal">0 MAD</span>
+                        <span id="subtotal" class="text-gray-700">0.00 MAD</span>
                     </div>
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-gray-700">Frais de livraison</span>
-                        <span class="text-gray-700">20.00 MAD</span>
+                        <span id="shippingCost" class="text-gray-700">21.30 MAD</span>
                     </div>
                     <div class="flex justify-between items-center font-semibold text-lg mb-8">
                         <span>Total estimé</span>
-                        <span id="Total">0 MAD</span>
+                        <span id="totalEstimated">0.00 MAD</span>
                     </div>
                     <button onclick="window.location.href='Devis.html'" class="w-full bg-black text-white py-3 rounded-md hover:bg-gray-800 transition duration-200">Payer</button>                      
                 </aside>
             </div>
-
+            
         </div>
     </main>
 
@@ -123,26 +118,28 @@
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 text-center lg:text-left text-white">
             <!-- About Section -->
             <div class="w-full">
-                <h3 class="font-semibold text-lg text-black">GearBox Pc</h3>
+                <img src="../assets/media/Logo.png" alt="Logo" class="w-56 h-auto mx-auto sm:mx-0">
                 <p class="text-gray-700 mt-2 text-sm px-8 lg:px-0">
                     GearBox PC est une boutique en ligne spécialisée dans les composants PC de qualité, offrant tout le nécessaire pour assembler, upgrader et optimiser votre ordinateur, avec des produits fiables et performants à prix compétitifs.
                 </p>
                 <div class="flex justify-center lg:justify-start space-x-4 mt-4 text-xl">
                     <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
-                            <path fill="#0078d4" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5	V37z"></path><path d="M30,37V26.901c0-1.689-0.819-2.698-2.192-2.698c-0.815,0-1.414,0.459-1.779,1.364	c-0.017,0.064-0.041,0.325-0.031,1.114L26,37h-7V18h7v1.061C27.022,18.356,28.275,18,29.738,18c4.547,0,7.261,3.093,7.261,8.274	L37,37H30z M11,37V18h3.457C12.454,18,11,16.528,11,14.499C11,12.472,12.478,11,14.514,11c2.012,0,3.445,1.431,3.486,3.479	C18,16.523,16.521,18,14.485,18H18v19H11z" opacity=".05"></path><path d="M30.5,36.5v-9.599c0-1.973-1.031-3.198-2.692-3.198c-1.295,0-1.935,0.912-2.243,1.677	c-0.082,0.199-0.071,0.989-0.067,1.326L25.5,36.5h-6v-18h6v1.638c0.795-0.823,2.075-1.638,4.238-1.638	c4.233,0,6.761,2.906,6.761,7.774L36.5,36.5H30.5z M11.5,36.5v-18h6v18H11.5z M14.457,17.5c-1.713,0-2.957-1.262-2.957-3.001	c0-1.738,1.268-2.999,3.014-2.999c1.724,0,2.951,1.229,2.986,2.989c0,1.749-1.268,3.011-3.015,3.011H14.457z" opacity=".07"></path><path fill="#fff" d="M12,19h5v17h-5V19z M14.485,17h-0.028C12.965,17,12,15.888,12,14.499C12,13.08,12.995,12,14.514,12	c1.521,0,2.458,1.08,2.486,2.499C17,15.887,16.035,17,14.485,17z M36,36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698	c-1.501,0-2.313,1.012-2.707,1.99C24.957,25.543,25,26.511,25,27v9h-5V19h5v2.616C25.721,20.5,26.85,19,29.738,19	c3.578,0,6.261,2.25,6.261,7.274L36,36L36,36z"></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50">
+                            <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
                         </svg>
                     </a>
                     <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
-                            <path fill="#FF3D00" d="M43.2,33.9c-0.4,2.1-2.1,3.7-4.2,4c-3.3,0.5-8.8,1.1-15,1.1c-6.1,0-11.6-0.6-15-1.1c-2.1-0.3-3.8-1.9-4.2-4C4.4,31.6,4,28.2,4,24c0-4.2,0.4-7.6,0.8-9.9c0.4-2.1,2.1-3.7,4.2-4C12.3,9.6,17.8,9,24,9c6.2,0,11.6,0.6,15,1.1c2.1,0.3,3.8,1.9,4.2,4c0.4,2.3,0.9,5.7,0.9,9.9C44,28.2,43.6,31.6,43.2,33.9z"></path><path fill="#FFF" d="M20 31L20 17 32 24z"></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50">
+                            <path d="M25,3C12.85,3,3,12.85,3,25c0,11.03,8.125,20.137,18.712,21.728V30.831h-5.443v-5.783h5.443v-3.848 c0-6.371,3.104-9.168,8.399-9.168c2.536,0,3.877,0.188,4.512,0.274v5.048h-3.612c-2.248,0-3.033,2.131-3.033,4.533v3.161h6.588 l-0.894,5.783h-5.694v15.944C38.716,45.318,47,36.137,47,25C47,12.85,37.15,3,25,3z"></path>
                         </svg>
                     </a>
-                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
-                        <radialGradient id="yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1" cx="19.38" cy="42.035" r="44.899" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fd5"></stop><stop offset=".328" stop-color="#ff543f"></stop><stop offset=".348" stop-color="#fc5245"></stop><stop offset=".504" stop-color="#e64771"></stop><stop offset=".643" stop-color="#d53e91"></stop><stop offset=".761" stop-color="#cc39a4"></stop><stop offset=".841" stop-color="#c837ab"></stop></radialGradient><path fill="url(#yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1)" d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z"></path><radialGradient id="yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2" cx="11.786" cy="5.54" r="29.813" gradientTransform="matrix(1 0 0 .6663 0 1.849)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4168c9"></stop><stop offset=".999" stop-color="#4168c9" stop-opacity="0"></stop></radialGradient><path fill="url(#yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2)" d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z"></path><path fill="#fff" d="M24,31c-3.859,0-7-3.14-7-7s3.141-7,7-7s7,3.14,7,7S27.859,31,24,31z M24,19c-2.757,0-5,2.243-5,5	s2.243,5,5,5s5-2.243,5-5S26.757,19,24,19z"></path><circle cx="31.5" cy="16.5" r="1.5" fill="#fff"></circle><path fill="#fff" d="M30,37H18c-3.859,0-7-3.14-7-7V18c0-3.86,3.141-7,7-7h12c3.859,0,7,3.14,7,7v12	C37,33.86,33.859,37,30,37z M18,13c-2.757,0-5,2.243-5,5v12c0,2.757,2.243,5,5,5h12c2.757,0,5-2.243,5-5V18c0-2.757-2.243-5-5-5H18z"></path>
-                    </svg>               
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50">
+                            <path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"></path>
+                        </svg>
+                    </a>              
                 </div>
-            </div>
+            </div>            
 
             <!-- Support Section -->
             <div class="space-y-3 text-sm w-full lg:pl-16">
@@ -165,11 +162,167 @@
         </div>
         <br>
         <hr class="h-px my-8 bg-gray-300 border-0">
-        <div class="text-center text-gray-700 mt-8">&copy; 2024 - Designed by <strong>CHAMKHI</strong></div>
+        <div class="text-center text-gray-700 mt-8">&copy; 2024 - Designed by <strong>CloudBlast</strong></div>
     </footer>
     <!-- EndOfFooter -->
-    
-    <script src="../assets/GearBox.js"></script>
 
+    <script>
+        function toggleCart() {
+            const cartDropdown = document.getElementById('CartBar');
+            cartDropdown.classList.toggle('translate-x-0');
+            cartDropdown.classList.toggle('translate-x-full');
+        }
+
+        function toggleMenu() {
+            const menuSidebar = document.getElementById('MenuSidebar');
+            menuSidebar.classList.toggle('-translate-x-full');
+        }
+        // Fonction pour charger les produits du panier depuis le localStorage et afficher
+        function displayCartItems() {
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+            // Get the containers for cart items
+            const cartItemsContainer = document.getElementById("cartItemsContainer");
+            const CartSidebarDiv = document.querySelector('.CartSidebarDiv');
+
+            // Clear the containers before populating
+            cartItemsContainer.innerHTML = "";
+            CartSidebarDiv.innerHTML = "";
+
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = "<p>Votre panier est vide.</p>";
+                CartSidebarDiv.innerHTML = "<p class='text-gray-500'>Votre panier est vide.</p>";
+                return;
+            }
+
+            // Loop through each cart item and update both containers
+            cartItems.forEach(item => {
+                // Update the main cart container
+                const itemHTML = `
+                    <div class="border-b rounded-lg bg-white shadow-lg p-4 mb-6 grid grid-cols-3 gap-2 items-center">
+                        <div class="col-span-1">
+                            <img src="${item.productImage}" alt="${item.productName}" class="w-full h-full object-cover max-h-56 md:max-h-64">
+                        </div>
+                        <div class="col-span-2 flex flex-col space-y-3 p-4">
+                            <h3 class="text-base font-medium mb-3">${item.productName}</h3>
+                            <p class="text-gray-600 text-sm">${item.shortDescription}</p>
+                            <p class="text-lg font-semibold">${item.priceTotal} MAD</p>
+                            <div class="flex justify-between items-center mt-4">
+                                <div class="flex items-center space-x-2">
+                                    <button aria-label="Decrease quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100" onclick="decreaseQuantity(${item.id}, ${item.availableQuantity}, ${item.quantity})">-</button>
+                                    <input type="text" value="${item.quantity}" class="w-12 text-center border rounded-md" aria-label="Quantity" disabled>
+                                    <button aria-label="Increase quantity" class="px-3 py-1 text-gray-500 border rounded-md hover:bg-gray-100" onclick="increaseQuantity(${item.id}, ${item.availableQuantity}, ${item.quantity})">+</button>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-2">Quantité disponible : ${item.availableQuantity - item.quantity}</p>
+                                <button class="text-red-500 text-xl hover:text-red-600 transition duration-150" title="Retirer" onclick="removeItem(${item.id})">&#128465;</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                cartItemsContainer.innerHTML += itemHTML;
+
+                // Update the sidebar cart container
+                const sidebarItemHTML = `
+                    <div class="flex items-center space-x-4 border-b pb-4">
+                        <img src="${item.productImage || 'https://via.placeholder.com/80'}" alt="${item.productName}" class="w-16 h-16 object-cover rounded">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-gray-800">${item.productName}</h4>
+                            <div class="flex justify-between items-center">
+                                <p class="text-gray-600 text-sm">${item.priceTotal} MAD</p>
+                                <button class="text-md" title="Remove" onclick="removeItem(${item.id})">&#128465;</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                CartSidebarDiv.innerHTML += sidebarItemHTML;
+            });
+
+            // Call the function to update the cart summary
+            updateSummary();
+        }
+    
+        // Fonction pour calculer le sous-total et afficher le résumé dans la div
+        function updateSummary() {
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    
+            let subTotal = 0;
+            cartItems.forEach(item => {
+                subTotal += parseFloat(item.priceTotal); // Somme des prix totaux des produits
+            });
+    
+            const shippingCost = 21.30; // Frais de livraison fixes
+            const totalEstimated = subTotal + shippingCost; // Total estimé = sous-total + frais de livraison
+    
+            // Mettre à jour l'affichage dans le résumé
+            document.getElementById("subtotal").textContent = `${subTotal.toFixed(2)} MAD`;
+            document.getElementById("shippingCost").textContent = `${shippingCost.toFixed(2)} MAD`;
+            document.getElementById("totalEstimated").textContent = `${totalEstimated.toFixed(2)} MAD`;
+        }
+    
+        // Fonction pour diminuer la quantité d'un produit dans le panier
+        function decreaseQuantity(itemId, availableQuantity, currentQuantity) {
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            const itemIndex = cartItems.findIndex(item => item.id === itemId);
+    
+            if (itemIndex >= 0 && cartItems[itemIndex].quantity > 1) {
+                // Diminuer la quantité
+                cartItems[itemIndex].quantity--;
+                cartItems[itemIndex].priceTotal = (cartItems[itemIndex].quantity * parseFloat(cartItems[itemIndex].unitPrice)).toFixed(2);
+                localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                displayCartItems(); // Rafraîchir l'affichage
+            }
+        }
+    
+        // Fonction pour augmenter la quantité d'un produit dans le panier
+        function increaseQuantity(itemId, availableQuantity, currentQuantity) {
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            const itemIndex = cartItems.findIndex(item => item.id === itemId);
+    
+            if (itemIndex >= 0) {
+                // Vérifier si la quantité actuelle est inférieure à la quantité disponible
+                if (currentQuantity < availableQuantity) {
+                    cartItems[itemIndex].quantity++;
+                    cartItems[itemIndex].priceTotal = (cartItems[itemIndex].quantity * parseFloat(cartItems[itemIndex].unitPrice)).toFixed(2);
+                    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                    displayCartItems(); // Rafraîchir l'affichage
+                } else {
+                    alert("Quantité maximale atteinte !");
+                }
+            }
+        }
+    
+        // Fonction pour supprimer un produit du panier
+        function removeItem(itemId) {
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            const updatedCartItems = cartItems.filter(item => item.id !== itemId);
+    
+            localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+            displayCartItems(); // Rafraîchir l'affichage
+        }
+    
+        // Fonction pour récupérer les données du produit depuis data.json
+        function getProductData(productName) {
+            return fetch('../data/data.json')
+                .then(response => response.json())
+                .then(data => {
+                    const product = data.find(item => item.name === productName);
+                    if (product) {
+                        return product.qt; // Retourne la quantité du produit par son nom
+                    } else {
+                        console.error("Produit non trouvé");
+                        return 0; // Retourner 0 si le produit n'est pas trouvé
+                    }
+                })
+                .catch(error => {
+                    console.error("Erreur lors de la récupération des données du produit:", error);
+                    return 0; // Retourner 0 en cas d'erreur
+                });
+        }
+    
+        // Fonction pour charger les produits du panier au chargement de la page
+        displayCartItems();
+    </script>
+    
+    
 </body>
 </html>
