@@ -47,8 +47,11 @@ async function loadCatalogData() {
 document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get('category'); 
+    const partType = document.getElementById('part-type'); 
     
     if (category) {
+        console.log('done');
+        partType.value = 'category';
         filteredData = catalogData.filter(item => item.part_type === category); 
         currentPage = 1; 
         updatePagination();
@@ -132,18 +135,13 @@ document.querySelector('#sort-select').addEventListener('change', function () {
 
 function sortCatalog(sortOption) {
     if (sortOption === 'price-asc') {
-        // Sort by price in ascending order
         filteredData.sort((a, b) => (a.price * 9) - (b.price * 9));
     } else if (sortOption === 'price-desc') {
-        // Sort by price in descending order
         filteredData.sort((a, b) => (b.price * 9) - (a.price * 9));
     }
-
-    // Re-render items with the current view type
-    currentPage = 1;  // Reset to first page after sorting
+    currentPage = 1;  
     renderItems(whichState);
 }
-
 
 function renderPagination() {
     const paginationContainer = document.querySelector('.pagination');
@@ -158,7 +156,7 @@ function renderPagination() {
             renderPage();  
         });
         if (i === currentPage) {
-            pageButton.classList.add('bg-blue-900');  // Highlight the active page
+            pageButton.classList.add('bg-blue-900');  
         }
         paginationContainer.appendChild(pageButton);
     }
@@ -425,7 +423,7 @@ function renderPagination() {
         paginationContainer.appendChild(pageButton);
     }
 }
-
+if(document.getElementById('searchBar')){
 document.getElementById('searchBar').addEventListener('input', function () {
     const searchQuery = this.value.toLowerCase();
     filteredData = catalogData.filter(item => item.name.toLowerCase().includes(searchQuery));
@@ -438,10 +436,9 @@ document.getElementById('searchBar').addEventListener('input', function () {
     renderPage();
     let cat = document.querySelector('.catalogItems');
     if(window.innerWidth<=800){cat.style.gridTemplateColumns = 'repeat(1, 1fr)';}
-});
+});}
 
 function updatePagination() {
-    // Calculate total pages based on filtered data length
     totalPages = Math.ceil(filteredData.length / itemsPerPage);
     renderPagination();
     let cat = document.querySelector('.catalogItems');
@@ -521,9 +518,13 @@ window.addEventListener('load',function(){
     let filterPanel = document.querySelector('.rightSide');
     let fitBtn = document.querySelector('#filterBtn');
     let cat = document.querySelector('.catalogItems');
+    let searchbar = document.querySelector('#searchBar');
+    let searchBtn = document.querySelector('#srchBtn');
     let aff = document.querySelector('#affhi');
     let margin = document.querySelector('#mainflex');
     if(window.innerWidth<=800){
+        searchbar.style.display = 'none';
+        searchBtn.style.display = 'block';
         console.log(window.innerWidth);
         filterPanel.style.display = 'none';
         fitBtn.style.display = 'block';
@@ -533,6 +534,9 @@ window.addEventListener('load',function(){
         margin.style.marginLeft= '-30px';
         margin.style.marginRight= '-30px';
     }else{
+        searchBtn.style.display = 'none';
+        searchbar.style.display = 'block';
+        searchbar.style.width = '60%';
         aff.style.display = 'block';
         closeFi.style.display = 'none';
         fitBtn.style.display = 'none';
@@ -559,11 +563,15 @@ document.querySelector('#filterBtn').addEventListener('click',function(){
 window.addEventListener('resize', function(){
     let filterPanel = document.querySelector('.rightSide');
     let fitBtn = document.querySelector('#filterBtn');
+    let searchbar = document.querySelector('#searchBar');
+    let searchBtn = document.querySelector('#srchBtn');
     let cat = document.querySelector('.catalogItems');
     let aff = document.querySelector('#affhi');
     let margin = document.querySelector('#mainflex');
     if(window.innerWidth<=800){
         console.log(window.innerWidth);
+        searchbar.style.display = 'none';
+        searchBtn.style.display = 'block';
         filterPanel.style.display = 'none';
         fitBtn.style.display = 'block';
         cat.style.gridTemplateColumns = 'repeat(1, 1fr)';
@@ -572,6 +580,9 @@ window.addEventListener('resize', function(){
         margin.style.marginLeft= '-30px';
         margin.style.marginRight= '-30px';
     }else{
+        searchBtn.style.display = 'none';
+        searchbar.style.display = 'block';
+        searchbar.style.width = '60%';
         aff.style.display = 'block';
         closeFi.style.display = 'none';
         fitBtn.style.display = 'none';
@@ -591,7 +602,9 @@ closeFi.addEventListener('click', function(){
 })
 
 
-
+document.querySelector('#srchBtn').addEventListener('click',function(){
+    document.querySelector('#searchBar').style.display = 'block';
+})
 
 
 

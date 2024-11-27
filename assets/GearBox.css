@@ -1118,8 +1118,24 @@ body{
     background-color: #ddd; 
 }
 
+#srchBtn svg{
+    width: 40px;
+    height: 40px;
+}
 
+#searchBar{
+    width: 100%;
+    height: 30px;
+    border: 2px solid gray;
+    border-radius: 30px;
+    padding: 3px;
+    margin-top: 10px;
+}
 
+#spcificTop{
+    display: flex;
+    gap: 10px;
+}
 
 
 
